@@ -46,3 +46,22 @@ Located in [`.agents/rules/`](file:///c:/Users/user/Desktop/Gospelss.org/.agents
 - **Typography**: Hanken Grotesk / Inter (Headings) + EB Garamond (Scripture / Accents).
 - **Benchmarking**: Charity: Water (transparency) + Elevation/Hillsong (contemporary sacred excellence).
 - **Prohibitions**: No generic bootstrap/unstyled primitives; no plain placeholder boxes; rich aesthetics required.
+
+---
+
+## 4. REA Rules
+- Use REA for functional study only
+- Use Firecrawl for structural
+- Use Playwright for visual
+- REA does not extract visual tokens or download assets
+- Never clone functionality 1:1
+
+---
+
+## 5. Reference Study Rules
+- Screenshot references, never scrape for assets
+- Extract token distributions (ranges), not values
+- Generate ORIGINAL tokens with same feel
+- Document every reference in an ADR
+- Every reference-derived design needs a distinctive move
+

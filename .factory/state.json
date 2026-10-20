@@ -1,14 +1,14 @@
 {
   "version": "1.0",
   "created_at": "2026-10-20T00:44:32Z",
-  "updated_at": "2026-10-20T01:43:35Z",
+  "updated_at": "2026-10-20T01:52:00Z",
   "session_count": 1,
   "project": {
     "name": "GOSPELS",
     "category": "A",
     "mode": "single-brand",
     "phase_count": 1,
-    "current_phase": "2.68.5",
+    "current_phase": "2.69",
     "status": "in_progress"
   },
   "phases": {
@@ -175,7 +175,21 @@
       ], 
       "blockers": [] 
     },
-    "2.68.5": { "status": "pending" },
+    "2.68.5": { 
+      "status": "complete", 
+      "started_at": "2026-10-20T01:50:00Z", 
+      "completed_at": "2026-10-20T01:51:50Z", 
+      "notes": "Configured Firecrawl in .env.local, created .agents/skills/reference-study/SKILL.md, and added REA & Reference Study Rules to AGENTS.md.", 
+      "artifacts": [
+        ".agents/skills/reference-study/",
+        "AGENTS.md"
+      ], 
+      "decisions": [
+        "Configured Firecrawl API key",
+        "Adopted REA functional study and Reference Study non-cloning protocols"
+      ], 
+      "blockers": [] 
+    },
     "2.69": { "status": "pending" },
     "2.69.5": { "status": "pending" },
     "2.69.7": { "status": "pending" },
@@ -215,7 +229,8 @@
     "git": "local_main",
     "github": "connected",
     "github_username": "joey-stack",
-    "github_repo": "https://github.com/joey-stack/gospelss-org"
+    "github_repo": "https://github.com/joey-stack/gospelss-org",
+    "firecrawl": "collected"
   },
   "source_files": {
     "brand_assets": "public/assets/brand/",
@@ -230,7 +245,8 @@
     "domain_skills": ["community-growth", "donor-retention", "event-ops"],
     "quality_security_skills": ["web-security-audit", "a11y-ally", "webhook-guard"],
     "photography_generator": ["photography-generator"],
-    "paper_design": ["paper-design"]
+    "paper_design": ["paper-design"],
+    "reference_study": ["reference-study"]
   },
   "user_preferences": {
     "mode": "spoon_feed",
@@ -238,5 +254,5 @@
     "auto_proceed": false
   },
   "blockers": [],
-  "next_action": "Phase 2.68.5 REA + Reference Study Tools"
+  "next_action": "Phase 2.69 Brand Identity"
 }
