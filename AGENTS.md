@@ -87,8 +87,7 @@ Located in [`.agents/rules/`](file:///c:/Users/user/Desktop/Gospelss.org/.agents
 ## 8. UX Evaluation Rules
 - Frictionless completion: Event RSVPs require $\le 2$ interactions on mobile; no forced user registration for free concerts.
 - Eliminating dead-ends: Every confirmation screen must provide affirmative next steps ("Add to Calendar", "Worship Media", "Share").
-- Mobile touch ergonomics: Minimum `48px` interactive touch targets with explicit visual focus indicators.
-
-
-
-
+## 9. Admin AI Sidekick Protocols (`admin-sidekick`)
+- Enforce GDPR Article 9 privacy on all prayer requests: no sensitive request data may be logged in unencrypted client storage, publicly indexed, or syndicated.
+- Urgency routing: Flag acute crises directly to designated pastoral leads while shielding standard requests behind role-based access.
+- Free concert capacity modeling: Project actual attendance using 25–40% drop-off heuristics for non-ticketed community registrations.
