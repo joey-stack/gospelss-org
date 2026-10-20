@@ -68,7 +68,7 @@ export default function GoteborgsLovsangskonsertPage() {
       <main id="main-content" className="flex-1">
         {/* Breadcrumb Bar */}
         <div className="bg-surface-container-low border-b border-outline-variant/30 py-3">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center gap-2 text-body-sm text-outline">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 flex items-center gap-2 text-body-sm text-outline">
             <Link href="/" className="hover:text-primary transition">Hem</Link>
             <span>/</span>
             <Link href="/events" className="hover:text-primary transition">Evenemang</Link>
@@ -90,7 +90,7 @@ export default function GoteborgsLovsangskonsertPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-on-background via-on-background/80 to-transparent"></div>
           </div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-container/20 border border-primary-container/40 text-primary-fixed text-label-sm font-label-sm mb-4">
               <Sparkles className="w-4 h-4" />
               <span>Sommarfestival 2027 • Offentlig samling</span>
@@ -135,7 +135,7 @@ export default function GoteborgsLovsangskonsertPage() {
 
         {/* Content & Save-the-date Grid */}
         <section className="py-16 bg-surface">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
               {/* Left Column (7 cols) */}
               <div className="lg:col-span-7 space-y-10">

@@ -71,7 +71,7 @@ export default function AdminVolunteersPage() {
     <div className="bg-background text-on-surface min-h-screen flex flex-col font-body-md text-body-md">
       {/* Admin Top Navigation */}
       <header className="bg-surface-container-lowest border-b border-outline-variant/40 sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link
               href="/admin"
@@ -90,7 +90,7 @@ export default function AdminVolunteersPage() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 py-10 w-full flex-1 space-y-8">
+      <main className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 py-10 flex-1 space-y-8">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
           <div>
             <h1 className="font-headline-lg text-headline-lg text-on-background">

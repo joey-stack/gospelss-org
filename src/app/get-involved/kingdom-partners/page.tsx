@@ -89,7 +89,7 @@ export default function KingdomPartnersPage() {
       <main id="main-content" className="flex-1">
         {/* Breadcrumb */}
         <div className="bg-surface-container-low border-b border-outline-variant/30 py-3">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center gap-2 text-body-sm text-outline">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 flex items-center gap-2 text-body-sm text-outline">
             <Link href="/" className="hover:text-primary transition">Hem</Link>
             <span>/</span>
             <Link href="/give" className="hover:text-primary transition">Ge</Link>
@@ -100,7 +100,7 @@ export default function KingdomPartnersPage() {
 
         {/* Hero Section */}
         <section className="py-20 bg-surface-container-lowest border-b border-outline-variant/30 text-center">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-container/10 border border-primary-container/30 text-primary text-label-sm font-label-sm mb-4">
               <Sparkles className="w-4 h-4" />
               <span>Gemenskap av Månadsgivare • {partnerCount} Aktiva Partners</span>
@@ -117,7 +117,7 @@ export default function KingdomPartnersPage() {
 
         {/* Tier Cards & Checkout */}
         <section className="py-16 bg-surface">
-          <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24">
             {/* 3 Tier Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               {[

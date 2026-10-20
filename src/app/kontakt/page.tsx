@@ -6,9 +6,11 @@ import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { PrayerModal } from "@/components/modals/PrayerModal";
 import { SwishModal } from "@/components/modals/SwishModal";
+import { useLanguage } from "@/context/LanguageContext";
 import { Mail, MapPin, Send, MessageSquare, HeartHandshake, CheckCircle2 } from "lucide-react";
 
 export default function ContactPage() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -42,7 +44,7 @@ export default function ContactPage() {
           <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
             <span className="badge-pill" style={{ marginBottom: "1rem", display: "inline-flex" }}>
               <Mail size={14} style={{ color: "var(--color-turquoise-500)", marginRight: "0.5rem" }} />
-              Hör Av Dig Till Oss
+              {t("Hör Av Dig Till Oss", "Get in Touch With Us")}
             </span>
             <h1
               style={{
@@ -54,7 +56,7 @@ export default function ContactPage() {
                 marginBottom: "1rem",
               }}
             >
-              Vi vill gärna höra från dig.
+              {t("Vi vill gärna höra från dig.", "We would love to hear from you.")}
             </h1>
             <p
               style={{
@@ -65,8 +67,10 @@ export default function ContactPage() {
                 margin: "0 auto",
               }}
             >
-              Oavsett om du har frågor om våra konserter, vill samarbeta som församling, eller söker
-              pastoral kontakt – vi finns här för dig.
+              {t(
+                "Oavsett om du har frågor om våra konserter, vill samarbeta som församling, eller söker pastoral kontakt – vi finns här för dig.",
+                "Whether you have questions regarding our concerts, wish to partner as a congregation, or seek pastoral care – we are here for you."
+              )}
             </p>
           </div>
 

@@ -2,12 +2,14 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { RSVPModal } from "@/components/modals/RSVPModal";
 import { SwishModal } from "@/components/modals/SwishModal";
 import { PrayerModal } from "@/components/modals/PrayerModal";
 import { VolunteerModal } from "@/components/modals/VolunteerModal";
+import { useLanguage } from "@/context/LanguageContext";
 import {
   Heart,
   ShieldCheck,
@@ -20,6 +22,7 @@ import {
 } from "lucide-react";
 
 export default function DedicatedPrayerPage() {
+  const { t } = useLanguage();
   const [rsvpOpen, setRsvpOpen] = useState(false);
   const [swishOpen, setSwishOpen] = useState(false);
   const [prayerOpen, setPrayerOpen] = useState(false);
@@ -77,36 +80,67 @@ export default function DedicatedPrayerPage() {
         onOpenVolunteer={() => setVolunteerOpen(true)}
       />
 
-      <main id="main-content" className="flex-1">
-        {/* Breadcrumb */}
-        <div className="bg-surface-container-low border-b border-outline-variant/30 py-3">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center gap-2 text-body-sm text-outline">
-            <Link href="/" className="hover:text-primary transition">Hem</Link>
-            <span>/</span>
-            <span className="text-on-surface font-semibold">Konfidentiell Förbön</span>
+      <main id="main-content" className="flex-1 w-full">
+        {/* Cinematic Full-Width Hero Section with 100vh */}
+        <section className="relative bg-on-background text-surface overflow-hidden min-h-screen min-h-[100dvh] flex items-center w-full border-b border-white/10">
+          {/* Atmospheric Background Image with Twilight Gradients */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4Em1w6paLo-x8X6QGOOlARn1KZv62HJzlPPLkzssnuxnv6iCtH_eXttJT4NACC3Q9FYNz9uBsViwuY_k2_5SU7AElKMehCnEEJ9Ka2LaeX3Gi2vyGMOdpMeQY56oZf-cY5uaLRIAnM2gthRbhS4HrZ4njt273JFLeFxZRg5bqXS92L475zJNyaL7ok09KlPpBc0MEV40rWuL0rwHwFInWz3eAsK78svIDDFzeNOVhBTU9P2gDXsfhGw"
+              alt="Sacred prayer atmosphere and intercession in Gothenburg"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center opacity-30 mix-blend-luminosity filter contrast-125"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-on-background via-on-background/90 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-on-background via-transparent to-black/50"></div>
           </div>
-        </div>
 
-        {/* Hero Section */}
-        <section className="py-20 bg-surface-container-lowest border-b border-outline-variant/30 text-center">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/50 text-secondary text-label-sm font-label-sm mb-4">
-              <Lock className="w-4 h-4" />
-              <span>Fullständig Tystnadsplikt • GDPR Artikel 9</span>
+          {/* Ambient Glowing Orbs */}
+          <div className="absolute -right-20 -top-20 w-80 h-80 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+
+          {/* Full-width container with standard padding */}
+          <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 py-12 sm:py-16 lg:py-20">
+            <div className="max-w-4xl space-y-4 sm:space-y-6">
+              {/* Category Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-highest/20 border border-white/15 backdrop-blur-md shadow-xs">
+                <Lock className="w-4 h-4 text-primary-container" />
+                <span className="text-label-sm font-label-sm text-primary-fixed tracking-wider uppercase font-semibold">
+                  {t("Fullständig Tystnadsplikt • GDPR Artikel 9", "Complete Confidentiality • GDPR Article 9")}
+                </span>
+              </div>
+
+              {/* Display Hero Headline & Mission Subtitle */}
+              <div>
+                <h1 className="text-display-hero-mobile sm:text-display-hero font-display-hero text-white tracking-tight leading-tight mb-3">
+                  {t("Behöver du ", "Need ")}<span className="text-primary-container font-extrabold">{t("Bön?", "Prayer?")}</span>
+                </h1>
+                <p className="text-body-md sm:text-body-lg font-body-lg text-slate-200 leading-relaxed max-w-2xl">
+                  {t(
+                    "Du är aldrig ensam. Vårt pastorala bönteam i Göteborg ber dagligen för varje inkommet böneämne i fullständig sekretess och kärlek.",
+                    "You are never alone. Our pastoral prayer team in Gothenburg prays daily for each prayer request in strict confidentiality and grace."
+                  )}
+                </p>
+              </div>
+
+              {/* Security Highlight Pill */}
+              <div className="pt-2 flex items-center gap-2 text-label-sm font-label-sm text-slate-300">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span>
+                  {t(
+                    "Krypterad och lösenordsskyddad hantering av betrodda själavårdare.",
+                    "Encrypted and password-protected management by trusted pastoral caregivers."
+                  )}
+                </span>
+              </div>
             </div>
-
-            <h1 className="font-display-hero text-display-hero text-on-background mt-2">
-              Behöver du Bön?
-            </h1>
-            <p className="font-body-lg text-body-lg text-on-surface-variant mt-4 leading-relaxed max-w-2xl mx-auto">
-              Du är aldrig ensam. Vårt pastorala bönteam i Göteborg ber dagligen för varje inkommet böneämne i fullständig sekretess och kärlek.
-            </p>
           </div>
         </section>
 
         {/* Prayer Form & Guarantee Grid */}
         <section className="py-16 bg-surface">
-          <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
               {/* Form (7 cols) */}
               <div className="lg:col-span-7 bg-surface-container-lowest rounded-2xl border border-outline-variant/50 p-8 shadow-sm">

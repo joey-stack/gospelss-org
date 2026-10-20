@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useLanguage } from "@/context/LanguageContext";
 import {
   Calendar,
   PlayCircle,
@@ -33,7 +34,7 @@ export function Navbar({
 }: NavbarProps = {}) {
   const pathname = usePathname();
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
-  const [lang, setLang] = useState<"SV" | "EN">("SV");
+  const { language, setLanguage, t } = useLanguage();
   const [copiedSwish, setCopiedSwish] = useState(false);
 
   const copySwishNumber = () => {
@@ -55,21 +56,21 @@ export function Navbar({
   };
 
   const navLinks = [
-    { label: "Events", href: "/events" },
-    { label: "Watch & Listen", href: "/watch" },
-    { label: "Partner Churches", href: "/partners" },
-    { label: "Give", href: "/give" },
-    { label: "Volunteer", href: "/volunteer" },
-    { label: "Prayer", href: "/prayer" },
+    { label: t("Evenemang", "Events"), href: "/events" },
+    { label: t("Se & Lyssna", "Watch & Listen"), href: "/watch" },
+    { label: t("Partnerförsamlingar", "Partner Churches"), href: "/partners" },
+    { label: t("Gåvor & Stöd", "Give"), href: "/give" },
+    { label: t("Bli Volontär", "Volunteer"), href: "/volunteer" },
+    { label: t("Förbön", "Prayer"), href: "/prayer" },
   ];
 
   return (
     <>
       {/* Top Navigation Bar */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-white/95 dark:bg-[#0f172a]/95 border-b border-gray-200/80 dark:border-gray-800 transition-colors shadow-sm w-full">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
-          {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-3 group z-10">
+        <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 h-16 md:h-20 flex items-center justify-between">
+          {/* Desktop Brand Logo */}
+          <Link href="/" className="hidden md:flex items-center gap-3 group z-10">
             <Image
               src="/assets/brand/logo-full.svg"
               alt="GOSPELS Ministry"
@@ -120,9 +121,9 @@ export function Navbar({
             >
               <button
                 type="button"
-                onClick={() => setLang("SV")}
+                onClick={() => setLanguage("SV")}
                 className={`px-3 py-1 rounded-full text-label-sm font-label-sm transition duration-150 ${
-                  lang === "SV"
+                  language === "SV"
                     ? "bg-surface-container-lowest text-on-surface shadow-xs font-bold"
                     : "text-on-surface-variant hover:text-on-surface"
                 }`}
@@ -132,9 +133,9 @@ export function Navbar({
               <span className="text-outline text-label-sm mx-0.5">/</span>
               <button
                 type="button"
-                onClick={() => setLang("EN")}
+                onClick={() => setLanguage("EN")}
                 className={`px-3 py-1 rounded-full text-label-sm font-label-sm transition duration-150 ${
-                  lang === "EN"
+                  language === "EN"
                     ? "bg-surface-container-lowest text-on-surface shadow-xs font-bold"
                     : "text-on-surface-variant hover:text-on-surface"
                 }`}
@@ -147,27 +148,75 @@ export function Navbar({
               onClick={handleSupportClick}
               className="inline-flex items-center justify-center bg-primary-container text-on-primary hover:bg-secondary font-label-md text-label-md px-5 py-2.5 rounded-lg shadow-sm custom-halo transition duration-150 active:scale-95"
             >
-              Support Us
+              {t("Stöd Oss", "Support Us")}
             </button>
           </div>
 
-          {/* Mobile Actions Button (md:hidden) */}
-          <div className="flex md:hidden items-center gap-2">
+          {/* Mobile Top Header (Leading Hamburger + Center Brand Mark Logo + Trailing Lang & Ge) */}
+          <div className="flex md:hidden items-center justify-between w-full">
+            {/* Leading Icon / Drawer Trigger */}
             <button
-              type="button"
-              onClick={handleSupportClick}
-              className="inline-flex items-center justify-center bg-primary-container text-on-primary text-xs font-semibold px-3 py-1.5 rounded-md shadow-xs"
-            >
-              Ge
-            </button>
-            <button
-              id="mobile-menu-btn"
+              id="open-drawer-btn"
               aria-label="Open navigation menu"
               onClick={() => setMobileDrawerOpen(true)}
-              className="p-2 rounded-lg text-on-surface hover:bg-surface-container transition"
+              className="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-surface-container active:scale-95 duration-150 text-on-surface"
             >
               <Menu className="w-6 h-6" />
             </button>
+
+            {/* Mobile Brand Logo with Resonance Cross Mark */}
+            <Link href="/" className="flex items-center gap-2 group">
+              <Image
+                src="/assets/brand/logo-mark.svg"
+                alt="GOSPELS"
+                width={32}
+                height={32}
+                className="w-8 h-8 rounded-lg shadow-sm shadow-primary/20 transition duration-150 group-hover:scale-105 active:scale-95"
+                priority
+              />
+              <span className="text-xl font-headline-md font-extrabold tracking-wider text-on-surface dark:text-inverse-on-surface">
+                GOSPELS
+              </span>
+            </Link>
+
+            {/* Trailing Actions: SV / EN Switcher & Ge Button */}
+            <div className="flex items-center gap-2">
+              <div
+                aria-label="Language Selector"
+                className="flex items-center bg-surface-container p-0.5 rounded-full border border-outline-variant/40"
+                role="group"
+              >
+                <button
+                  type="button"
+                  onClick={() => setLanguage("SV")}
+                  className={`px-2 py-0.5 rounded-full text-xs font-semibold transition ${
+                    language === "SV"
+                      ? "bg-surface-container-lowest text-primary shadow-xs font-bold"
+                      : "text-on-surface-variant hover:text-on-surface"
+                  }`}
+                >
+                  SV
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLanguage("EN")}
+                  className={`px-2 py-0.5 rounded-full text-xs font-semibold transition ${
+                    language === "EN"
+                      ? "bg-surface-container-lowest text-primary shadow-xs font-bold"
+                      : "text-on-surface-variant hover:text-on-surface"
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
+              <button
+                type="button"
+                onClick={handleSupportClick}
+                className="inline-flex items-center justify-center bg-primary-container text-on-primary text-xs font-bold px-3 py-1.5 rounded-lg shadow-xs hover:bg-secondary active:scale-95 transition duration-150"
+              >
+                {t("Ge Gåva", "Give")}
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -181,26 +230,22 @@ export function Navbar({
             onClick={closeDrawer}
           />
 
-          {/* Off-canvas panel */}
-          <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-surface-container-lowest dark:bg-inverse-surface shadow-2xl p-6 flex flex-col justify-between z-10 overflow-y-auto border-l border-outline-variant/40">
+          {/* Off-canvas panel sliding from left */}
+          <div className="fixed inset-y-0 left-0 max-w-xs w-full bg-surface-container-lowest dark:bg-inverse-surface shadow-2xl p-6 flex flex-col justify-between z-10 overflow-y-auto border-r border-outline-variant/40">
             <div>
               {/* Drawer Header */}
               <div className="flex items-center justify-between pb-4 border-b border-outline-variant/30">
                 <Link href="/" onClick={closeDrawer} className="flex items-center gap-2.5">
                   <Image
-                    src="/assets/brand/logo-full.svg"
+                    src="/assets/brand/logo-mark.svg"
                     alt="GOSPELS Ministry"
-                    width={140}
+                    width={32}
                     height={32}
-                    className="h-8 w-auto dark:hidden"
+                    className="w-8 h-8 rounded-lg shadow-sm shadow-primary/20"
                   />
-                  <Image
-                    src="/assets/brand/logo-white.svg"
-                    alt="GOSPELS Ministry"
-                    width={140}
-                    height={32}
-                    className="h-8 w-auto hidden dark:block"
-                  />
+                  <span className="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-inverse-on-surface">
+                    GOSPELS Ministry
+                  </span>
                 </Link>
                 <button
                   aria-label="Close navigation menu"
@@ -222,7 +267,7 @@ export function Navbar({
                       : "hover:bg-surface-container"
                   }`}
                 >
-                  <span>Events</span>
+                  <span>{t("Evenemang", "Events")}</span>
                   <Calendar className="w-4 h-4 text-primary" />
                 </Link>
                 <Link
@@ -234,7 +279,7 @@ export function Navbar({
                       : "hover:bg-surface-container"
                   }`}
                 >
-                  <span>Watch &amp; Listen</span>
+                  <span>{t("Se & Lyssna", "Watch & Listen")}</span>
                   <PlayCircle className="w-4 h-4 text-outline" />
                 </Link>
                 <Link
@@ -246,7 +291,7 @@ export function Navbar({
                       : "hover:bg-surface-container"
                   }`}
                 >
-                  <span>Partner Churches</span>
+                  <span>{t("Partnerförsamlingar", "Partner Churches")}</span>
                   <Church className="w-4 h-4 text-outline" />
                 </Link>
                 <Link
@@ -258,7 +303,7 @@ export function Navbar({
                       : "hover:bg-surface-container"
                   }`}
                 >
-                  <span>Give</span>
+                  <span>{t("Gåvor & Stöd", "Give")}</span>
                   <HandHeart className="w-4 h-4 text-outline" />
                 </Link>
                 <Link
@@ -270,7 +315,7 @@ export function Navbar({
                       : "hover:bg-surface-container"
                   }`}
                 >
-                  <span>Volunteer</span>
+                  <span>{t("Bli Volontär", "Volunteer")}</span>
                   <Users className="w-4 h-4 text-outline" />
                 </Link>
                 <Link
@@ -282,7 +327,7 @@ export function Navbar({
                       : "hover:bg-surface-container"
                   }`}
                 >
-                  <span>Prayer</span>
+                  <span>{t("Förbön", "Prayer")}</span>
                   <Heart className="w-4 h-4 text-outline" />
                 </Link>
               </nav>
@@ -301,9 +346,9 @@ export function Navbar({
                 >
                   <button
                     type="button"
-                    onClick={() => setLang("SV")}
+                    onClick={() => setLanguage("SV")}
                     className={`px-2.5 py-1 rounded-md text-xs font-bold transition ${
-                      lang === "SV"
+                      language === "SV"
                         ? "bg-primary-container text-on-primary shadow-xs"
                         : "text-on-surface-variant hover:text-on-surface"
                     }`}
@@ -312,9 +357,9 @@ export function Navbar({
                   </button>
                   <button
                     type="button"
-                    onClick={() => setLang("EN")}
+                    onClick={() => setLanguage("EN")}
                     className={`px-2.5 py-1 rounded-md text-xs font-semibold transition ${
-                      lang === "EN"
+                      language === "EN"
                         ? "bg-primary-container text-on-primary shadow-xs"
                         : "text-on-surface-variant hover:text-on-surface"
                     }`}

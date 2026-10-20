@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, EB_Garamond, Hanken_Grotesk } from "next/font/google";
+import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
 const inter = Inter({
@@ -207,7 +208,9 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Hoppa till huvudinnehåll
         </a>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

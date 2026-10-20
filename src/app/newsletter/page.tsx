@@ -42,7 +42,7 @@ export default function NewsletterPage() {
       <main id="main-content" className="flex-1">
         {/* Breadcrumb */}
         <div className="bg-surface-container-low border-b border-outline-variant/30 py-3">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center gap-2 text-body-sm text-outline">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 flex items-center gap-2 text-body-sm text-outline">
             <Link href="/" className="hover:text-primary transition">Hem</Link>
             <span>/</span>
             <span className="text-on-surface font-semibold">Nyhetsbrev</span>

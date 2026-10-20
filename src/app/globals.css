@@ -117,3 +117,17 @@ button {
   top: 1rem;
 }
 
+/* Hide scrollbars cleanly for mobile horizontal chip sliders */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mobile safe area padding utility */
+.safe-pb {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+

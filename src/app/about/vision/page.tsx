@@ -28,7 +28,7 @@ export default function VisionPage() {
       <main id="main-content" className="flex-1">
         {/* Breadcrumb */}
         <div className="bg-surface-container-low border-b border-outline-variant/30 py-3">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center gap-2 text-body-sm text-outline">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 flex items-center gap-2 text-body-sm text-outline">
             <Link href="/" className="hover:text-primary transition">Hem</Link>
             <span>/</span>
             <Link href="/om-oss" className="hover:text-primary transition">Om oss</Link>
@@ -39,7 +39,7 @@ export default function VisionPage() {
 
         {/* Hero */}
         <section className="py-20 bg-surface-container-lowest border-b border-outline-variant/30 text-center">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 max-w-4xl mx-auto">
             <span className="text-xs uppercase font-semibold text-primary tracking-wider">
               Teologisk Grund &amp; Riktning
             </span>
@@ -54,7 +54,7 @@ export default function VisionPage() {
 
         {/* Vision & Mission Cards */}
         <section className="py-16 bg-surface">
-          <div className="max-w-5xl mx-auto px-6 lg:px-8 space-y-12">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 space-y-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="p-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/50 shadow-sm space-y-4">
                 <div className="w-12 h-12 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center">

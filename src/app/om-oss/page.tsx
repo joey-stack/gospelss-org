@@ -1,53 +1,69 @@
-import type { Metadata } from "next";
+"use client";
+
+import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Heart, Compass, Shield, Users, Sparkles, MapPin, CheckCircle2 } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Om Oss — Vår Vision, Teologi & Ledarskap",
-  description:
-    "Läs om Gospels (Org.nr: 802557-4883), en ideell förening i Göteborg som förenar unga människor genom helig tillbedjan, kostnadsfria konserter och öppen gemenskap.",
-};
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutPage() {
+  const { t } = useLanguage();
+
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", backgroundColor: "var(--bg-canvas)" }}>
       <Navbar />
 
-      <main id="main-content" style={{ flex: 1, padding: "7rem 0 5rem 0" }}>
-        <div className="container-page" style={{ maxWidth: "860px", margin: "0 auto" }}>
-          {/* Header */}
-          <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-            <span className="badge-pill" style={{ marginBottom: "1rem", display: "inline-flex" }}>
-              <Sparkles size={14} style={{ color: "var(--color-turquoise-500)", marginRight: "0.5rem" }} />
-              Ideell Förening · Göteborg
-            </span>
-            <h1
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "clamp(2.4rem, 5vw, 3.5rem)",
-                fontWeight: 600,
-                color: "var(--color-charcoal-900)",
-                lineHeight: 1.15,
-                marginBottom: "1.25rem",
-              }}
-            >
-              En helig tillflyktsort för en sökande generation.
-            </h1>
-            <p
-              style={{
-                fontSize: "var(--text-lg)",
-                color: "var(--color-charcoal-600)",
-                lineHeight: 1.7,
-                maxWidth: "680px",
-                margin: "0 auto",
-              }}
-            >
-              Gospels grundades med en enkel kallelse: att skapa en öppen och helig plats i Göteborg där
-              unga människor, oavsett bakgrund eller tvivel, kan möta Gud genom musikalisk excellens och villkorslös kärlek.
-            </p>
+      <main id="main-content" style={{ flex: 1 }}>
+        {/* Cinematic Full-Width Hero Section with 100vh */}
+        <section className="relative bg-[#0b1320] text-surface overflow-hidden min-h-screen min-h-[100dvh] flex items-center w-full border-b border-white/10 mb-12">
+          {/* Atmospheric Background Image with Twilight Gradients */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTYNWYf6T944Ks-J_VkQzdXhL5g9ViSXo1X72RK9WWouMHEspLjCOtg-nbaGqu6wnZB6yRZjg0E3rQAdMTvjiZaCK7p7WN3KQhWdOVv_eagNA5gcg_bjzrcdbexTVR79_maRwMkpLcVH5P8qWuiotkGnbs-IiIaiZH_jy9kt-g4hhGlGwukSASaHNW7VPWUkk60QLnZChwbvxW6UL_u-rmuJDOEOTO5gBXZDI8TLUiaIQUjRuIk_Qx3A"
+              alt="Community worship and young generation in Gothenburg"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center opacity-30 mix-blend-luminosity filter contrast-125"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0b1320] via-[#0b1320]/90 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0b1320] via-transparent to-black/50"></div>
           </div>
+
+          {/* Ambient Glowing Orbs */}
+          <div className="absolute -right-20 -top-20 w-80 h-80 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+
+          {/* Full-width container with standard padding */}
+          <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 py-12 sm:py-16 lg:py-20">
+            <div className="max-w-4xl space-y-4 sm:space-y-6">
+              {/* Category Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-highest/20 border border-white/15 backdrop-blur-md shadow-xs">
+                <Sparkles className="w-4 h-4 text-primary-container" />
+                <span className="text-label-sm font-label-sm text-primary-fixed tracking-wider uppercase font-semibold">
+                  {t("Ideell Förening • Göteborg (Org.nr 802557-4883)", "Non-Profit Association • Gothenburg (Org.nr 802557-4883)")}
+                </span>
+              </div>
+
+              {/* Display Hero Headline & Mission Subtitle */}
+              <div>
+                <h1 className="text-display-hero-mobile sm:text-display-hero font-display-hero text-white tracking-tight leading-tight mb-3">
+                  {t("En helig tillflyktsort för en ", "A sacred refuge for a ")}
+                  <span className="text-primary-container font-extrabold">{t("sökande generation", "seeking generation")}</span>
+                </h1>
+                <p className="text-body-md sm:text-body-lg font-body-lg text-slate-200 leading-relaxed max-w-3xl">
+                  {t(
+                    "Gospels grundades med en enkel kallelse: att skapa en öppen och helig plats i Göteborg där unga människor, oavsett bakgrund eller tvivel, kan möta Gud genom musikalisk excellens och villkorslös kärlek.",
+                    "Gospels was founded with a clear calling: to create an open and sacred place in Gothenburg where young people, regardless of background or doubt, can encounter God through musical excellence and unconditional love."
+                  )}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="container-page" style={{ maxWidth: "860px", margin: "0 auto", paddingBottom: "5rem" }}>
 
           {/* Scripture Accent Box */}
           <div

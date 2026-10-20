@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { RSVPModal } from "@/components/modals/RSVPModal";
@@ -22,6 +24,7 @@ import {
 } from "lucide-react";
 
 export default function GivePage() {
+  const { language, t } = useLanguage();
   const [rsvpOpen, setRsvpOpen] = useState(false);
   const [swishOpen, setSwishOpen] = useState(false);
   const [prayerOpen, setPrayerOpen] = useState(false);
@@ -57,34 +60,73 @@ export default function GivePage() {
         onOpenVolunteer={() => setVolunteerOpen(true)}
       />
 
-      <main id="main-content" className="flex-1">
-        {/* Breadcrumb */}
-        <div className="bg-surface-container-low border-b border-outline-variant/30 py-3">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center gap-2 text-body-sm text-outline">
-            <Link href="/" className="hover:text-primary transition">Hem</Link>
-            <span>/</span>
-            <span className="text-on-surface font-semibold">Gåvor &amp; Stöd</span>
+      <main id="main-content" className="flex-1 w-full">
+        {/* Cinematic Full-Width Hero Section (100VH) */}
+        <section className="relative bg-on-background text-surface overflow-hidden min-h-screen min-h-[100dvh] flex items-center w-full border-b border-white/10">
+          {/* Atmospheric Background Image with Twilight Gradients */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQGw5jv1lS9zlEkKihdQlRGzeUDO4ad_Dk-ePzV3fjBw8z4azhSfulAwlKIzeMpzl2hWswgyGCA54ktAonTMUEQdq6ieObk0EUz2SQi8RJBvQyHmartKAnED4iDGiDEP6gmZ23vbKXIuJOMvg1RVAP0zQnTQCqyfo6jI5VFlGPnKaCK_PGJp7NtgwKgaGI-de8o8lvx1IcTUDbsQDGXbpXMcTJhMmjELuVEobcwwKy5Mc0Ej_YtDF-vA"
+              alt="Community worship and generosity in Gothenburg"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center opacity-30 mix-blend-luminosity filter contrast-125"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-on-background via-on-background/90 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-on-background via-transparent to-black/50"></div>
           </div>
-        </div>
 
-        {/* Hero Section */}
-        <section className="py-20 bg-surface-container-lowest border-b border-outline-variant/30 text-center">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8">
-            <span className="text-xs uppercase font-semibold text-primary tracking-wider">
-              Ideellt Gåvoarbete • 90-Konto
-            </span>
-            <h1 className="font-display-hero text-display-hero text-on-background mt-2">
-              Stöd Lovsången i Göteborg
-            </h1>
-            <p className="font-body-lg text-body-lg text-on-surface-variant mt-4 leading-relaxed max-w-2xl mx-auto">
-              100% av våra samlingar och konserter är gratis för allmänheten. Din gåva möjliggör scenbygge, professionell ljudutrustning, ungas musikutbildning och gatuevangelisation.
-            </p>
+          {/* Ambient Glowing Orbs */}
+          <div className="absolute -right-20 -top-20 w-80 h-80 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+
+          {/* Full-width container with standard padding */}
+          <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 py-12 sm:py-16 lg:py-20">
+            <div className="max-w-4xl space-y-4 sm:space-y-6">
+              {/* Breadcrumb / Category Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-highest/20 border border-white/15 backdrop-blur-md shadow-xs">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span className="text-label-sm font-label-sm text-primary-fixed tracking-wider uppercase font-semibold">
+                  {t("Ideellt Gåvoarbete • 90-Konto Kontroll", "Non-Profit Ministry • Swedish 90-Account Oversight")}
+                </span>
+              </div>
+
+              {/* Display Hero Headline & Mission Subtitle */}
+              <div>
+                <h1 className="text-display-hero-mobile sm:text-display-hero font-display-hero text-white tracking-tight leading-tight mb-3">
+                  {t("Stöd Lovsången i ", "Support Worship in ")}
+                  <span className="text-primary-container font-extrabold">{t("Göteborg", "Gothenburg")}</span>
+                </h1>
+                <p className="text-body-md sm:text-body-lg font-body-lg text-slate-200 leading-relaxed max-w-2xl">
+                  {t(
+                    "100% av våra samlingar och konserter är gratis för allmänheten. Din gåva möjliggör scenbygge, professionell ljudutrustning, ungas musikutbildning och gatuevangelisation.",
+                    "100% of our gatherings and concerts are free for the public. Your gift makes stage production, professional audio gear, youth music training, and city street evangelism possible."
+                  )}
+                </p>
+              </div>
+
+              {/* Quick Preset Actions */}
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setSwishOpen(true)}
+                  className="inline-flex items-center gap-2 bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md px-6 py-3.5 rounded-xl shadow-md transition duration-150 active:scale-95 font-semibold"
+                >
+                  <Heart className="w-4 h-4" />
+                  <span>{t("Ge via Swish (123 456 7890)", "Give via Swish (123 456 7890)")}</span>
+                </button>
+                <div className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-white/10 border border-white/15 backdrop-blur-md text-slate-300 text-label-sm font-label-sm">
+                  <Building className="w-4 h-4 text-primary-container" />
+                  <span>Bankgiro: 512-3456</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Giving Methods Grid */}
         <section className="py-16 bg-surface">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               {/* Swish Method Card (6 cols) */}
               <div className="lg:col-span-6 bg-surface-container-lowest rounded-2xl border border-outline-variant/50 p-8 shadow-sm space-y-6">

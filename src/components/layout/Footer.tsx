@@ -7,18 +7,21 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-on-background dark:bg-surface-container-lowest text-surface border-t border-white/10 w-full">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
+      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 py-10 sm:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-10 sm:pb-12 border-b border-white/10">
           {/* Brand & Ministry Statement (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link href="/" className="inline-block transition-opacity hover:opacity-90">
+            <Link href="/" className="inline-flex items-center gap-2.5 transition-opacity hover:opacity-90">
               <Image
-                src="/assets/brand/logo-white.svg"
+                src="/assets/brand/logo-mark.svg"
                 alt="GOSPELS Ministry"
-                width={175}
-                height={40}
-                className="h-10 w-auto"
+                width={36}
+                height={36}
+                className="w-9 h-9 rounded-lg shadow-sm shadow-primary/20"
               />
+              <span className="text-headline-md font-headline-md font-extrabold text-white tracking-wider">
+                GOSPELS
+              </span>
             </Link>
             <p className="font-body-sm text-body-sm text-surface-dim max-w-sm leading-relaxed">
               GOSPELS är en ideell musik- och lovsångsorganisation baserad i Göteborg (Org.nr: 802557-4883).
@@ -161,11 +164,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Footnote Row with Scripture Citation & Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-surface-dim font-body-sm text-body-sm">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-surface-dim font-body-sm text-body-sm text-center sm:text-left">
           <p className="font-scripture-citation text-scripture-citation text-primary-container/80 tracking-normal">
             “Gör alla folk till lärjungar” — Matt 28:19 • Tillsammans för Göteborg
           </p>
-          <p className="text-right">
+          <p className="text-center sm:text-right text-xs sm:text-body-sm">
             © 2026 GOSPELS Music Ministry. Ideell förening i Göteborg (Org.nr: 802557-4883). All rights reserved.
           </p>
         </div>

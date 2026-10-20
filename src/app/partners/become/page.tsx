@@ -56,7 +56,7 @@ export default function BecomePartnerPage() {
       <main id="main-content" className="flex-1">
         {/* Breadcrumb */}
         <div className="bg-surface-container-low border-b border-outline-variant/30 py-3">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center gap-2 text-body-sm text-outline">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 flex items-center gap-2 text-body-sm text-outline">
             <Link href="/" className="hover:text-primary transition">Hem</Link>
             <span>/</span>
             <Link href="/partners" className="hover:text-primary transition">Partnerförsamlingar</Link>
@@ -67,7 +67,7 @@ export default function BecomePartnerPage() {
 
         {/* Hero */}
         <section className="py-20 bg-surface-container-lowest border-b border-outline-variant/30 text-center">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 max-w-4xl mx-auto">
             <span className="text-xs uppercase font-semibold text-primary tracking-wider">
               Ekumenisk Samverkan • Göteborg
             </span>
@@ -82,7 +82,7 @@ export default function BecomePartnerPage() {
 
         {/* Form Container */}
         <section className="py-16 bg-surface">
-          <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24">
             <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/50 p-8 shadow-sm">
               <h3 className="font-headline-md text-headline-md text-on-background">
                 Intresseanmälan för Församlingar

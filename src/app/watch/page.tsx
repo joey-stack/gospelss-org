@@ -9,6 +9,7 @@ import { RSVPModal } from "@/components/modals/RSVPModal";
 import { SwishModal } from "@/components/modals/SwishModal";
 import { PrayerModal } from "@/components/modals/PrayerModal";
 import { VolunteerModal } from "@/components/modals/VolunteerModal";
+import { useLanguage } from "@/context/LanguageContext";
 import {
   Play,
   PlayCircle,
@@ -24,6 +25,7 @@ import {
 } from "lucide-react";
 
 export default function WatchPage() {
+  const { t } = useLanguage();
   const [rsvpOpen, setRsvpOpen] = useState(false);
   const [swishOpen, setSwishOpen] = useState(false);
   const [prayerOpen, setPrayerOpen] = useState(false);
@@ -108,56 +110,87 @@ export default function WatchPage() {
         onOpenVolunteer={() => setVolunteerOpen(true)}
       />
 
-      <main id="main-content" className="flex-1">
-        {/* Hero Section */}
-        <section className="relative bg-on-background text-surface py-20 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-            <span className="text-xs uppercase font-semibold text-primary-fixed tracking-wider">
-              Multimedia &amp; Lovsångsarkiv
-            </span>
-            <h1 className="font-display-hero text-display-hero text-white tracking-tight mt-2 max-w-3xl">
-              Se &amp; Lyssna
-            </h1>
-            <p className="font-body-lg text-body-lg text-surface-variant max-w-2xl mt-4 leading-relaxed">
-              Ta del av konsertinspelningar, akustiska lovsångssessioner och dokumentära vittnesbörd från Göteborgs torg och kyrkor. Allt material är fritt tillgängligt.
-            </p>
+      <main id="main-content" className="flex-1 w-full">
+        {/* Cinematic Full-Width Hero Section with 100vh */}
+        <section className="relative bg-on-background text-surface overflow-hidden min-h-screen min-h-[100dvh] flex items-center w-full border-b border-white/10">
+          {/* Atmospheric Background Image with Twilight Gradients */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9jEPafcKtkj9m-ANdOeyM9zaTjsXQoQzy7zQC7NMCk4sFUI2IAIHakGNszPcSJpEpu6vH2h82d0079j1mfBAXE0fSFnVKRbnIgwVGNda0endhWF4lwfKeryAAjtBAEO-Po5p5EEvoAt-hOBLsrh8ZptqP6JqZwg4JENUBnn9U4lyyjb30PoC3l0F38t3OpNXe8QMTYdoacJLdY9o56ADOga5R4MmYIGC9KHh_-J_L9ublJ0C_kyUTqQ"
+              alt="Live concert recording and congregational praise in Gothenburg"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center opacity-30 mix-blend-luminosity filter contrast-125"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-on-background via-on-background/90 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-on-background via-transparent to-black/50"></div>
+          </div>
 
-            {/* External Streaming Badges */}
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a
-                href="https://spotify.com"
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2 rounded-lg bg-surface-container-lowest/10 hover:bg-white/20 text-white font-label-md text-label-md inline-flex items-center gap-2 transition"
-              >
-                <span>Lyssna på Spotify</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-              <a
-                href="https://apple.com"
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2 rounded-lg bg-surface-container-lowest/10 hover:bg-white/20 text-white font-label-md text-label-md inline-flex items-center gap-2 transition"
-              >
-                <span>Apple Music</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2 rounded-lg bg-surface-container-lowest/10 hover:bg-white/20 text-white font-label-md text-label-md inline-flex items-center gap-2 transition"
-              >
-                <span>YouTube Channel</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+          {/* Ambient Glowing Orbs */}
+          <div className="absolute -right-20 -top-20 w-80 h-80 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+
+          {/* Full-width container with standard padding */}
+          <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 py-12 sm:py-16 lg:py-20">
+            <div className="max-w-4xl space-y-4 sm:space-y-6">
+              {/* Category Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-highest/20 border border-white/15 backdrop-blur-md shadow-xs">
+                <Music className="w-4 h-4 text-primary-container" />
+                <span className="text-label-sm font-label-sm text-primary-fixed tracking-wider uppercase font-semibold">
+                  {t("Multimedia & Lovsångsarkiv", "Multimedia & Worship Archive")}
+                </span>
+              </div>
+
+              {/* Display Hero Headline & Mission Subtitle */}
+              <div>
+                <h1 className="text-display-hero-mobile sm:text-display-hero font-display-hero text-white tracking-tight leading-tight mb-3">
+                  {t("Se & ", "Watch & ")}<span className="text-primary-container font-extrabold">{t("Lyssna", "Listen")}</span>
+                </h1>
+                <p className="text-body-md sm:text-body-lg font-body-lg text-slate-200 leading-relaxed max-w-2xl">
+                  {t(
+                    "Ta del av konsertinspelningar, akustiska lovsångssessioner och dokumentära vittnesbörd från Göteborgs torg och kyrkor. Allt material är fritt tillgängligt.",
+                    "Experience concert recordings, acoustic worship sessions, and documentary testimonies from Gothenburg's public squares and churches. All content is freely accessible."
+                  )}
+                </p>
+              </div>
+
+              {/* External Streaming Badges */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://spotify.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-label-md text-label-md inline-flex items-center gap-2 border border-white/15 backdrop-blur-md transition duration-150"
+                >
+                  <span>{t("Lyssna på Spotify", "Listen on Spotify")}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://apple.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-label-md text-label-md inline-flex items-center gap-2 border border-white/15 backdrop-blur-md transition duration-150"
+                >
+                  <span>Apple Music</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-label-md text-label-md inline-flex items-center gap-2 border border-white/15 backdrop-blur-md transition duration-150"
+                >
+                  <span>{t("YouTube-kanal", "YouTube Channel")}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Featured Video Player */}
         <section className="py-16 bg-surface">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24">
             <div className="bg-on-background text-surface rounded-3xl overflow-hidden border border-white/10 shadow-2xl p-6 lg:p-10">
               <div className="relative aspect-video rounded-2xl overflow-hidden bg-black/60 group">
                 <Image
@@ -209,7 +242,7 @@ export default function WatchPage() {
 
         {/* Audio Tracks & Lyrics Player Section */}
         <section className="py-16 bg-surface-container-low border-y border-outline-variant/30">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24">
             <div className="max-w-2xl mb-8">
               <span className="text-xs uppercase font-semibold text-primary tracking-wider">Ljudspår &amp; Lovsång</span>
               <h3 className="font-headline-lg text-headline-lg text-on-background mt-1">
@@ -279,7 +312,7 @@ export default function WatchPage() {
 
         {/* Video Archive Grid */}
         <section className="py-16 bg-surface">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24">
             <h3 className="font-headline-lg text-headline-lg text-on-background mb-8">
               Korta Sessioner &amp; Dokumentärer
             </h3>
