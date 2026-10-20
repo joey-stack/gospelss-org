@@ -362,7 +362,18 @@ export const db = {
       ];
     },
   },
+
+  webhooks: {
+    hasProcessed: async (eventId: string): Promise<boolean> => {
+      return processedWebhookStore.has(eventId);
+    },
+    markProcessed: async (provider: "STRIPE" | "SWISH", eventId: string): Promise<void> => {
+      processedWebhookStore.add(eventId);
+    },
+  },
 };
+
+const processedWebhookStore = new Set<string>();
 
 
 

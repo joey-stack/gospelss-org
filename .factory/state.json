@@ -8,7 +8,7 @@
     "category": "A",
     "mode": "single-brand",
     "phase_count": 1,
-    "current_phase": "16",
+    "current_phase": "17",
     "status": "in_progress"
   },
   "phases": {
@@ -630,7 +630,24 @@
       ], 
       "blockers": [] 
     },
-    "16": { "status": "pending" },
+    "16": { 
+      "status": "complete", 
+      "started_at": "2026-10-20T04:01:45Z", 
+      "completed_at": "2026-10-20T04:04:10Z", 
+      "notes": "Implemented Phase 16 Webhook Guard & Mock Payment Resiliency: /api/webhooks/stripe (cryptographic signature verification, 300s replay attack defense, checkout.session.completed processing) and /api/webhooks/swish (Swedish bank payment notification with automatic donor attribution). Added idempotent transaction store in src/lib/db.ts to guarantee zero double-charging or duplicate receipts. Verified 5/5 automated webhook tests via scripts/verify-webhooks.mjs. Production build compiled cleanly with 0 errors across 20 routes.", 
+      "artifacts": [
+        "src/app/api/webhooks/stripe/route.ts",
+        "src/app/api/webhooks/swish/route.ts",
+        "scripts/verify-webhooks.mjs",
+        "src/lib/db.ts"
+      ], 
+      "decisions": [
+        "Enforced 300s timestamp tolerance on incoming webhooks to defeat replay attacks",
+        "Constructed in-memory and DAL idempotency store preventing duplicate webhook execution",
+        "Handled automated Kingdom Partner attribution on Swedish Swish callbacks"
+      ], 
+      "blockers": [] 
+    },
     "17": { "status": "pending" },
     "18": { "status": "pending" }
   },
@@ -673,5 +690,5 @@
     "auto_proceed": false
   },
   "blockers": [],
-  "next_action": "Phase 16 Webhook Guard & Resiliency (/api/webhooks/stripe, /api/webhooks/swish, idempotent transaction processing)"
+  "next_action": "Phase 17 Production Optimization & Asset Verification (asset pipeline, bundle audit, documentation sync)"
 }
