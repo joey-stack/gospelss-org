@@ -1,4 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "../styles/tokens.css";
+
+.custom-halo:hover {
+  box-shadow: 0 4px 24px rgba(20, 184, 166, 0.35);
+}
 
 /* CSS Modern Reset */
 *, *::before, *::after {

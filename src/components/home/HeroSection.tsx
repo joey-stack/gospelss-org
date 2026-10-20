@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Sparkles, Calendar, Heart, Shield, Music, MapPin, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Church, Sparkles, ArrowUpRight } from "lucide-react";
 
 interface HeroSectionProps {
   onOpenRSVP: () => void;
@@ -11,344 +12,149 @@ interface HeroSectionProps {
 
 export function HeroSection({ onOpenRSVP, onOpenSwish, onOpenPrayer }: HeroSectionProps) {
   return (
-    <>
-      {/* Sacred Hero Banner */}
-      <section
-        className="section-sacred"
-        style={{
-          position: "relative",
-          background: "linear-gradient(180deg, var(--color-warm-grey-100) 0%, var(--bg-canvas) 100%)",
-          borderBottom: "1px solid var(--border-subtle)",
-          overflow: "hidden",
-        }}
-      >
-        <div className="container-page" style={{ position: "relative", zIndex: 10 }}>
-          <div style={{ maxWidth: "880px", margin: "0 auto", textAlign: "center" }}>
-            {/* Gothenburg Badge */}
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.375rem 1rem",
-                borderRadius: "var(--radius-pill)",
-                backgroundColor: "var(--color-turquoise-50)",
-                border: "1px solid var(--color-turquoise-200)",
-                color: "var(--color-turquoise-700)",
-                fontSize: "var(--text-xs)",
-                fontWeight: "var(--weight-semibold)",
-                letterSpacing: "0.05em",
-                textTransform: "uppercase",
-                marginBottom: "1.75rem",
-              }}
-            >
-              <Sparkles size={14} />
-              <span>Göteborgs Unga & Heliga Lovsång · Ideell Förening</span>
+    <section className="relative bg-on-background text-surface overflow-hidden min-h-[640px] flex items-center">
+      {/* Atmospheric Background Image with Nordic Deep Twilight Gradients */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsmAGYb6RK-ffekW0k1ug8sZl-dZP_PUsGhKVnebisdEiUNGWRhT1zZrF0Ya4MQM0mMCKtA9Nanp_ziaQD8NyRcd4fWMM7IvWu3_5KMD79lSKCbtEtg8a0JoVsrud5t0AUG6sRezGiXfcWzFJOZJbaoePdRI8oE_RyOX16UHinSXgCWW0_uVL8xPNGcpD-wDTPOycpoyfCdfCVFa_9Aosbtr9vr-25sEWg2YZ5idLWVKmfvDaarfNTvQ"
+          alt="Outdoor gospel worship concert in Gothenburg Sweden at twilight"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-40 mix-blend-luminosity filter contrast-125"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-on-background via-on-background/90 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-on-background via-transparent to-black/40"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-24 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Hero Text & Intent */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-highest/20 border border-white/10 backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+              <span className="text-label-sm font-label-sm tracking-wide text-primary-fixed uppercase">
+                Gothenburg Music Ministry • Est. 2021
+              </span>
             </div>
 
-            {/* Main Title */}
-            <h1
-              style={{
-                fontSize: "clamp(2.5rem, 5.5vw, 4.25rem)",
-                fontWeight: 800,
-                lineHeight: 1.08,
-                letterSpacing: "var(--tracking-tighter)",
-                color: "var(--color-charcoal-900)",
-                marginBottom: "1.5rem",
-              }}
-            >
-              Förenade i Helig Lovsång. Förvandlade Liv i Göteborg.
+            <h1 className="font-display-hero text-display-hero tracking-tight text-white leading-tight">
+              Bring Worship to the{" "}
+              <span className="text-primary-fixed underline decoration-primary-container/40 underline-offset-8">
+                Streets
+              </span>{" "}
+              of Gothenburg
             </h1>
 
-            {/* Scripture Quote */}
-            <p
-              className="font-scripture"
-              style={{
-                fontSize: "1.375rem",
-                color: "var(--color-charcoal-700)",
-                maxWidth: "700px",
-                margin: "0 auto 2.5rem auto",
-                lineHeight: 1.5,
-              }}
-            >
-              ”Ty där två eller tre är församlade i mitt namn, där är jag mitt ibland dem.”
-              <span
-                style={{
-                  display: "block",
-                  fontSize: "0.9375rem",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  color: "var(--color-turquoise-700)",
-                  marginTop: "0.5rem",
-                }}
-              >
-                Matteus 18:20
-              </span>
+            <p className="font-body-lg text-body-lg text-surface-variant/90 max-w-xl leading-relaxed">
+              Creating moments of worship that impact generations across West Sweden. Uniting local
+              congregations in vibrant outdoor praise, spiritual encounter, and compassionate civic renewal.
             </p>
 
-            {/* CTA Triggers */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "1rem",
-                flexWrap: "wrap",
-              }}
-            >
-              <button
-                onClick={onOpenRSVP}
-                style={{
-                  backgroundColor: "var(--color-turquoise-600)",
-                  color: "var(--color-white)",
-                  padding: "0.875rem 2rem",
-                  borderRadius: "var(--radius-pill)",
-                  fontSize: "var(--text-base)",
-                  fontWeight: 600,
-                  boxShadow: "var(--shadow-card)",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.625rem",
-                  minHeight: "48px",
-                  transition: "transform var(--transition-fast), background-color var(--transition-fast)",
-                }}
+            {/* CTAs */}
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <a
+                href="#events"
+                className="inline-flex items-center gap-2 bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md px-6 py-3.5 rounded-lg shadow-md custom-halo transition duration-150 active:scale-95"
               >
-                <Calendar size={18} />
-                <span>Reservera Plats Gratis</span>
-              </button>
+                <span>Explore Events</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="#partners"
+                className="inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-surface border border-white/30 font-label-md text-label-md px-6 py-3.5 rounded-lg backdrop-blur-sm transition duration-150 active:scale-95"
+              >
+                <Church className="w-4 h-4" />
+                <span>Partner Churches</span>
+              </a>
+            </div>
 
-              <button
-                onClick={onOpenSwish}
-                style={{
-                  backgroundColor: "var(--color-warm-grey-200)",
-                  color: "var(--color-charcoal-900)",
-                  padding: "0.875rem 1.75rem",
-                  borderRadius: "var(--radius-pill)",
-                  fontSize: "var(--text-base)",
-                  fontWeight: 500,
-                  border: "1px solid var(--border-default)",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  minHeight: "48px",
-                }}
-              >
-                <Heart size={18} color="var(--color-turquoise-600)" />
-                <span>Stöd med Swish</span>
-              </button>
+            {/* Quick Metrics Bar */}
+            <div className="pt-8 border-t border-white/10 grid grid-cols-3 gap-6 max-w-lg">
+              <div>
+                <p className="font-headline-lg text-headline-lg font-bold text-white">42+</p>
+                <p className="text-label-sm font-label-sm text-surface-variant">Congregations</p>
+              </div>
+              <div>
+                <p className="font-headline-lg text-headline-lg font-bold text-primary-fixed">15,000</p>
+                <p className="text-label-sm font-label-sm text-surface-variant">Annual Attendees</p>
+              </div>
+              <div>
+                <p className="font-headline-lg text-headline-lg font-bold text-white">100%</p>
+                <p className="text-label-sm font-label-sm text-surface-variant">Non-Profit &amp; Free</p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Flagship Concert Feature */}
-      <section id="konserter" className="section-sacred">
-        <div className="container-page">
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <p
-              style={{
-                fontSize: "var(--text-xs)",
-                fontWeight: 700,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                color: "var(--color-turquoise-600)",
-                marginBottom: "0.5rem",
-              }}
-            >
-              Kommande Samling
-            </p>
-            <h2
-              style={{
-                fontSize: "var(--text-3xl)",
-                fontWeight: 700,
-                color: "var(--color-charcoal-900)",
-              }}
-            >
-              Holy Spirit Worship 2026
-            </h2>
-          </div>
-
-          <div
-            style={{
-              maxWidth: "880px",
-              margin: "0 auto",
-              backgroundColor: "var(--bg-card)",
-              borderRadius: "var(--radius-xl)",
-              border: "1px solid var(--border-subtle)",
-              boxShadow: "var(--shadow-card)",
-              padding: "2.5rem",
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "2rem",
-              alignItems: "center",
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1.25rem",
-                  marginBottom: "1rem",
-                  color: "var(--color-charcoal-600)",
-                  fontSize: "var(--text-sm)",
-                  flexWrap: "wrap",
-                }}
-              >
-                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.375rem" }}>
-                  <Calendar size={16} color="var(--color-turquoise-600)" />
-                  <strong>Lördag 14 November 2026</strong>
-                </span>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.375rem" }}>
-                  <MapPin size={16} color="var(--color-turquoise-600)" />
-                  <strong>Göteborg, Sverige</strong>
+          {/* Hero Feature Spotlight Card (Floating Page 1/Page 2 Accent) */}
+          <div className="lg:col-span-5">
+            <div className="bg-surface-container-lowest/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 lg:p-7 shadow-2xl relative overflow-hidden group">
+              <div className="absolute -top-16 -right-16 w-44 h-44 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+              
+              <div className="flex items-center justify-between pb-4 border-b border-white/10">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-primary-container" />
+                  <span className="text-label-sm font-label-sm tracking-wider uppercase text-primary-fixed">
+                    Featured Gathering
+                  </span>
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-white/10 text-white text-label-sm font-label-sm">
+                  Free Admission
                 </span>
               </div>
 
-              <h3
-                style={{
-                  fontSize: "var(--text-2xl)",
-                  fontWeight: 700,
-                  marginBottom: "0.75rem",
-                  color: "var(--color-charcoal-900)",
-                }}
-              >
-                En kväll av oavbruten tillbedjan och förbön
-              </h3>
-              <p style={{ color: "var(--color-charcoal-700)", lineHeight: 1.6 }}>
-                Vi samlar unga vuxna och församlingar från hela Göteborgsregionen för att söka Guds närvaro i
-                helig lovsång. Fri entré för alla — boka din plats för att garantera inträde.
-              </p>
-            </div>
+              {/* Card Thumbnail Banner */}
+              <div className="mt-5 rounded-xl overflow-hidden aspect-[16/9] relative">
+                <Image
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP0MME-ZWQuFzCbalUpQBYJjv0lBYOMe7oQZL1EhtEHNFncqrpVn1H2O3yY4NNw_JE4KHjSXEWphMj2IWc3-YyLEI6M0kR3DwJAiQO0OFrRiCbDQuUHZkBoik8Ro-RGNqgNHqKBDPTkPeyDN47L-m9pDrvdp_lovUmqGgWJh3tq0RcwSvmlnU3kcjGnw8zhPdZVQtOLHILmaplpl4YIyUIw23OR8duA2GH67eWXyiYLImbXav2BF8WmA"
+                  alt="Holy Spirit Worship 2026 Concert Gathering"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover group-hover:scale-105 transition duration-500"
+                />
+              </div>
 
-            <div style={{ textAlign: "center", padding: "1.5rem", backgroundColor: "var(--color-warm-grey-50)", borderRadius: "var(--radius-lg)" }}>
-              <span
-                style={{
-                  display: "inline-block",
-                  backgroundColor: "var(--color-turquoise-50)",
-                  color: "var(--color-turquoise-700)",
-                  padding: "0.375rem 0.875rem",
-                  borderRadius: "var(--radius-pill)",
-                  fontSize: "var(--text-xs)",
-                  fontWeight: 700,
-                  marginBottom: "1rem",
-                  border: "1px solid var(--color-turquoise-200)",
-                }}
-              >
-                Gratis Entré · 250 Platser
-              </span>
-              <button
-                onClick={onOpenRSVP}
-                style={{
-                  width: "100%",
-                  backgroundColor: "var(--color-turquoise-600)",
-                  color: "var(--color-white)",
-                  padding: "0.875rem 1.5rem",
-                  borderRadius: "var(--radius-pill)",
-                  fontWeight: 600,
-                  fontSize: "var(--text-sm)",
-                  boxShadow: "var(--shadow-subtle)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.5rem",
-                  minHeight: "48px",
-                }}
-              >
-                <span>Boka Gratis Biljett</span>
-                <ArrowRight size={16} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+              <div className="mt-5">
+                <span className="text-label-sm font-label-sm text-primary-fixed uppercase tracking-wider font-semibold">
+                  Saturday • Oct 18, 2026 • 18:00
+                </span>
+                <h3 className="font-headline-md text-headline-md text-white mt-1">
+                  Holy Spirit Worship 2026
+                </h3>
+                <p className="text-body-sm font-body-sm text-surface-variant mt-2 line-clamp-2">
+                  An intimate night of deep acoustic intercession, united gospel chorals, and prophetic
+                  praise welcoming worshipers from across West Sweden.
+                </p>
+              </div>
 
-      {/* 3 Pillar Ministry Transparency */}
-      <section
-        style={{
-          backgroundColor: "var(--bg-surface)",
-          padding: "5rem 0",
-          borderTop: "1px solid var(--border-subtle)",
-          borderBottom: "1px solid var(--border-subtle)",
-        }}
-      >
-        <div className="container-page">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "2rem",
-            }}
-          >
-            <div
-              style={{
-                backgroundColor: "var(--bg-card)",
-                padding: "2rem",
-                borderRadius: "var(--radius-lg)",
-                border: "1px solid var(--border-subtle)",
-              }}
-            >
-              <Music size={28} color="var(--color-turquoise-600)" style={{ marginBottom: "1rem" }} />
-              <h4 style={{ fontSize: "var(--text-lg)", marginBottom: "0.5rem" }}>Alltid Fri Entré</h4>
-              <p style={{ fontSize: "var(--text-sm)", color: "var(--color-charcoal-700)" }}>
-                Vi tror att lovsång och Guds närvaro ska vara tillgänglig för alla unga utan ekonomiska
-                trösklar eller biljettkostnader.
-              </p>
-            </div>
-
-            <div
-              style={{
-                backgroundColor: "var(--bg-card)",
-                padding: "2rem",
-                borderRadius: "var(--radius-lg)",
-                border: "1px solid var(--border-subtle)",
-              }}
-            >
-              <Shield size={28} color="var(--color-turquoise-600)" style={{ marginBottom: "1rem" }} />
-              <h4 style={{ fontSize: "var(--text-lg)", marginBottom: "0.5rem" }}>100% Transparens</h4>
-              <p style={{ fontSize: "var(--text-sm)", color: "var(--color-charcoal-700)" }}>
-                Som ideell förening (org.nr 802557-4883) redovisas alla gåvor öppet. Varje krona går direkt
-                till lokaler, ljudteknik och mötesplatser.
-              </p>
-            </div>
-
-            <div
-              style={{
-                backgroundColor: "var(--bg-card)",
-                padding: "2rem",
-                borderRadius: "var(--radius-lg)",
-                border: "1px solid var(--border-subtle)",
-              }}
-            >
-              <Heart size={28} color="var(--color-turquoise-600)" style={{ marginBottom: "1rem" }} />
-              <h4 style={{ fontSize: "var(--text-lg)", marginBottom: "0.5rem" }}>
-                Konfidentiell Bön (GDPR Art. 9)
-              </h4>
-              <p style={{ fontSize: "var(--text-sm)", color: "var(--color-charcoal-700)", marginBottom: "1rem" }}>
-                Varje böneämne behandlas med högsta omsorg och sekretess. Endast vårt pastorala förbönsteam
-                tar emot och ber för dina behov.
-              </p>
-              {onOpenPrayer && (
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="flex -space-x-2">
+                    <span className="inline-block w-7 h-7 rounded-full bg-surface-container-high border-2 border-slate-900 text-[10px] flex items-center justify-center font-bold text-on-surface">
+                      JD
+                    </span>
+                    <span className="inline-block w-7 h-7 rounded-full bg-primary-container border-2 border-slate-900 text-[10px] flex items-center justify-center font-bold text-white">
+                      KL
+                    </span>
+                    <span className="inline-block w-7 h-7 rounded-full bg-surface-variant border-2 border-slate-900 text-[10px] flex items-center justify-center font-bold text-on-surface">
+                      +
+                    </span>
+                  </span>
+                  <span className="text-label-sm font-label-sm text-surface-variant">340 RSVP'd</span>
+                </div>
                 <button
-                  onClick={onOpenPrayer}
-                  style={{
-                    fontSize: "var(--text-xs)",
-                    fontWeight: 700,
-                    color: "var(--color-turquoise-600)",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.25rem",
-                    cursor: "pointer",
-                  }}
+                  type="button"
+                  onClick={onOpenRSVP}
+                  className="inline-flex items-center gap-1.5 bg-primary-container text-on-primary hover:bg-secondary font-label-sm text-label-sm px-4 py-2 rounded-lg transition duration-150"
                 >
-                  <span>Skicka böneämne</span>
-                  <ArrowRight size={14} />
+                  <span>RSVP Free</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
-              )}
+              </div>
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

@@ -1,300 +1,331 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Menu, X, ArrowRight, Heart } from "lucide-react";
+import {
+  Calendar,
+  PlayCircle,
+  Church,
+  Heart,
+  Users,
+  HandHeart,
+  Menu,
+  X,
+  ArrowRight,
+  Copy,
+  Check,
+} from "lucide-react";
 
 interface NavbarProps {
   onOpenRSVP?: () => void;
   onOpenSwish?: () => void;
   onOpenPrayer?: () => void;
+  onOpenVolunteer?: () => void;
 }
 
-export function Navbar({ onOpenRSVP, onOpenSwish, onOpenPrayer }: NavbarProps = {}) {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [lang, setLang] = useState<"sv" | "en">("sv");
+export function Navbar({
+  onOpenRSVP,
+  onOpenSwish,
+  onOpenPrayer,
+  onOpenVolunteer,
+}: NavbarProps = {}) {
+  const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+  const [lang, setLang] = useState<"SV" | "EN">("SV");
+  const [copiedSwish, setCopiedSwish] = useState(false);
 
-  const handleRSVP = () => {
-    if (onOpenRSVP) {
-      onOpenRSVP();
-    } else {
-      window.location.href = "/#konserter";
+  const copySwishNumber = () => {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText("1234567890");
+      setCopiedSwish(true);
+      setTimeout(() => setCopiedSwish(false), 2000);
     }
   };
 
-  const handleSwish = () => {
-    if (onOpenSwish) {
-      onOpenSwish();
-    } else {
-      window.location.href = "/#partner";
-    }
-  };
-
-  const handlePrayer = () => {
-    if (onOpenPrayer) {
-      onOpenPrayer();
-    } else {
-      window.location.href = "/kontakt";
-    }
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const closeDrawer = () => setMobileDrawerOpen(false);
 
   return (
     <>
-      <header
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 50,
-          backdropFilter: isScrolled ? "blur(14px)" : "blur(8px)",
-          backgroundColor: isScrolled
-            ? "rgba(250, 250, 248, 0.94)"
-            : "rgba(250, 250, 248, 0.8)",
-          borderBottom: "1px solid var(--border-subtle)",
-          transition: "all var(--transition-smooth)",
-        }}
-      >
-        <div
-          className="container-page"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            height: "4.5rem",
-          }}
-        >
+      {/* Top Navigation Bar */}
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-white/95 dark:bg-[#0f172a]/95 border-b border-gray-200/80 dark:border-gray-800 transition-colors shadow-sm w-full">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
           {/* Brand Logo */}
-          <Link href="/" style={{ display: "flex", alignItems: "center" }}>
-            <Image
-              src="/assets/brand/logo-full.svg"
-              alt="GOSPELS Logo"
-              width={160}
-              height={36}
-              priority
-            />
+          <Link href="/" className="flex items-center gap-3 group z-10">
+            <span className="w-9 h-9 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-headline-md font-extrabold text-headline-sm transition duration-150 active:scale-95 shadow-sm">
+              G
+            </span>
+            <span className="text-headline-md font-headline-md font-extrabold tracking-wider text-on-surface dark:text-inverse-on-surface">
+              GOSPELS
+            </span>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav
-            style={{
-              display: "none",
-              alignItems: "center",
-              gap: "2rem",
-            }}
-            className="desktop-nav"
-          >
-            <Link
-              href="/#konserter"
-              style={{
-                fontSize: "var(--text-sm)",
-                fontWeight: "var(--weight-semibold)",
-                color: "var(--text-secondary)",
-              }}
+          <nav className="hidden md:flex items-center gap-8 text-label-md font-label-md">
+            <a
+              href="#events"
+              className="text-on-surface-variant hover:text-primary transition-colors pb-1 duration-200"
             >
-              Konserter
-            </Link>
-            <Link
-              href="/om-oss"
-              style={{
-                fontSize: "var(--text-sm)",
-                fontWeight: "var(--weight-semibold)",
-                color: "var(--text-secondary)",
-              }}
+              Events
+            </a>
+            <a
+              href="#watch-listen"
+              className="text-on-surface-variant hover:text-primary transition-colors pb-1 duration-200"
             >
-              Om Oss
-            </Link>
-            <Link
-              href="/#partner"
-              style={{
-                fontSize: "var(--text-sm)",
-                fontWeight: "var(--weight-semibold)",
-                color: "var(--text-secondary)",
-              }}
+              Watch &amp; Listen
+            </a>
+            <a
+              href="#partners"
+              className="text-on-surface-variant hover:text-primary transition-colors pb-1 duration-200"
             >
-              Ge ett stöd
-            </Link>
+              Partner Churches
+            </a>
+            <a
+              href="#give"
+              className="text-on-surface-variant hover:text-primary transition-colors pb-1 duration-200"
+            >
+              Give
+            </a>
             <button
-              onClick={handlePrayer}
-              style={{
-                fontSize: "var(--text-sm)",
-                fontWeight: "var(--weight-semibold)",
-                color: "var(--text-secondary)",
-                cursor: "pointer",
-              }}
+              onClick={onOpenVolunteer}
+              className="text-on-surface-variant hover:text-primary transition-colors pb-1 duration-200"
             >
-              Bön & Förbön
+              Volunteer
             </button>
+            <a
+              href="#prayer"
+              className="text-on-surface-variant hover:text-primary transition-colors pb-1 duration-200"
+            >
+              Prayer
+            </a>
           </nav>
 
-          {/* Action Row */}
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-            {/* Language Toggle */}
-            <button
-              onClick={() => setLang(lang === "sv" ? "en" : "sv")}
-              style={{
-                fontSize: "var(--text-xs)",
-                fontWeight: 700,
-                padding: "0.375rem 0.625rem",
-                borderRadius: "var(--radius-sm)",
-                backgroundColor: "var(--color-warm-grey-200)",
-                color: "var(--color-charcoal-700)",
-                textTransform: "uppercase",
-              }}
-              title="Växla språk / Switch language"
+          {/* Desktop Action Cluster: SV/EN Switcher & Support CTA */}
+          <div className="hidden md:flex items-center gap-4">
+            <div
+              aria-label="Language Selector"
+              className="inline-flex items-center bg-surface-container rounded-full p-1 border border-outline-variant/40"
+              role="group"
             >
-              {lang}
+              <button
+                type="button"
+                onClick={() => setLang("SV")}
+                className={`px-3 py-1 rounded-full text-label-sm font-label-sm transition duration-150 ${
+                  lang === "SV"
+                    ? "bg-surface-container-lowest text-on-surface shadow-xs font-bold"
+                    : "text-on-surface-variant hover:text-on-surface"
+                }`}
+              >
+                SV
+              </button>
+              <span className="text-outline text-label-sm mx-0.5">/</span>
+              <button
+                type="button"
+                onClick={() => setLang("EN")}
+                className={`px-3 py-1 rounded-full text-label-sm font-label-sm transition duration-150 ${
+                  lang === "EN"
+                    ? "bg-surface-container-lowest text-on-surface shadow-xs font-bold"
+                    : "text-on-surface-variant hover:text-on-surface"
+                }`}
+              >
+                EN
+              </button>
+            </div>
+            <button
+              type="button"
+              onClick={onOpenSwish}
+              className="inline-flex items-center justify-center bg-primary-container text-on-primary hover:bg-secondary font-label-md text-label-md px-5 py-2.5 rounded-lg shadow-sm custom-halo transition duration-150 active:scale-95"
+            >
+              Support Us
             </button>
+          </div>
 
-            {/* Quick Swish Button */}
+          {/* Mobile Actions Button (md:hidden) */}
+          <div className="flex md:hidden items-center gap-2">
             <button
-              onClick={handleSwish}
-              style={{
-                backgroundColor: "var(--color-warm-grey-100)",
-                color: "var(--color-charcoal-900)",
-                border: "1px solid var(--border-default)",
-                padding: "0.5rem 0.875rem",
-                borderRadius: "var(--radius-pill)",
-                fontSize: "var(--text-xs)",
-                fontWeight: 600,
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.375rem",
-              }}
+              type="button"
+              onClick={onOpenSwish}
+              className="inline-flex items-center justify-center bg-primary-container text-on-primary text-xs font-semibold px-3 py-1.5 rounded-md shadow-xs"
             >
-              <Heart size={14} color="var(--color-turquoise-600)" />
-              <span>Swish</span>
+              Ge
             </button>
-
-            {/* Primary RSVP CTA */}
             <button
-              onClick={handleRSVP}
-              style={{
-                backgroundColor: "var(--color-turquoise-600)",
-                color: "var(--color-white)",
-                padding: "0.625rem 1.25rem",
-                borderRadius: "var(--radius-pill)",
-                fontSize: "var(--text-sm)",
-                fontWeight: "var(--weight-semibold)",
-                boxShadow: "var(--shadow-subtle)",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.375rem",
-                minHeight: "44px",
-              }}
+              id="mobile-menu-btn"
+              aria-label="Open navigation menu"
+              onClick={() => setMobileDrawerOpen(true)}
+              className="p-2 rounded-lg text-on-surface hover:bg-surface-container transition"
             >
-              <span>RSVP</span>
-              <ArrowRight size={15} />
-            </button>
-
-            {/* Mobile Hamburger Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Öppna meny"
-              style={{
-                padding: "0.5rem",
-                color: "var(--color-charcoal-800)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-              className="mobile-toggle"
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              <Menu className="w-6 h-6" />
             </button>
           </div>
         </div>
-
-        {/* Mobile Navigation Drawer */}
-        {mobileMenuOpen && (
-          <div
-            style={{
-              backgroundColor: "var(--bg-card)",
-              borderTop: "1px solid var(--border-subtle)",
-              padding: "1.5rem",
-              display: "flex",
-              flexDirection: "column",
-              gap: "1.25rem",
-            }}
-          >
-            <Link
-              href="/#konserter"
-              onClick={() => setMobileMenuOpen(false)}
-              style={{ fontSize: "var(--text-base)", fontWeight: 600, color: "var(--color-charcoal-900)" }}
-            >
-              Konserter & Evenemang
-            </Link>
-            <Link
-              href="/om-oss"
-              onClick={() => setMobileMenuOpen(false)}
-              style={{ fontSize: "var(--text-base)", fontWeight: 600, color: "var(--color-charcoal-900)" }}
-            >
-              Om Gospels & Styrelsen
-            </Link>
-            <Link
-              href="/#partner"
-              onClick={() => setMobileMenuOpen(false)}
-              style={{ fontSize: "var(--text-base)", fontWeight: 600, color: "var(--color-charcoal-900)" }}
-            >
-              Bli Kingdom Partner (150 kr/mån)
-            </Link>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                handlePrayer();
-              }}
-              style={{
-                fontSize: "var(--text-base)",
-                fontWeight: 600,
-                color: "var(--color-charcoal-900)",
-                textAlign: "left",
-                cursor: "pointer",
-              }}
-            >
-              Skicka Böneämne (GDPR Art. 9)
-            </button>
-            <div style={{ paddingTop: "0.5rem", display: "flex", gap: "0.75rem" }}>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  handleRSVP();
-                }}
-                style={{
-                  flex: 1,
-                  backgroundColor: "var(--color-turquoise-600)",
-                  color: "var(--color-white)",
-                  padding: "0.75rem",
-                  borderRadius: "var(--radius-pill)",
-                  fontWeight: 600,
-                  fontSize: "var(--text-sm)",
-                  textAlign: "center",
-                }}
-              >
-                Boka Plats Gratis
-              </button>
-            </div>
-          </div>
-        )}
       </header>
 
-      <style jsx global>{`
-        @media (min-width: 768px) {
-          .desktop-nav {
-            display: flex !important;
-          }
-          .mobile-toggle {
-            display: none !important;
-          }
-        }
-      `}</style>
+      {/* Responsive Mobile Drawer / Menu Overlay */}
+      {mobileDrawerOpen && (
+        <div id="mobile-drawer" className="fixed inset-0 z-50 md:hidden">
+          {/* Backdrop overlay */}
+          <div
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+            onClick={closeDrawer}
+          />
+
+          {/* Off-canvas panel */}
+          <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-surface-container-lowest dark:bg-inverse-surface shadow-2xl p-6 flex flex-col justify-between z-10 overflow-y-auto border-l border-outline-variant/40">
+            <div>
+              {/* Drawer Header */}
+              <div className="flex items-center justify-between pb-4 border-b border-outline-variant/30">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm shadow-xs">
+                    G
+                  </span>
+                  <span className="font-headline-sm font-bold tracking-wider text-on-surface dark:text-inverse-on-surface">
+                    GOSPELS
+                  </span>
+                </div>
+                <button
+                  aria-label="Close navigation menu"
+                  onClick={closeDrawer}
+                  className="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Consolidated Mobile Navigation Links */}
+              <nav className="flex flex-col gap-1 py-4 text-base font-semibold text-on-surface dark:text-inverse-on-surface">
+                <a
+                  href="#events"
+                  onClick={closeDrawer}
+                  className="px-3 py-2.5 rounded-lg text-primary bg-primary/10 flex items-center justify-between"
+                >
+                  <span>Events</span>
+                  <Calendar className="w-4 h-4 text-primary" />
+                </a>
+                <a
+                  href="#watch-listen"
+                  onClick={closeDrawer}
+                  className="px-3 py-2.5 rounded-lg hover:bg-surface-container transition flex items-center justify-between"
+                >
+                  <span>Watch &amp; Listen</span>
+                  <PlayCircle className="w-4 h-4 text-outline" />
+                </a>
+                <a
+                  href="#partners"
+                  onClick={closeDrawer}
+                  className="px-3 py-2.5 rounded-lg hover:bg-surface-container transition flex items-center justify-between"
+                >
+                  <span>Partner Churches</span>
+                  <Church className="w-4 h-4 text-outline" />
+                </a>
+                <a
+                  href="#give"
+                  onClick={closeDrawer}
+                  className="px-3 py-2.5 rounded-lg hover:bg-surface-container transition flex items-center justify-between"
+                >
+                  <span>Give</span>
+                  <HandHeart className="w-4 h-4 text-outline" />
+                </a>
+                <button
+                  type="button"
+                  onClick={() => {
+                    closeDrawer();
+                    if (onOpenVolunteer) onOpenVolunteer();
+                  }}
+                  className="px-3 py-2.5 rounded-lg hover:bg-surface-container transition flex items-center justify-between text-left"
+                >
+                  <span>Volunteer</span>
+                  <Users className="w-4 h-4 text-outline" />
+                </button>
+                <a
+                  href="#prayer"
+                  onClick={closeDrawer}
+                  className="px-3 py-2.5 rounded-lg hover:bg-surface-container transition flex items-center justify-between"
+                >
+                  <span>Prayer</span>
+                  <Heart className="w-4 h-4 text-outline" />
+                </a>
+              </nav>
+            </div>
+
+            {/* Mobile Footer & Actions inside drawer */}
+            <div className="pt-4 border-t border-outline-variant/30 space-y-4">
+              {/* Mobile Language Switcher (SV / EN) */}
+              <div className="flex items-center justify-between bg-surface-container p-2 rounded-xl">
+                <span className="text-xs font-medium text-outline uppercase tracking-wider px-2">
+                  Språk / Lang
+                </span>
+                <div
+                  className="inline-flex items-center bg-surface-container-lowest rounded-lg p-0.5 border border-outline-variant/40"
+                  role="group"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setLang("SV")}
+                    className={`px-2.5 py-1 rounded-md text-xs font-bold transition ${
+                      lang === "SV"
+                        ? "bg-primary-container text-on-primary shadow-xs"
+                        : "text-on-surface-variant hover:text-on-surface"
+                    }`}
+                  >
+                    SV
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setLang("EN")}
+                    className={`px-2.5 py-1 rounded-md text-xs font-semibold transition ${
+                      lang === "EN"
+                        ? "bg-primary-container text-on-primary shadow-xs"
+                        : "text-on-surface-variant hover:text-on-surface"
+                    }`}
+                  >
+                    EN
+                  </button>
+                </div>
+              </div>
+
+              {/* Support Us Button */}
+              <button
+                type="button"
+                onClick={() => {
+                  closeDrawer();
+                  if (onOpenSwish) onOpenSwish();
+                }}
+                className="w-full inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary hover:bg-secondary font-label-md py-3 rounded-xl shadow-md transition duration-150"
+              >
+                <span>Support Us</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              {/* Swish Quick Giving Info */}
+              <div className="bg-surface-container-low p-3 rounded-xl border border-outline-variant/40 text-center">
+                <div className="flex items-center justify-center gap-1.5 text-xs text-outline mb-1 font-medium">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span>Swish Direktgåva</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <p className="font-mono font-bold text-sm text-on-surface tracking-wider">
+                    123 456 78 90
+                  </p>
+                  <button
+                    type="button"
+                    onClick={copySwishNumber}
+                    className="p-1 rounded hover:bg-surface-container text-outline hover:text-on-surface transition"
+                    title="Kopiera nummer"
+                  >
+                    {copiedSwish ? (
+                      <Check className="w-3.5 h-3.5 text-emerald-600" />
+                    ) : (
+                      <Copy className="w-3.5 h-3.5" />
+                    )}
+                  </button>
+                </div>
+                <p className="text-[11px] text-outline mt-0.5">
+                  Märkes: GÅVA • Ideell förening
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, EB_Garamond } from "next/font/google";
+import { Inter, EB_Garamond, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const hankenGrotesk = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
   display: "swap",
 });
 
@@ -186,8 +192,12 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="sv" className={`${inter.variable} ${ebGaramond.variable}`}>
+    <html lang="sv" className={`scroll-smooth ${inter.variable} ${hankenGrotesk.variable} ${ebGaramond.variable}`}>
       <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
