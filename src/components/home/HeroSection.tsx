@@ -6,9 +6,10 @@ import { Sparkles, Calendar, Heart, Shield, Music, MapPin, ArrowRight } from "lu
 interface HeroSectionProps {
   onOpenRSVP: () => void;
   onOpenSwish: () => void;
+  onOpenPrayer?: () => void;
 }
 
-export function HeroSection({ onOpenRSVP, onOpenSwish }: HeroSectionProps) {
+export function HeroSection({ onOpenRSVP, onOpenSwish, onOpenPrayer }: HeroSectionProps) {
   return (
     <>
       {/* Sacred Hero Banner */}
@@ -323,10 +324,27 @@ export function HeroSection({ onOpenRSVP, onOpenSwish }: HeroSectionProps) {
               <h4 style={{ fontSize: "var(--text-lg)", marginBottom: "0.5rem" }}>
                 Konfidentiell Bön (GDPR Art. 9)
               </h4>
-              <p style={{ fontSize: "var(--text-sm)", color: "var(--color-charcoal-700)" }}>
+              <p style={{ fontSize: "var(--text-sm)", color: "var(--color-charcoal-700)", marginBottom: "1rem" }}>
                 Varje böneämne behandlas med högsta omsorg och sekretess. Endast vårt pastorala förbönsteam
                 tar emot och ber för dina behov.
               </p>
+              {onOpenPrayer && (
+                <button
+                  onClick={onOpenPrayer}
+                  style={{
+                    fontSize: "var(--text-xs)",
+                    fontWeight: 700,
+                    color: "var(--color-turquoise-600)",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.25rem",
+                    cursor: "pointer",
+                  }}
+                >
+                  <span>Skicka böneämne</span>
+                  <ArrowRight size={14} />
+                </button>
+              )}
             </div>
           </div>
         </div>

@@ -7,10 +7,12 @@ import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/components/home/HeroSection";
 import { RSVPModal } from "@/components/modals/RSVPModal";
 import { SwishModal } from "@/components/modals/SwishModal";
+import { PrayerModal } from "@/components/modals/PrayerModal";
 
 export default function HomePage() {
   const [rsvpOpen, setRsvpOpen] = useState(false);
   const [swishOpen, setSwishOpen] = useState(false);
+  const [prayerOpen, setPrayerOpen] = useState(false);
 
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
@@ -18,6 +20,7 @@ export default function HomePage() {
       <Navbar
         onOpenRSVP={() => setRsvpOpen(true)}
         onOpenSwish={() => setSwishOpen(true)}
+        onOpenPrayer={() => setPrayerOpen(true)}
       />
 
       {/* Main Hero & Content Slices */}
@@ -25,6 +28,7 @@ export default function HomePage() {
         <HeroSection
           onOpenRSVP={() => setRsvpOpen(true)}
           onOpenSwish={() => setSwishOpen(true)}
+          onOpenPrayer={() => setPrayerOpen(true)}
         />
       </main>
 
@@ -123,6 +127,10 @@ export default function HomePage() {
       <SwishModal
         isOpen={swishOpen}
         onClose={() => setSwishOpen(false)}
+      />
+      <PrayerModal
+        isOpen={prayerOpen}
+        onClose={() => setPrayerOpen(false)}
       />
     </div>
   );

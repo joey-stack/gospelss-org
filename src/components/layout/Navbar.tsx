@@ -8,9 +8,10 @@ import { Menu, X, ArrowRight, Heart } from "lucide-react";
 interface NavbarProps {
   onOpenRSVP: () => void;
   onOpenSwish: () => void;
+  onOpenPrayer: () => void;
 }
 
-export function Navbar({ onOpenRSVP, onOpenSwish }: NavbarProps) {
+export function Navbar({ onOpenRSVP, onOpenSwish, onOpenPrayer }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lang, setLang] = useState<"sv" | "en">("sv");
@@ -97,16 +98,17 @@ export function Navbar({ onOpenRSVP, onOpenSwish }: NavbarProps) {
             >
               Ge ett stöd
             </Link>
-            <Link
-              href="#bon"
+            <button
+              onClick={onOpenPrayer}
               style={{
                 fontSize: "var(--text-sm)",
                 fontWeight: "var(--weight-semibold)",
                 color: "var(--text-secondary)",
+                cursor: "pointer",
               }}
             >
               Bön & Förbön
-            </Link>
+            </button>
           </nav>
 
           {/* Action Row */}
@@ -220,13 +222,21 @@ export function Navbar({ onOpenRSVP, onOpenSwish }: NavbarProps) {
             >
               Bli Kingdom Partner (150 kr/mån)
             </Link>
-            <Link
-              href="#bon"
-              onClick={() => setMobileMenuOpen(false)}
-              style={{ fontSize: "var(--text-base)", fontWeight: 600, color: "var(--color-charcoal-900)" }}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenPrayer();
+              }}
+              style={{
+                fontSize: "var(--text-base)",
+                fontWeight: 600,
+                color: "var(--color-charcoal-900)",
+                textAlign: "left",
+                cursor: "pointer",
+              }}
             >
               Skicka Böneämne (GDPR Art. 9)
-            </Link>
+            </button>
             <div style={{ paddingTop: "0.5rem", display: "flex", gap: "0.75rem" }}>
               <button
                 onClick={() => {
