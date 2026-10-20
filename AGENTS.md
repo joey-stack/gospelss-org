@@ -65,3 +65,13 @@ Located in [`.agents/rules/`](file:///c:/Users/user/Desktop/Gospelss.org/.agents
 - Document every reference in an ADR
 - Every reference-derived design needs a distinctive move
 
+---
+
+## 6. Competitive Intelligence & GEO Rules
+- Study competitors before building any platform slice; never copy copy, design, or assets.
+- Extract structure, tokens, and UX patterns for analysis; generate original decisions with distinctive moves.
+- Target high-intent local Swedish keywords on event and outreach pages.
+- Embed Schema.org structured data (`Event`, `Organization`, `LocalBusiness`, `FAQPage`).
+- Maintain `llms.txt` and permissive AI crawler access in `robots.txt` for Generative Engine Optimization (GEO).
+
+
