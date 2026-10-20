@@ -82,5 +82,13 @@ Located in [`.agents/rules/`](file:///c:/Users/user/Desktop/Gospelss.org/.agents
 - Enforce generous vertical rhythm (`5rem`+ section padding), subtle `1px` structural borders, and refined typography (Hanken Grotesk + EB Garamond).
 - Run a Taste Audit before marking any UI slice or component complete.
 
+---
+
+## 8. UX Evaluation Rules
+- Frictionless completion: Event RSVPs require $\le 2$ interactions on mobile; no forced user registration for free concerts.
+- Eliminating dead-ends: Every confirmation screen must provide affirmative next steps ("Add to Calendar", "Worship Media", "Share").
+- Mobile touch ergonomics: Minimum `48px` interactive touch targets with explicit visual focus indicators.
+
+
 
 
