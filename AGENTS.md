@@ -74,4 +74,13 @@ Located in [`.agents/rules/`](file:///c:/Users/user/Desktop/Gospelss.org/.agents
 - Embed Schema.org structured data (`Event`, `Organization`, `LocalBusiness`, `FAQPage`).
 - Maintain `llms.txt` and permissive AI crawler access in `robots.txt` for Generative Engine Optimization (GEO).
 
+---
+
+## 7. UI Taste & Anti-Slop Standards
+- Prohibit generic AI template slop, raw primary colors, and unstyled placeholder blocks.
+- Every layout must follow the curated Warm Grey base + Tech Turquoise token hierarchy in `BRAND_GUIDELINES.md`.
+- Enforce generous vertical rhythm (`5rem`+ section padding), subtle `1px` structural borders, and refined typography (Hanken Grotesk + EB Garamond).
+- Run a Taste Audit before marking any UI slice or component complete.
+
+
 
