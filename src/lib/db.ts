@@ -67,6 +67,25 @@ export interface VolunteerRecord {
   createdAt: string;
 }
 
+export interface TrackRecord {
+  id: string;
+  title: string;
+  artist: string;
+  duration: string;
+  recordedAt: string;
+  audioUrl: string;
+  lyrics: string;
+}
+
+export interface TestimonyRecord {
+  id: string;
+  name: string;
+  role: string;
+  city: string;
+  content: string;
+  date: string;
+}
+
 // In-Memory / Local Development Seed Store
 const seedEvents: EventRecord[] = [
   {
@@ -278,6 +297,72 @@ export const db = {
       return record;
     },
   },
+
+  media: {
+    findManyTracks: async (): Promise<TrackRecord[]> => {
+      return [
+        {
+          id: "trk-1",
+          title: "Helig Ande Fyll Denna Plats (Live i Göteborg)",
+          artist: "Gospels Worship Team",
+          duration: "6:42",
+          recordedAt: "Holy Spirit Worship Göteborg",
+          audioUrl: "/assets/audio/helig-ande-live.mp3",
+          lyrics: "Helig Ande, fyll denna plats med Din härlighet / Våra hjärtan ropar ut: Jesus, kom och var vår kung / Där två eller tre är samlade i Ditt namn / Där är Du mitt ibland oss.",
+        },
+        {
+          id: "trk-2",
+          title: "Göteborg Tillhör Jesus",
+          artist: "Gospels Youth Collective",
+          duration: "5:18",
+          recordedAt: "Göteborgs Lovsångssamling",
+          audioUrl: "/assets/audio/goteborg-tillhor-jesus.mp3",
+          lyrics: "Över varje gata, över varje bro / Reser vi en lovsång, i tro och i ro / Göteborg tillhör Jesus, Hans ljus ska bryta fram.",
+        },
+        {
+          id: "trk-3",
+          title: "Där Två Eller Tre (Matteus 18)",
+          artist: "Gospels Akustisk",
+          duration: "4:35",
+          recordedAt: "Pastoral Böneafton",
+          audioUrl: "/assets/audio/dar-tva-eller-tre.mp3",
+          lyrics: "I stillhet inför Dig, böjer vi våra knän / Du hör varje viskning, Du känner varje bön / Ty där två eller tre är församlade i Ditt namn, där är Du.",
+        },
+      ];
+    },
+  },
+
+  testimonies: {
+    findMany: async (): Promise<TestimonyRecord[]> => {
+      return [
+        {
+          id: "test-1",
+          name: "Hanna K.",
+          role: "Ung vuxen",
+          city: "Göteborg",
+          content: "Under Holy Spirit Worship mötte jag Jesus på ett sätt jag aldrig upplevt tidigare. Den fria entrén gjorde att jag kunde bjuda med tre vänner som aldrig tidigare satt sin fot i en kyrka.",
+          date: "November 2025",
+        },
+        {
+          id: "test-2",
+          name: "Lukas E.",
+          role: "Ungdomsledare",
+          city: "Mölndal",
+          content: "Det var inte bara en konsert, det var en helig atmosfär. Unga från olika kyrkor och bakgrunder stod tillsammans i timmar i tillbedjan. En förvandlande kväll för vår stad.",
+          date: "Oktober 2025",
+        },
+        {
+          id: "test-3",
+          name: "Sara M.",
+          role: "Förbönsteamet",
+          city: "Partille",
+          content: "Vi såg trasiga relationer upprättas och unga som fann djup inre frid mitt i en tid av oro och ångest. Bönen bar hela rummet.",
+          date: "September 2025",
+        },
+      ];
+    },
+  },
 };
+
 
 

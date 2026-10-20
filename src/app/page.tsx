@@ -10,6 +10,8 @@ import { SwishModal } from "@/components/modals/SwishModal";
 import { PrayerModal } from "@/components/modals/PrayerModal";
 import { KingdomPartnerSection } from "@/components/partner/KingdomPartnerSection";
 import { VolunteerModal } from "@/components/modals/VolunteerModal";
+import { WorshipMediaPlayer } from "@/components/media/WorshipMediaPlayer";
+import { TestimonySection } from "@/components/home/TestimonySection";
 import { Users, Sparkles, ArrowRight } from "lucide-react";
 
 export default function HomePage() {
@@ -34,6 +36,8 @@ export default function HomePage() {
           onOpenSwish={() => setSwishOpen(true)}
           onOpenPrayer={() => setPrayerOpen(true)}
         />
+        <WorshipMediaPlayer />
+        <TestimonySection />
         <KingdomPartnerSection
           onOpenSwish={() => setSwishOpen(true)}
         />
