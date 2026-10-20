@@ -91,3 +91,10 @@ Located in [`.agents/rules/`](file:///c:/Users/user/Desktop/Gospelss.org/.agents
 - Enforce GDPR Article 9 privacy on all prayer requests: no sensitive request data may be logged in unencrypted client storage, publicly indexed, or syndicated.
 - Urgency routing: Flag acute crises directly to designated pastoral leads while shielding standard requests behind role-based access.
 - Free concert capacity modeling: Project actual attendance using 25–40% drop-off heuristics for non-ticketed community registrations.
+
+---
+
+## 10. Icon Priority & Fallback Protocol
+- Primary Icon Set: `lucide-react` for standard UI, navigation, and actions.
+- Fallback / AI Icon Set: When an icon cannot be found in `lucide-react`, or for AI intelligence / community sidekick badges, use the Hugging Face icon before searching for other alternatives.
+
