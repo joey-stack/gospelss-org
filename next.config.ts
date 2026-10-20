@@ -1,5 +1,19 @@
 import type { NextConfig } from "next";
 
+const cspHeader = `
+  default-src 'self';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline';
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src 'self' https://fonts.gstatic.com data:;
+  img-src 'self' data: https: blob:;
+  connect-src 'self' https://generativelanguage.googleapis.com https://api.resend.com;
+  frame-ancestors 'none';
+  base-uri 'self';
+  form-action 'self';
+`
+  .replace(/\s{2,}/g, " ")
+  .trim();
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
@@ -9,6 +23,14 @@ const nextConfig: NextConfig = {
     {
       source: "/:path*",
       headers: [
+        {
+          key: "Content-Security-Policy",
+          value: cspHeader,
+        },
+        {
+          key: "Strict-Transport-Security",
+          value: "max-age=63072000; includeSubDomains; preload",
+        },
         {
           key: "X-Content-Type-Options",
           value: "nosniff",
