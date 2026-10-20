@@ -53,6 +53,20 @@ export interface KingdomPartnerRecord {
   createdAt: string;
 }
 
+export interface VolunteerRecord {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  role: string;
+  isUnder18: boolean;
+  guardianName?: string;
+  guardianPhone?: string;
+  parentalConsent: boolean;
+  status: "PENDING" | "APPROVED" | "REJECTED";
+  createdAt: string;
+}
+
 // In-Memory / Local Development Seed Store
 const seedEvents: EventRecord[] = [
   {
@@ -88,6 +102,7 @@ const globalStore = global as unknown as {
   __gospels_rsvps?: RSVPRecord[];
   __gospels_prayers?: PrayerRequestRecord[];
   __gospels_partners?: KingdomPartnerRecord[];
+  __gospels_volunteers?: VolunteerRecord[];
 };
 
 if (!globalStore.__gospels_rsvps) {
@@ -95,6 +110,9 @@ if (!globalStore.__gospels_rsvps) {
 }
 if (!globalStore.__gospels_prayers) {
   globalStore.__gospels_prayers = [];
+}
+if (!globalStore.__gospels_volunteers) {
+  globalStore.__gospels_volunteers = [];
 }
 if (!globalStore.__gospels_partners) {
   // Pre-seed 48 founding Kingdom Partners
@@ -221,5 +239,45 @@ export const db = {
       return record;
     },
   },
+
+  volunteers: {
+    findMany: async (): Promise<VolunteerRecord[]> => {
+      return globalStore.__gospels_volunteers || [];
+    },
+    count: async (): Promise<number> => {
+      return (globalStore.__gospels_volunteers || []).length;
+    },
+    create: async (data: {
+      name: string;
+      email: string;
+      phone: string;
+      role: string;
+      isUnder18: boolean;
+      guardianName?: string;
+      guardianPhone?: string;
+      parentalConsent?: boolean;
+    }): Promise<VolunteerRecord> => {
+      if (data.isUnder18 && (!data.guardianName || !data.parentalConsent)) {
+        throw new Error("Målsmans godkännande krävs för volontärer under 18 år.");
+      }
+
+      const record: VolunteerRecord = {
+        id: `vol_${Date.now()}`,
+        name: data.name,
+        email: data.email.toLowerCase(),
+        phone: data.phone,
+        role: data.role,
+        isUnder18: data.isUnder18,
+        guardianName: data.guardianName,
+        guardianPhone: data.guardianPhone,
+        parentalConsent: Boolean(data.parentalConsent),
+        status: "PENDING",
+        createdAt: new Date().toISOString(),
+      };
+      globalStore.__gospels_volunteers!.push(record);
+      return record;
+    },
+  },
 };
+
 
