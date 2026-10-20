@@ -97,7 +97,10 @@
     "database_url": "local_dev_fallback",
     "stripe": "mock_development",
     "swish": "mock_development",
-    "git": "local_main"
+    "git": "local_main",
+    "github": "connected",
+    "github_username": "joey-stack",
+    "github_repo": "https://github.com/joey-stack/gospelss-org"
   },
   "source_files": {},
   "skills_installed": {},
