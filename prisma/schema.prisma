@@ -1,0 +1,115 @@
+// GOSPELS Prisma Database Schema
+// Platform: GOSPELS (gospelss.org) - Swedish Non-Profit (Org.nr: 802557-4883)
+// Compliance: Swedish GDPR Article 9 (Special Category Data for Prayer Requests)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String
+  date        DateTime
+  doorsOpen   String   @default("17:30")
+  location    String   @default("Göteborg, Sverige")
+  venue       String
+  capacity    Int      @default(250)
+  isFree      Boolean  @default(true)
+  status      String   @default("UPCOMING") // UPCOMING, IN_PROGRESS, COMPLETED, CANCELLED
+  rsvps       RSVP[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model RSVP {
+  id          String    @id @default(cuid())
+  eventId     String
+  event       Event     @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  name        String
+  email       String
+  attendees   Int       @default(1)
+  confirmedAt DateTime  @default(now())
+  checkedIn   Boolean   @default(false)
+  checkedInAt DateTime?
+  reminderSent Boolean  @default(false)
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@unique([eventId, email])
+}
+
+model PrayerRequest {
+  id              String   @id @default(cuid())
+  name            String?  // Optional for anonymous prayer
+  email           String?
+  phone           String?
+  topic           String
+  content         String
+  isUrgent        Boolean  @default(false)
+  urgencyScore    Int      @default(1) // 1=Standard, 2=Pastoral Care, 3=Acute Emergency
+  gdprConsent     Boolean  @default(true) // Article 9 explicit consent
+  status          String   @default("PENDING") // PENDING, ASSIGNED, PRAYED, ARCHIVED
+  pastoralNotes   String?
+  assignedTo      String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model KingdomPartner {
+  id              String   @id @default(cuid())
+  name            String
+  email           String   @unique
+  phone           String?
+  amount          Int      @default(150) // In SEK
+  currency        String   @default("SEK")
+  interval        String   @default("monthly") // monthly, yearly
+  provider        String   @default("STRIPE") // STRIPE, SWISH, BANKGIRO
+  status          String   @default("ACTIVE") // ACTIVE, PAST_DUE, CANCELLED
+  stripeCustomerId String?
+  stripeSubId     String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model VolunteerApplication {
+  id              String   @id @default(cuid())
+  name            String
+  email           String
+  phone           String
+  role            String   // HOSPITALITY, SOUND_TECH, MEDIA, PRAYER_TEAM, STAGE
+  isUnder18       Boolean  @default(false)
+  parentalConsent Boolean  @default(false) // Mandatory if isUnder18 is true
+  status          String   @default("PENDING") // PENDING, APPROVED, REJECTED
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model PartnerChurch {
+  id          String   @id @default(cuid())
+  name        String
+  city        String   @default("Göteborg")
+  contactName String?
+  email       String?
+  website     String?
+  status      String   @default("ACTIVE")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model MediaItem {
+  id          String   @id @default(cuid())
+  title       String
+  type        String   // VIDEO, AUDIO, PHOTO, SERMON
+  url         String
+  thumbnailUrl String?
+  eventSlug   String?
+  createdAt   DateTime @default(now())
+}

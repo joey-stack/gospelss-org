@@ -48,16 +48,38 @@ export function RSVPModal({
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email) return;
 
     setIsSubmitting(true);
-    // Simulate instantaneous local API response
-    setTimeout(() => {
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          eventId: "evt-hsw-2026",
+          name,
+          email,
+          attendees,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        setErrorMessage(data.error || "Bokningen misslyckades. Försök igen.");
+      } else {
+        setIsSubmitted(true);
+      }
+    } catch (err) {
+      setErrorMessage("Nätverksfel. Kontrollera din anslutning och försök igen.");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 600);
+    }
   };
 
   const handleResetAndClose = () => {
@@ -165,6 +187,22 @@ export function RSVPModal({
         <div style={{ padding: "1.75rem" }}>
           {!isSubmitted ? (
             <form onSubmit={handleSubmit}>
+              {errorMessage && (
+                <div
+                  style={{
+                    backgroundColor: "#FEF2F2",
+                    border: "1px solid #F87171",
+                    color: "#991B1B",
+                    padding: "0.75rem 1rem",
+                    borderRadius: "var(--radius-md)",
+                    fontSize: "var(--text-xs)",
+                    marginBottom: "1rem",
+                    fontWeight: 500,
+                  }}
+                >
+                  {errorMessage}
+                </div>
+              )}
               <div
                 style={{
                   backgroundColor: "var(--color-warm-grey-50)",
