@@ -36,6 +36,7 @@ Located in [`.agents/rules/`](file:///c:/Users/user/Desktop/Gospelss.org/.agents
 3. **Traceability Protocol** (`.agents/rules/TRACEABILITY_PROTOCOL.md`): Code changes must map to approved specs in `PROJECT.md`.
 4. **Documentation Protocol** (`.agents/rules/DOCUMENT_CREATION.md` & `BRAIN_TO_DOCS.md`): Keep persistent specs in `docs/` and memory in `.factory/state.json`.
 5. **Context7 & Ponytail Protocol** (`.agents/rules/CONTEXT7.md`): Token-budget discipline, targeted reading, and rolling memory checkpoints.
+6. **Superpowers Discipline** (`.agents/rules/SUPERPOWERS.md`): Spec-first development, mandatory Red-Green-Refactor TDD, atomic commits, and systematic root-cause debugging.
 
 ---
 
