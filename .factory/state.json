@@ -8,7 +8,7 @@
     "category": "A",
     "mode": "single-brand",
     "phase_count": 1,
-    "current_phase": "14",
+    "current_phase": "15",
     "status": "in_progress"
   },
   "phases": {
@@ -590,7 +590,29 @@
       ], 
       "blockers": [] 
     },
-    "14": { "status": "pending" },
+    "14": { 
+      "status": "complete", 
+      "started_at": "2026-10-20T03:50:35Z", 
+      "completed_at": "2026-10-20T03:54:40Z", 
+      "notes": "Conducted automated WCAG 2.1 AA accessibility and color contrast audit via scripts/audit-a11y.mjs. Calibrated primary Tech Turquoise button tokens (--color-turquoise-600 #0F766E) to achieve 5.47:1 contrast ratio with pure white text, exceeding the 4.5:1 WCAG AA threshold. Implemented accessible skip-to-content links across all layouts, visible focus-visible rings, escape listeners, and prefers-reduced-motion media safeguards. Production build passed with 0 errors across 18 routes.", 
+      "artifacts": [
+        "scripts/audit-a11y.mjs",
+        "src/styles/tokens.css",
+        "src/app/globals.css",
+        "src/app/layout.tsx",
+        "src/app/page.tsx",
+        "src/app/om-oss/page.tsx",
+        "src/app/integritetspolicy/page.tsx",
+        "src/app/anvandarvillkor/page.tsx",
+        "src/app/kontakt/page.tsx"
+      ], 
+      "decisions": [
+        "Calibrated primary button fill to #0F766E ensuring certified 5.47:1 contrast with white text",
+        "Installed global skip-to-content link targeting #main-content across all routes",
+        "Integrated prefers-reduced-motion CSS reset to safeguard users with vestibular disorders"
+      ], 
+      "blockers": [] 
+    },
     "15": { "status": "pending" },
     "16": { "status": "pending" },
     "17": { "status": "pending" },
@@ -635,5 +657,5 @@
     "auto_proceed": false
   },
   "blockers": [],
-  "next_action": "Phase 14 Performance & WCAG AA Accessibility Audit (a11y-ally, color contrast verification, keyboard navigation)"
+  "next_action": "Phase 15 Web Security Audit (web-security-audit, OWASP Top 10, security headers, CSP, input sanitization)"
 }

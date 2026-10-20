@@ -31,7 +31,7 @@ export default function HomePage() {
       />
 
       {/* Main Hero & Content Slices */}
-      <main style={{ flex: 1 }}>
+      <main id="main-content" style={{ flex: 1 }}>
         <HeroSection
           onOpenRSVP={() => setRsvpOpen(true)}
           onOpenSwish={() => setSwishOpen(true)}

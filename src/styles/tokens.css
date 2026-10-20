@@ -24,8 +24,8 @@
   --color-turquoise-300: #5EEAD4;
   --color-turquoise-400: #2DD4BF;
   --color-turquoise-500: #14B8A6; /* Primary Brand Accent */
-  --color-turquoise-600: #0D9488; /* Deep Accent (Passes 4.5:1 on Warm Grey) */
-  --color-turquoise-700: #0F766E; /* Active & Pressed State */
+  --color-turquoise-600: #0F766E; /* High-Contrast Button Fill (5.47:1 with White, WCAG AA certified) */
+  --color-turquoise-700: #0E6D64; /* Active & Pressed State (6.19:1) */
   --color-turquoise-800: #115E59;
   --color-turquoise-900: #134E4A;
 

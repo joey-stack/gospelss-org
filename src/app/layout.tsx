@@ -193,7 +193,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <a href="#main-content" className="skip-link">
+          Hoppa till huvudinnehåll
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

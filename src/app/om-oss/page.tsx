@@ -15,7 +15,7 @@ export default function AboutPage() {
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", backgroundColor: "var(--bg-canvas)" }}>
       <Navbar />
 
-      <main style={{ flex: 1, padding: "7rem 0 5rem 0" }}>
+      <main id="main-content" style={{ flex: 1, padding: "7rem 0 5rem 0" }}>
         <div className="container-page" style={{ maxWidth: "860px", margin: "0 auto" }}>
           {/* Header */}
           <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
