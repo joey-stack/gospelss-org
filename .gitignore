@@ -1,7 +1,8 @@
-# Environment variables
+# Environment variables & local secrets
 .env*.local
 .env
 !.env.example
+.agents/mcp_config.json
 
 # Dependencies
 node_modules/
