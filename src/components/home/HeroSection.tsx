@@ -31,7 +31,7 @@ export function HeroSection({ onOpenRSVP, onOpenSwish, onOpenPrayer }: HeroSecti
         <div className="absolute inset-0 bg-gradient-to-t from-on-background via-transparent to-black/40"></div>
       </div>
 
-      <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 py-10 sm:py-16 lg:py-24">
+      <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Hero Text & Intent */}
           <div className="lg:col-span-7 space-y-4 sm:space-y-6">

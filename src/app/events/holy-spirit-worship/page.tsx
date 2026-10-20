@@ -131,7 +131,7 @@ export default function HolySpiritWorshipExactPage() {
       />
 
       {/* ================= SUB-HEADER BREADCRUMB & LIVE ACCESSIBILITY STATUS ================= */}
-      <div className="bg-surface-container-low border-b border-outline-variant/30 py-3 w-full">
+      <div className="bg-surface-container-low border-b border-outline-variant/30 pt-24 pb-3 sm:pt-28 sm:pb-3 w-full">
         <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant overflow-x-auto whitespace-nowrap">
             <MapPin className="w-4 h-4 text-primary shrink-0" />

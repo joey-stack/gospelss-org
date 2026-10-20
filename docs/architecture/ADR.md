@@ -45,3 +45,15 @@
 - **Status**: Approved
 - **Context**: Reference websites must inform structural rhythm and UX patterns without copying visual assets or exact styles.
 - **Decision**: All UI components must consume design tokens strictly from `docs/design/BRAND_GUIDELINES.md` rather than adopting raw CSS from third-party references.
+
+---
+
+## ADR-007: Floating Island Navigation Architecture (Morrow Church Reference)
+- **Status**: Approved
+- **Context**: Community platforms benefit from unobtrusive, high-elegance floating navigation that allows rich hero photography and twilight gradients to extend behind the navigation surface.
+- **Decision**: Adopt a floating island navigation container:
+  - Fixed outer wrapper with `pointer-events: none` and `top: 1rem`, max-width `1280px`.
+  - Inner island with `pointer-events: auto`, `backdrop-filter: blur(16px)`, `border-radius: 18px`, hair-line structural border, and soft elevation shadow.
+  - Segmented pill navigation links with soft hover states (`hover:bg-primary/5`) and active indicators.
+  - Seamless mobile expandable island card with internal drawer navigation and integrated bilingual `SV | EN` toggle.
+
