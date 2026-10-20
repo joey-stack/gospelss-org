@@ -4,6 +4,10 @@
 !.env.example
 .agents/mcp_config.json
 
+# Temporary repositories
+.workflow-skills/
+.factory-blueprint/
+
 # Dependencies
 node_modules/
 .pnp
