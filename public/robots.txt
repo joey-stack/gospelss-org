@@ -1,0 +1,50 @@
+# GOSPELS (gospelss.org) — Robots.txt & Generative Engine Directives
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/admin/
+
+# Explicit Permissive Access for Generative AI Crawlers & Research Engines
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/admin/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Disallow: /api/admin/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/admin/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /admin/
+Disallow: /api/admin/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/admin/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /api/admin/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /api/admin/
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /admin/
+Disallow: /api/admin/
+
+# Canonical Sitemap & LLMs.txt
+Sitemap: https://gospelss.org/sitemap.xml

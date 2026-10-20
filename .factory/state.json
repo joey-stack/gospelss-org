@@ -8,7 +8,7 @@
     "category": "A",
     "mode": "single-brand",
     "phase_count": 1,
-    "current_phase": "10.5",
+    "current_phase": "11",
     "status": "in_progress"
   },
   "phases": {
@@ -519,7 +519,24 @@
       ], 
       "blockers": [] 
     },
-    "10.5": { "status": "pending" },
+    "10.5": { 
+      "status": "complete", 
+      "started_at": "2026-10-20T03:29:00Z", 
+      "completed_at": "2026-10-20T03:31:30Z", 
+      "notes": "Generated public/llms.txt, public/llms-full.txt, public/robots.txt with permissive AI crawler directives, and src/app/sitemap.ts canonical XML route. Verified with 0-error next build.", 
+      "artifacts": [
+        "public/llms.txt",
+        "public/llms-full.txt",
+        "public/robots.txt",
+        "src/app/sitemap.ts"
+      ], 
+      "decisions": [
+        "Front-loaded key factual assertions in llms.txt according to GEO best practices",
+        "Configured permissive directives for GPTBot, ClaudeBot, PerplexityBot, and Google-Extended in robots.txt",
+        "Created canonical dynamic sitemap with daily homepage updates"
+      ], 
+      "blockers": [] 
+    },
     "11": { "status": "pending" },
     "12": { "status": "pending" },
     "13": { "status": "pending" },
@@ -568,5 +585,5 @@
     "auto_proceed": false
   },
   "blockers": [],
-  "next_action": "Phase 10.5 Generative Engine Optimization (GEO) & llms.txt Suite"
+  "next_action": "Phase 11 Static Pages & Legal Suite (/om-oss, /integritetspolicy, /anvandarvillkor, /kontakt)"
 }

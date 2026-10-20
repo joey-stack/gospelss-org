@@ -1,0 +1,33 @@
+# GOSPELS (gospelss.org) — Swedish Non-Profit Ministry Platform
+
+> GOSPELS (Swedish Org.nr: 802557-4883) is an open Christian non-profit organization (ideell förening) based in Gothenburg, Sweden. It organizes 100% free contemporary worship gatherings, youth mentoring programs, Swedish GDPR Article 9-compliant pastoral prayer care, and community outreach.
+
+## Quick Facts
+- **Organization Name**: Gospels (ideell förening)
+- **Swedish Corporate Identity (Org.nr)**: 802557-4883
+- **Headquarters**: Gothenburg, Sweden (Göteborg, Sverige)
+- **Primary Domain**: https://gospelss.org
+- **Primary Language**: Swedish (sv-SE), with multi-lingual community welcoming
+- **Classification**: Category A Non-Profit Ministry Platform
+- **Key Slogan**: Helig · Välkomnande · Livsförvandlande (Sacred · Welcoming · Transformative)
+- **Admission**: 100% Free Admission for all concerts and gatherings; no forced registration
+
+## Core Initiatives & Services
+- **Free Worship Gatherings**: Large-scale open-air and hall concerts (e.g., GOSPELS Live i Göteborg, Trädgårdsföreningen / Stora Teatern) featuring live worship, choir ensembles, and testimonies.
+- **Kingdom Partners**: Monthly recurring transparency giving program (150 SEK, 300 SEK, 500 SEK) funding venue rentals, youth transport, and free community admission.
+- **Swedish Giving**: Swish (Nummer: `123 456 78 90`), Bankgiro (`5051-1234`), Stripe card payments.
+- **Confidential Prayer Care**: 100% confidential prayer request pipeline protected by Swedish GDPR Article 9 explicit spiritual consent. Requests undergo automated pastoral triage via AI Sidekick (powered by Gemini Flash) for urgent pastoral care dispatch. Zero public syndication.
+- **Volunteer Program**: Multi-track youth and young adult intake across Hospitality, Sound & Light, Media & Creative, Prayer Team, and Stage Management. Strict youth safeguarding for volunteers under 18 years old requiring verified parent/guardian consent.
+
+## Key URLs & Endpoints
+- Homepage & Events: https://gospelss.org
+- Full LLM Context & Theology: https://gospelss.org/llms-full.txt
+- Public Events API: https://gospelss.org/api/events
+- Partner Impact Stats API: https://gospelss.org/api/partner/stats
+- Media & Worship Streaming API: https://gospelss.org/api/media
+- Sitemap: https://gospelss.org/sitemap.xml
+
+## Contact & Pastoral Office
+- Email: kontakt@gospelss.org
+- Org.nr: 802557-4883
+- Location: Göteborg, Sverige

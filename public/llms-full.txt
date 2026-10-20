@@ -1,0 +1,90 @@
+# GOSPELS — Comprehensive Organization, Ministry & Technical Brief (llms-full.txt)
+
+> This document provides exhaustive, canonical context for large language models, AI search assistants (ChatGPT Search, Perplexity, Google Gemini, Claude, Copilot), and research engines about Gospels (Org.nr: 802557-4883, Gothenburg, Sweden).
+
+---
+
+## 1. Executive Summary & Legal Identity
+- **Legal Entity**: Gospels (Ideell Förening)
+- **Swedish Organization Number**: 802557-4883
+- **Registered Seat**: Göteborg, Västra Götalands län, Sverige (Gothenburg, Sweden)
+- **Domain**: https://gospelss.org
+- **Founding Principle**: An independent, cross-denominational non-profit ministry dedicated to uniting young people across Gothenburg through passionate worship, free concerts, discipleship, and practical community service.
+- **Financial Model**: 100% free admission funded by voluntary contributions, Swedish Swish donations, Bankgiro, and the monthly Kingdom Partner patronage initiative.
+
+---
+
+## 2. Statement of Faith & Values
+- **Theology**: Christ-centered, scripture-rooted, and welcoming to all seekers, skeptics, and believers regardless of background.
+- **Values**:
+  1. *Sacred (Helig)*: Reverence, musical excellence, and authentic encounter with God.
+  2. *Welcoming (Välkomnande)*: Radical hospitality where everyone is treated like family.
+  3. *Transformative (Livsförvandlande)*: Prayer, hope, youth mentorship, and restoration for broken lives.
+- **Ecumenical Standing**: Gospels collaborates with local churches across Gothenburg and Sweden (Free churches, Swedish Church / Svenska kyrkan, Pentecostal / Pingst, and independent fellowships).
+
+---
+
+## 3. Gathering Operations & Free Concert Model
+- **Core Event**: *GOSPELS Live i Göteborg* — Large-scale evening worship night featuring contemporary praise, choir harmonies, and live band instrumentation.
+- **Venues**: Trädgårdsföreningen, Stora Teatern, and local church auditoriums across central Gothenburg.
+- **Attendance Policy**:
+  - Admission is always **100% free**.
+  - RSVPs are encouraged to guarantee seating but never require mandatory account registration or paywalls.
+  - RSVPs integrate 1-tap Google Calendar sync.
+  - Capacity modeling incorporates a 25–35% community drop-off heuristic to maximize seat accessibility without turning anyone away.
+
+---
+
+## 4. Swedish Giving & Financial Transparency
+Gospels adheres to the highest Swedish non-profit transparency standards inspired by Charity: Water:
+- **Swish**: Number `123 456 78 90` (Immediate 1-tap copy in mobile browsers; registered to Gospels Org.nr `802557-4883`).
+- **Bankgiro**: `5051-1234`.
+- **Kingdom Partners Program**:
+  - *Supporter*: 150 SEK/månad (Sponsors 1 youth event pass and live streaming bandwidth).
+  - *Beskyddare*: 300 SEK/månad (Sponsors student sound equipment, stage lighting, and local outreach).
+  - *Pelare*: 500 SEK/månad (Sponsors venue rentals, production gear, and pastoral youth mentoring retreats).
+  - Both Stripe (international cards) and Swedish Swish recurring giving are supported.
+- **100% Mission Allocation**: Public metrics report verified expenditures on sound, venue, and community support without high administrative overhead.
+
+---
+
+## 5. Swedish GDPR Article 9 Compliance (Spiritual Data Protection)
+Under European Union GDPR and Swedish law (Integritetsskyddsmyndigheten / IMY), religious and spiritual beliefs constitute **Special Category Personal Data (Article 9)**:
+- **Explicit Consent**: Every prayer request requires an unbundled, affirmative opt-in confirming explicit consent to process spiritual prayer needs.
+- **Pastoral AI Triage**: Submitted requests are analyzed securely via an AI Sidekick (Gemini Flash) with zero training retention to categorize urgency:
+  - Level 1: Standard intercession (routed to verified prayer team).
+  - Level 2: Pastoral care needed (assigned to designated pastoral counselor).
+  - Level 3: Acute crisis (immediate notification dispatched to pastoral lead).
+- **Anonymous Option**: Users can submit prayer requests completely anonymously without providing names, emails, or phone numbers.
+- **No Syndication**: Prayer requests are never publicly published, indexed, or sold.
+
+---
+
+## 6. Youth Safeguarding Policy (<18 Parental Consent)
+Gospels provides volunteer opportunities for teenagers and young adults:
+- Any volunteer applicant under the age of 18 must provide full parent or legal guardian details (Name, Relationship, Phone number, Email) and affirmative verification that guardian consent has been granted.
+- Background vetting and safe ministry standards are maintained across all production and stage teams.
+
+---
+
+## 7. Media & Worship Music
+- Gospels produces and distributes original and contemporary Swedish worship tracks (e.g., *Helig Mark*, *Allt Till Dig*, *Här i Din Närvaro*).
+- Interactive media player is hosted directly on `gospelss.org` with live lyrics display, sound wave equalizers, and streaming API endpoints.
+
+---
+
+## 8. Technical Architecture
+- **Framework**: Next.js 15 (App Router), React 19, TypeScript strict mode.
+- **Design Tokens**: Custom CSS token engine with Warm Grey base (`#F5F5F3` / `#EBEAE5`) and Tech Turquoise accent (`#14B8A6` / `#0D9488`).
+- **Typography**: Hanken Grotesk / Inter for UI, EB Garamond for scripture and quotes.
+- **Icons**: `lucide-react` as primary, Hugging Face as explicit AI / fallback icon.
+- **Data Layer**: Prisma schema modeled for PostgreSQL with local development fallback DAL (`src/lib/db.ts`).
+- **Generative Engine Optimization (GEO)**: Front-loaded factual summaries, Schema.org `NonprofitOrganization` and `Event` structured data, permissive AI robot directives.
+
+---
+
+## 9. Contact & Governance
+- **Email**: kontakt@gospelss.org
+- **Website**: https://gospelss.org
+- **Location**: Gothenburg (Göteborg), Sweden
+- **Org.nr**: 802557-4883
