@@ -101,14 +101,16 @@ export default function HomePage() {
     {
       id: "holy-spirit-worship-2026",
       title: "Holy Spirit Worship 2026",
-      date: "OCT 18 • 18:00",
-      location: "Frihamnen Church, Gothenburg",
+      date: t("18 OKT • 18:00", "OCT 18 • 18:00"),
+      location: t("Frihamnskyrkan, Göteborg", "Frihamnen Church, Gothenburg"),
       category: "indoor",
-      categoryLabel: "Indoor",
+      categoryLabel: t("Inomhus", "Indoor"),
       badgeClass: "bg-secondary-container text-on-secondary-container",
-      attendees: "340 Attending",
-      description:
-        "A regional night of collective acoustic praise, intercession, and gospel communion. Featuring the Gothenburg United Gospel Choir.",
+      attendees: t("340 Anmälda", "340 Attending"),
+      description: t(
+        "En regional kväll av samlad akustisk lovsång, förbön och gospelgemenskap med Gothenburg United Gospel Choir.",
+        "A regional night of collective acoustic praise, intercession, and gospel communion. Featuring the Gothenburg United Gospel Choir."
+      ),
       image:
         "https://lh3.googleusercontent.com/aida-public/AB6AXuDTYNWYf6T944Ks-J_VkQzdXhL5g9ViSXo1X72RK9WWouMHEspLjCOtg-nbaGqu6wnZB6yRZjg0E3rQAdMTvjiZaCK7p7WN3KQhWdOVv_eagNA5gcg_bjzrcdbexTVR79_maRwMkpLcVH5P8qWuiotkGnbs-IiIaiZH_jy9kt-g4hhGlGwukSASaHNW7VPWUkk60QLnZChwbvxW6UL_u-rmuJDOEOTO5gBXZDI8TLUiaIQUjRuIk_Qx3A",
       icon: Pin,
@@ -117,14 +119,16 @@ export default function HomePage() {
     {
       id: "goteborgs-lovsangskonsert-2027",
       title: "Göteborgs Lovsångskonsert 2027",
-      date: "JUN 12, 2027",
+      date: t("12 JUNI 2027", "JUN 12, 2027"),
       location: "Gustav Adolfs Torg, Göteborg",
       category: "outdoor",
-      categoryLabel: "Outdoor Public",
+      categoryLabel: t("Torg & Utomhus", "Outdoor Public"),
       badgeClass: "bg-primary-fixed text-on-primary-fixed",
-      attendees: "1,850 Interested",
-      description:
-        "The massive annual summer gathering in central Gothenburg. 200+ musicians, 35 partner churches, proclaiming grace to the civic heart.",
+      attendees: t("1 850 Intresserade", "1,850 Interested"),
+      description: t(
+        "Den stora årliga sommarsamlingen i centrala Göteborg. 200+ musiker, 35 partnerkyrkor som förkunnar nåd i stadens hjärta.",
+        "The massive annual summer gathering in central Gothenburg. 200+ musicians, 35 partner churches, proclaiming grace to the civic heart."
+      ),
       image:
         "https://lh3.googleusercontent.com/aida-public/AB6AXuD2Xzb92yWXgjAm17QCeGSYsbsHRUUTHHBr_aMx7cdjSnxNRuqvTU7iFahaU-GISdmahfZTfvuFmNj5fMXPGSVd47gEDS9-PoiyYkCf9hLhErmUkMsOjdkHSWQve3zfZAo5h-ifhOYCTxyPKxC9rMCLD5HauJHs49Ef3FNaH0HZxTXv9iuZBjUekM8FdBs3ALM1ui7uCX0TE0yBsOcAsnreegDmkW-O86E9KVJg1HZ6hAZ9FMzNSkDz7Q",
       icon: Building2,
@@ -133,14 +137,16 @@ export default function HomePage() {
     {
       id: "youth-revival-gothenburg",
       title: "Youth Revival Gothenburg",
-      date: "NOV 04 • 19:30",
+      date: t("04 NOV • 19:30", "NOV 04 • 19:30"),
       location: "Betlehemskyrkan, Vasastan",
       category: "conferences",
-      categoryLabel: "Next-Gen",
+      categoryLabel: t("Ungdom", "Next-Gen"),
       badgeClass: "bg-secondary-container text-on-secondary-container",
-      attendees: "510 Registered",
-      description:
-        "A night consecrated for high school and university students across Västra Götaland to encounter spiritual hope, testimony, and gospel fellowship.",
+      attendees: t("510 Registrerade", "510 Registered"),
+      description: t(
+        "En kväll vigd för gymnasie- och universitetsstudenter över Västra Götaland för att möta andligt hopp, vittnesbörd och gemenskap.",
+        "A night consecrated for high school and university students across Västra Götaland to encounter spiritual hope, testimony, and gospel fellowship."
+      ),
       image:
         "https://lh3.googleusercontent.com/aida-public/AB6AXuBNHl-CQJJh_9eGTFiaI4j2SGhqGtcTw6ggGES1uFwdZ1wB4jRJK9YNCYP2NB5BWPIQvjm9QGsnh2xHX51nt0-VEV3IVZ0mRodL_-uhAD9Mz_DC52B0gz7-izGQxVWW9LglwDXuWYtABDEe-cJBj7dp1zR_cUgA5WonrBFCfV-VGqDVLZVEBMX29FCeq0zoaDZHNvK2DpXWh5KathrbrqUJ2BYLm6VzBTHOTWk93nY1erw1QeUOyBeArQ",
       icon: Building,
@@ -378,14 +384,17 @@ export default function HomePage() {
             <div className="p-5 sm:p-8 rounded-2xl bg-surface-container-low border-l-4 border-l-primary border border-surface-container shadow-sm space-y-3 text-center sm:text-left">
               <div className="inline-block w-8 h-1 bg-primary-container rounded-full mb-2"></div>
               <blockquote className="font-scripture-quote text-lg sm:text-scripture-quote italic text-on-surface leading-snug sm:leading-relaxed tracking-wide">
-                “Sing to the Lord a new song; sing to the Lord, all the earth. Proclaim his salvation day after day.”
+                {t(
+                  "“Sjung till Herren en ny sång, sjung till Herren, hela jorden! Sjung till Herren, prisa hans namn, förkunna hans frälsning dag efter dag.”",
+                  "“Sing to the Lord a new song; sing to the Lord, all the earth. Proclaim his salvation day after day.”"
+                )}
               </blockquote>
               <div className="pt-2 border-t border-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-1">
                 <cite className="font-scripture-citation text-xs sm:text-scripture-citation not-italic uppercase tracking-widest text-on-surface-variant font-semibold">
-                  Psalm 96:1–2
+                  {t("Psaltaren 96:1–2", "Psalm 96:1–2")}
                 </cite>
                 <span className="text-[11px] font-label-sm uppercase tracking-wider text-primary font-bold">
-                  Göteborgs Stadsbön
+                  {t("Göteborgs Stadsbön", "Gothenburg Citywide Prayer")}
                 </span>
               </div>
             </div>
@@ -454,15 +463,18 @@ export default function HomePage() {
 
                 <div className="pt-4 sm:pt-5">
                   <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-label-sm font-label-sm text-primary-fixed mb-1">
-                    <span>Full Concert Set</span>
+                    <span>{t("Full Konsertinspelning", "Full Concert Set")}</span>
                     <span>•</span>
-                    <span>Recorded live at Brunnsparken</span>
+                    <span>{t("Inspelad live vid Brunnsparken", "Recorded live at Brunnsparken")}</span>
                   </div>
                   <h3 className="font-headline-sm sm:font-headline-md text-headline-sm sm:text-headline-md text-white">
-                    Hela Staden Prisar: Open Air Live in Central Gothenburg
+                    {t("Hela Staden Prisar: Live i Centrala Göteborg", "Hela Staden Prisar: Open Air Live in Central Gothenburg")}
                   </h3>
                   <p className="font-body-md text-body-md text-surface-variant mt-2">
-                    Over 30 minutes of non-stop worship, featuring original Swedish gospel arrangements and traditional English hymns orchestrated for full choir and brass section.
+                    {t(
+                      "Över 30 minuter oavbruten lovsång med nyskrivna svenska gospelarrangemang och traditionella psalmer orkestrerade för full kör och blåsensemble.",
+                      "Over 30 minutes of non-stop worship, featuring original Swedish gospel arrangements and traditional English hymns orchestrated for full choir and brass section."
+                    )}
                   </p>
                 </div>
               </div>
@@ -488,13 +500,13 @@ export default function HomePage() {
                   </div>
                   <div className="flex flex-col justify-center min-w-0">
                     <span className="text-[11px] sm:text-label-sm font-label-sm text-primary-fixed truncate">
-                      Acoustic Session • 05:42
+                      {t("Akustisk Session • 05:42", "Acoustic Session • 05:42")}
                     </span>
                     <h4 className="font-headline-sm text-headline-sm text-white text-xs sm:text-sm line-clamp-1 group-hover:text-primary-fixed transition-colors">
                       Guds Nåd Över Haga
                     </h4>
                     <p className="text-xs sm:text-body-sm font-body-sm text-surface-variant line-clamp-1 mt-0.5">
-                      Intimate acoustic guitar session recorded at Haga Church.
+                      {t("Intim akustisk gitarrsession inspelad i Haga Kyrka.", "Intimate acoustic guitar session recorded at Haga Church.")}
                     </p>
                   </div>
                 </div>
@@ -518,13 +530,13 @@ export default function HomePage() {
                   </div>
                   <div className="flex flex-col justify-center min-w-0">
                     <span className="text-[11px] sm:text-label-sm font-label-sm text-primary-fixed truncate">
-                      Archipelago Sessions • 04:18
+                      {t("Skärgårdssessioner • 04:18", "Archipelago Sessions • 04:18")}
                     </span>
                     <h4 className="font-headline-sm text-headline-sm text-white text-xs sm:text-sm line-clamp-1 group-hover:text-primary-fixed transition-colors">
-                      Strandens Lovsång (Live at Styrsö)
+                      Strandens Lovsång (Live på Styrsö)
                     </h4>
                     <p className="text-xs sm:text-body-sm font-body-sm text-surface-variant line-clamp-1 mt-0.5">
-                      Vocal and Rhodes piano arrangement facing the Kattegat sea.
+                      {t("Sång och Rhodes-piano mot Kattegatt i solnedgång.", "Vocal and Rhodes piano arrangement facing the Kattegat sea.")}
                     </p>
                   </div>
                 </div>
@@ -548,13 +560,13 @@ export default function HomePage() {
                   </div>
                   <div className="flex flex-col justify-center min-w-0">
                     <span className="text-[11px] sm:text-label-sm font-label-sm text-primary-fixed truncate">
-                      Documentary • 08:50
+                      {t("Dokumentär • 08:50", "Documentary • 08:50")}
                     </span>
                     <h4 className="font-headline-sm text-headline-sm text-white text-xs sm:text-sm line-clamp-1 group-hover:text-primary-fixed transition-colors">
-                      Stories of Hope: City Outreach
+                      {t("Hoppets Berättelser: Torgmission", "Stories of Hope: City Outreach")}
                     </h4>
                     <p className="text-xs sm:text-body-sm font-body-sm text-surface-variant line-clamp-1 mt-0.5">
-                      Testimonies of life transformation through street hospitality.
+                      {t("Vittnesbörd om förvandlade liv genom gatuvärdskap och bön.", "Testimonies of life transformation through street hospitality.")}
                     </p>
                   </div>
                 </div>
@@ -564,9 +576,11 @@ export default function HomePage() {
                   <div className="flex items-center gap-3">
                     <Headphones className="w-5 h-5 sm:w-6 sm:h-6 text-primary-fixed shrink-0" />
                     <div>
-                      <p className="text-xs sm:text-label-md font-label-md text-white font-semibold">Stream 'GOSPELS Vol. 1' Live EP</p>
+                      <p className="text-xs sm:text-label-md font-label-md text-white font-semibold">
+                        {t("Streama 'GOSPELS Vol. 1' Live EP", "Stream 'GOSPELS Vol. 1' Live EP")}
+                      </p>
                       <p className="text-[11px] sm:text-label-sm font-label-sm text-surface-variant">
-                        Available on Spotify &amp; Apple Music
+                        {t("Tillgänglig på Spotify & Apple Music", "Available on Spotify & Apple Music")}
                       </p>
                     </div>
                   </div>
@@ -734,17 +748,20 @@ export default function HomePage() {
                   <div className="mt-6 p-6 rounded-xl bg-primary-container/10 border border-primary-container text-center space-y-3">
                     <ShieldCheck className="w-10 h-10 text-primary mx-auto" />
                     <h4 className="font-headline-md text-headline-md text-on-background">
-                      Tack för din bön
+                      {t("Tack för din böneförfrågan", "Thank you for your prayer request")}
                     </h4>
                     <p className="font-body-md text-body-md text-on-surface-variant">
-                      Ditt böneämne har mottagits i fullständig konfidentialitet enligt svensk GDPR Artikel 9. Vårt själavårdsteam ber för dig.
+                      {t(
+                        "Ditt böneämne har mottagits i fullständig konfidentialitet enligt svensk GDPR Artikel 9. Vårt själavårdsteam ber för dig.",
+                        "Your request has been received with strict confidentiality under Swedish GDPR Article 9. Our pastoral care team is lifting you up."
+                      )}
                     </p>
                     <button
                       type="button"
                       onClick={() => setPrayerSubmitted(false)}
                       className="mt-2 text-primary font-label-md text-label-md hover:underline"
                     >
-                      Skicka ett till böneämne
+                      {t("Skicka ett till böneämne", "Submit another prayer request")}
                     </button>
                   </div>
                 ) : (
@@ -759,13 +776,13 @@ export default function HomePage() {
                         className="block text-label-sm font-label-sm text-on-surface font-semibold mb-1.5"
                         htmlFor="prayer-name"
                       >
-                        Your Name (or Anonymous)
+                        {t("Ditt Namn (eller Anonym)", "Your Name (or Anonymous)")}
                       </label>
                       <input
                         id="prayer-name"
                         value={prayerName}
                         onChange={(e) => setPrayerName(e.target.value)}
-                        placeholder="Fyll i namn eller lämna tomt"
+                        placeholder={t("Fyll i namn eller lämna tomt för anonym", "Enter name or leave blank for anonymous")}
                         type="text"
                         className="w-full rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface text-body-md focus:border-primary focus:ring-2 focus:ring-primary/20 py-2.5 px-3.5 transition"
                       />
@@ -776,7 +793,7 @@ export default function HomePage() {
                         className="block text-label-sm font-label-sm text-on-surface font-semibold mb-1.5"
                         htmlFor="prayer-email"
                       >
-                        Email (if you wish to receive a response)
+                        {t("E-postadress (om du önskar personligt svar)", "Email Address (if you desire a response)")}
                       </label>
                       <input
                         id="prayer-email"
@@ -793,7 +810,7 @@ export default function HomePage() {
                         className="block text-label-sm font-label-sm text-on-surface font-semibold mb-1.5"
                         htmlFor="prayer-request"
                       >
-                        How Can We Pray for You?
+                        {t("Hur kan vi be för dig?", "How Can We Pray for You?")}
                       </label>
                       <textarea
                         id="prayer-request"
@@ -801,7 +818,7 @@ export default function HomePage() {
                         rows={3}
                         value={prayerRequest}
                         onChange={(e) => setPrayerRequest(e.target.value)}
-                        placeholder="Skriv din bön eller situation här..."
+                        placeholder={t("Skriv din bön eller livssituation här...", "Share your prayer need or situation here...")}
                         className="w-full rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface text-body-md focus:border-primary focus:ring-2 focus:ring-primary/20 py-2.5 px-3.5 transition"
                       ></textarea>
                     </div>
@@ -818,7 +835,10 @@ export default function HomePage() {
                         htmlFor="confidential"
                         className="text-xs sm:text-body-sm font-body-sm text-on-surface-variant cursor-pointer"
                       >
-                        Keep this request strictly confidential (GDPR Art. 9)
+                        {t(
+                          "Håll detta böneämne strikt konfidentiellt (GDPR Art. 9)",
+                          "Keep this request strictly confidential (GDPR Art. 9)"
+                        )}
                       </label>
                     </div>
 
@@ -828,7 +848,11 @@ export default function HomePage() {
                       className="w-full mt-2 bg-on-background hover:bg-slate-800 text-surface font-label-md text-label-md py-3 rounded-lg shadow-sm transition duration-150 flex items-center justify-center gap-2 disabled:opacity-50"
                     >
                       <Send className="w-4 h-4" />
-                      <span>{prayerSubmitting ? "Skickar..." : "Submit Prayer Request"}</span>
+                      <span>
+                        {prayerSubmitting
+                          ? t("Skickar bön...", "Submitting Prayer...")
+                          : t("Skicka Böneförfrågan", "Submit Prayer Request")}
+                      </span>
                     </button>
                   </form>
                 )}
@@ -841,7 +865,10 @@ export default function HomePage() {
         <section className="py-10 sm:py-16 bg-surface border-t border-outline-variant/30" id="partners">
           <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 text-center">
             <p className="text-label-sm font-label-sm uppercase tracking-widest text-outline font-semibold mb-4 sm:mb-6">
-              United With Over 40 Partner Congregations in West Sweden
+              {t(
+                "Förenade med över 40 partnerförsamlingar i Västsverige",
+                "United With Over 40 Partner Congregations in West Sweden"
+              )}
             </p>
             {/* Logo Marks Row */}
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2.5 sm:gap-8 md:gap-14 opacity-75 grayscale hover:grayscale-0 transition duration-300">
@@ -871,7 +898,12 @@ export default function HomePage() {
                 onClick={() => setVolunteerOpen(true)}
                 className="inline-flex items-center gap-1.5 text-primary hover:text-secondary font-label-sm sm:font-label-md text-label-sm sm:text-label-md font-semibold text-center"
               >
-                <span>Vill din församling stå med oss? Bli partnerförsamling</span>
+                <span>
+                  {t(
+                    "Vill din församling stå med oss? Bli partnerförsamling",
+                    "Does your church want to stand with us? Become a partner church"
+                  )}
+                </span>
                 <ArrowUpRight className="w-4 h-4 shrink-0" />
               </button>
             </div>
@@ -883,14 +915,16 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/60 text-secondary text-label-sm font-label-sm font-semibold mb-3 sm:mb-4">
               <Users className="w-4 h-4" />
-              <span>Tjäna i Göteborg • Volontärteam</span>
+              <span>{t("Tjäna i Göteborg • Volontärteam", "Serve in Gothenburg • Volunteer Teams")}</span>
             </div>
             <h2 className="font-headline-md sm:font-headline-lg text-headline-md sm:text-headline-lg text-on-background mb-3">
-              Vill du vara med och tjäna bakom kulisserna?
+              {t("Vill du vara med och tjäna bakom kulisserna?", "Want to serve behind the scenes?")}
             </h2>
             <p className="font-body-md text-body-md text-on-surface-variant mb-6 max-w-xl mx-auto">
-              Vi söker dig som vill vara med i vårt värdskap, ljud/ljus, foto/media, scenbygge eller
-              förbönsteam. Vi erbjuder varm kristen gemenskap och trygg handledning för alla åldrar.
+              {t(
+                "Vi söker dig som vill vara med i vårt värdskap, ljud/ljus, foto/media, scenbygge eller förbönsteam. Vi erbjuder varm kristen gemenskap och trygg handledning för alla åldrar.",
+                "We welcome anyone wishing to serve in hospitality, sound/lighting, photo/media, stage production, or prayer teams. We offer warm Christian fellowship and supportive guidance for all ages."
+              )}
             </p>
             <button
               type="button"
@@ -898,7 +932,7 @@ export default function HomePage() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary hover:bg-secondary font-label-md text-label-md px-6 py-3.5 rounded-lg shadow-md custom-halo transition duration-150 active:scale-95"
             >
               <Users className="w-4 h-4" />
-              <span>Ansök som Volontär</span>
+              <span>{t("Ansök som Volontär", "Apply as a Volunteer")}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

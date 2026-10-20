@@ -19,6 +19,7 @@ import {
   Sparkles,
   Check,
   Copy,
+  Globe,
 } from "lucide-react";
 
 interface NavbarProps {
@@ -169,33 +170,38 @@ export function Navbar({
 
               {/* Desktop Actions Cluster */}
               <div className="hidden lg:flex items-center gap-2.5 shrink-0">
-                {/* Language Switcher Pill */}
+                {/* Language Switcher Pill (High-Contrast Segmented Control) */}
                 <div
                   aria-label="Language Selector"
-                  className="inline-flex items-center bg-black/5 dark:bg-white/10 rounded-full p-0.5 border border-black/5 dark:border-white/10"
+                  className="inline-flex items-center bg-stone-200/80 dark:bg-white/10 rounded-full p-1 border border-stone-300/80 dark:border-white/15 shadow-inner"
                   role="group"
                 >
+                  <Globe className="w-3.5 h-3.5 text-stone-600 dark:text-stone-300 ml-1.5 mr-1 shrink-0" aria-hidden="true" />
                   <button
                     type="button"
                     onClick={() => setLanguage("SV")}
-                    className={`px-2.5 py-1 rounded-full text-xs transition duration-150 ${
+                    title="Svenska"
+                    aria-label="Byt till svenska"
+                    className={`px-2.5 py-1 rounded-full text-xs font-bold tracking-wide transition-all duration-150 ${
                       language === "SV"
-                        ? "bg-white dark:bg-primary-container text-primary dark:text-on-primary font-bold shadow-2xs"
-                        : "text-on-surface-variant hover:text-on-surface font-medium"
+                        ? "bg-primary-container text-on-primary shadow-xs"
+                        : "text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white font-medium"
                     }`}
                   >
-                    SV
+                    SWE
                   </button>
                   <button
                     type="button"
                     onClick={() => setLanguage("EN")}
-                    className={`px-2.5 py-1 rounded-full text-xs transition duration-150 ${
+                    title="English"
+                    aria-label="Switch to English"
+                    className={`px-2.5 py-1 rounded-full text-xs font-bold tracking-wide transition-all duration-150 ${
                       language === "EN"
-                        ? "bg-white dark:bg-primary-container text-primary dark:text-on-primary font-bold shadow-2xs"
-                        : "text-on-surface-variant hover:text-on-surface font-medium"
+                        ? "bg-primary-container text-on-primary shadow-xs"
+                        : "text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white font-medium"
                     }`}
                   >
-                    EN
+                    ENG
                   </button>
                 </div>
 
@@ -221,33 +227,37 @@ export function Navbar({
 
               {/* Mobile Trailing Cluster (Language Toggle & Menu Trigger) */}
               <div className="flex lg:hidden items-center gap-2">
-                {/* Language Switcher Pill (Compact) */}
+                {/* Language Switcher Pill (Compact SWE / ENG) */}
                 <div
                   aria-label="Language Selector"
-                  className="inline-flex items-center bg-black/5 dark:bg-white/10 rounded-full p-0.5 border border-black/5 dark:border-white/10"
+                  className="inline-flex items-center bg-stone-200/80 dark:bg-white/10 rounded-full p-0.5 border border-stone-300/80 dark:border-white/15"
                   role="group"
                 >
                   <button
                     type="button"
                     onClick={() => setLanguage("SV")}
-                    className={`px-2 py-0.5 rounded-full text-[11px] font-bold transition ${
+                    title="Svenska"
+                    aria-label="Svenska"
+                    className={`px-2 py-0.5 rounded-full text-[11px] font-bold tracking-wide transition ${
                       language === "SV"
-                        ? "bg-white dark:bg-primary-container text-primary dark:text-on-primary shadow-2xs"
-                        : "text-on-surface-variant hover:text-on-surface"
+                        ? "bg-primary-container text-on-primary shadow-xs"
+                        : "text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white"
                     }`}
                   >
-                    SV
+                    SWE
                   </button>
                   <button
                     type="button"
                     onClick={() => setLanguage("EN")}
-                    className={`px-2 py-0.5 rounded-full text-[11px] font-bold transition ${
+                    title="English"
+                    aria-label="English"
+                    className={`px-2 py-0.5 rounded-full text-[11px] font-bold tracking-wide transition ${
                       language === "EN"
-                        ? "bg-white dark:bg-primary-container text-primary dark:text-on-primary shadow-2xs"
-                        : "text-on-surface-variant hover:text-on-surface"
+                        ? "bg-primary-container text-on-primary shadow-xs"
+                        : "text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white"
                     }`}
                   >
-                    EN
+                    ENG
                   </button>
                 </div>
 
@@ -293,6 +303,38 @@ export function Navbar({
                     );
                   })}
                 </nav>
+
+                {/* Language Selection in Drawer */}
+                <div className="pt-2 border-t border-black/[0.06] dark:border-white/[0.1] flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-1">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-on-surface-variant">
+                    <Globe className="w-4 h-4 text-primary" />
+                    <span>{t("Välj Språk", "Select Language")}</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-1.5 bg-stone-200/70 dark:bg-white/10 rounded-xl p-1 border border-stone-300/80 dark:border-white/15">
+                    <button
+                      type="button"
+                      onClick={() => setLanguage("SV")}
+                      className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition text-center ${
+                        language === "SV"
+                          ? "bg-primary-container text-on-primary shadow-xs"
+                          : "text-stone-600 dark:text-stone-300 hover:text-stone-900"
+                      }`}
+                    >
+                      Svenska (SWE)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setLanguage("EN")}
+                      className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition text-center ${
+                        language === "EN"
+                          ? "bg-primary-container text-on-primary shadow-xs"
+                          : "text-stone-600 dark:text-stone-300 hover:text-stone-900"
+                      }`}
+                    >
+                      English (ENG)
+                    </button>
+                  </div>
+                </div>
 
                 {/* Action CTAs in Mobile Drawer */}
                 <div className="pt-2 border-t border-black/[0.06] dark:border-white/[0.1] grid grid-cols-1 sm:grid-cols-2 gap-2">

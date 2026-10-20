@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { X, Copy, Check, Heart, Shield } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface SwishModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface SwishModalProps {
 }
 
 export function SwishModal({ isOpen, onClose }: SwishModalProps) {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
   const swishNumber = "123 557 48 83";
   const orgNumber = "802557-4883";
@@ -93,13 +95,13 @@ export function SwishModal({ isOpen, onClose }: SwishModalProps) {
                 color: "var(--color-charcoal-900)",
               }}
             >
-              Stöd GOSPELS med Swish
+              {t("Stöd GOSPELS med Swish", "Support GOSPELS with Swish")}
             </h3>
           </div>
 
           <button
             onClick={onClose}
-            aria-label="Stäng modal"
+            aria-label={t("Stäng modal", "Close modal")}
             style={{
               padding: "0.5rem",
               borderRadius: "var(--radius-pill)",
@@ -113,7 +115,10 @@ export function SwishModal({ isOpen, onClose }: SwishModalProps) {
         {/* Body */}
         <div style={{ padding: "1.75rem" }}>
           <p style={{ fontSize: "var(--text-sm)", color: "var(--color-charcoal-700)", marginBottom: "1.25rem", lineHeight: 1.5 }}>
-            Alla gåvor går oavkortat till att möjliggöra kostnadsfria lovsångssamlingar, lokaler och teknisk utrustning för unga i Göteborg.
+            {t(
+              "Alla gåvor går oavkortat till att möjliggöra kostnadsfria lovsångssamlingar, lokaler och teknisk utrustning för unga i Göteborg.",
+              "All gifts directly support free praise gatherings, sanctuary logistics, and worship equipment for youth across Gothenburg."
+            )}
           </p>
 
           {/* Swish Number Box */}
@@ -128,7 +133,7 @@ export function SwishModal({ isOpen, onClose }: SwishModalProps) {
             }}
           >
             <span style={{ fontSize: "var(--text-xs)", textTransform: "uppercase", fontWeight: 700, color: "var(--color-charcoal-500)", letterSpacing: "0.05em", display: "block", marginBottom: "0.5rem" }}>
-              Swish-nummer
+              {t("Swish-nummer", "Swish Number")}
             </span>
             <div
               style={{
@@ -158,7 +163,7 @@ export function SwishModal({ isOpen, onClose }: SwishModalProps) {
               }}
             >
               {copied ? <Check size={14} /> : <Copy size={14} />}
-              <span>{copied ? "Kopierat!" : "Kopiera Nummer"}</span>
+              <span>{copied ? t("Kopierat!", "Copied!") : t("Kopiera Nummer", "Copy Number")}</span>
             </button>
           </div>
 
@@ -178,9 +183,9 @@ export function SwishModal({ isOpen, onClose }: SwishModalProps) {
           >
             <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
               <Shield size={14} color="var(--color-turquoise-600)" />
-              <strong>Mottagare: Gospels (Ideell Förening)</strong>
+              <strong>{t("Mottagare: Gospels (Ideell Förening)", "Recipient: Gospels (Non-Profit Organisation)")}</strong>
             </div>
-            <span><strong>Organisationsnummer:</strong> {orgNumber}</span>
+            <span><strong>{t("Organisationsnummer:", "Org. Number:")}</strong> {orgNumber}</span>
             <span><strong>Bankgiro:</strong> {bankgiro}</span>
           </div>
 
@@ -196,7 +201,7 @@ export function SwishModal({ isOpen, onClose }: SwishModalProps) {
               fontWeight: 600,
             }}
           >
-            Stäng
+            {t("Stäng", "Close")}
           </button>
         </div>
       </div>

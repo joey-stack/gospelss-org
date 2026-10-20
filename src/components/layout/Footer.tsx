@@ -3,8 +3,11 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-on-background dark:bg-surface-container-lowest text-surface border-t border-white/10 w-full">
       <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 py-10 sm:py-16">
@@ -24,13 +27,14 @@ export default function Footer() {
               </span>
             </Link>
             <p className="font-body-sm text-body-sm text-surface-dim max-w-sm leading-relaxed">
-              GOSPELS är en ideell musik- och lovsångsorganisation baserad i Göteborg (Org.nr: 802557-4883).
-              Vi verkar ekumeniskt för att göra evangeliet tillgängligt och levande genom musik, öppen gemenskap
-              och bön i stadens offentliga rum.
+              {t(
+                "GOSPELS är en ideell musik- och lovsångsorganisation baserad i Göteborg (Org.nr: 802557-4883). Vi verkar ekumeniskt för att göra evangeliet tillgängligt och levande genom musik, öppen gemenskap och bön i stadens offentliga rum.",
+                "GOSPELS is a non-profit gospel worship organisation based in Gothenburg, Sweden (Org.nr: 802557-4883). We unite churches across denominations to proclaim hope, grace, and community through public concerts and open-air praise."
+              )}
             </p>
             <div className="pt-2">
               <span className="text-label-sm font-label-sm text-primary-container font-semibold uppercase tracking-wider block mb-1">
-                Gåvokonto &amp; Swish
+                {t("Gåvokonto & Swish", "Giving Account & Swish")}
               </span>
               <span className="font-mono text-body-md text-surface font-semibold">
                 Swish: 123 456 7890 • BG: 512-3456
@@ -41,32 +45,32 @@ export default function Footer() {
           {/* Footer Links Col 1 (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="font-headline-sm text-headline-sm text-surface font-semibold">
-              Organisation
+              {t("Organisation", "Organization")}
             </h4>
             <ul className="space-y-2 text-body-sm font-body-sm">
               <li>
                 <Link href="/om-oss" className="text-surface-dim hover:text-primary-container transition-colors">
-                  Om oss
+                  {t("Om oss", "About Us")}
                 </Link>
               </li>
               <li>
                 <Link href="/events" className="text-surface-dim hover:text-primary-container transition-colors">
-                  Evenemang
+                  {t("Evenemang", "Events")}
                 </Link>
               </li>
               <li>
                 <Link href="/watch" className="text-surface-dim hover:text-primary-container transition-colors">
-                  Se &amp; Lyssna
+                  {t("Se & Lyssna", "Watch & Listen")}
                 </Link>
               </li>
               <li>
                 <Link href="/partners" className="text-surface-dim hover:text-primary-container transition-colors">
-                  Bli Partner
+                  {t("Bli Partner", "Become Partner")}
                 </Link>
               </li>
               <li>
                 <Link href="/integritetspolicy" className="text-surface-dim hover:text-primary-container transition-colors">
-                  Integritetspolicy
+                  {t("Integritetspolicy", "Privacy Policy")}
                 </Link>
               </li>
             </ul>
@@ -75,32 +79,32 @@ export default function Footer() {
           {/* Footer Links Col 2 (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="font-headline-sm text-headline-sm text-surface font-semibold">
-              Engagera dig
+              {t("Engagera dig", "Get Involved")}
             </h4>
             <ul className="space-y-2 text-body-sm font-body-sm">
               <li>
                 <Link href="/give" className="text-surface-dim hover:text-primary-container transition-colors">
-                  Swish &amp; Ge
+                  {t("Swish & Ge", "Swish & Give")}
                 </Link>
               </li>
               <li>
                 <Link href="/prayer" className="text-surface-dim hover:text-primary-container transition-colors">
-                  Böneförfrågan
+                  {t("Böneförfrågan", "Prayer Request")}
                 </Link>
               </li>
               <li>
-                <Link href="/get-involved/youth" className="text-surface-dim hover:text-primary-container transition-colors">
-                  Ungdomsnätverk
+                <Link href="/volunteer" className="text-surface-dim hover:text-primary-container transition-colors">
+                  {t("Bli Volontär", "Volunteer")}
                 </Link>
               </li>
               <li>
                 <Link href="/anvandarvillkor" className="text-surface-dim hover:text-primary-container transition-colors">
-                  Användarvillkor
+                  {t("Användarvillkor", "Terms of Service")}
                 </Link>
               </li>
               <li>
                 <Link href="/kontakt" className="text-surface-dim hover:text-primary-container transition-colors">
-                  Kontakt
+                  {t("Kontakt", "Contact")}
                 </Link>
               </li>
             </ul>
@@ -109,20 +113,20 @@ export default function Footer() {
           {/* Contact & Location (4 cols) */}
           <div className="lg:col-span-4 space-y-3">
             <h4 className="font-headline-sm text-headline-sm text-surface font-semibold">
-              Kontakt &amp; Mötesplatser
+              {t("Kontakt & Mötesplatser", "Contact & Locations")}
             </h4>
             <p className="font-body-sm text-body-sm text-surface-dim leading-relaxed">
-              GOSPELS Musikförening<br />
+              {t("GOSPELS Musikförening", "GOSPELS Music Ministry")}<br />
               Postgatan 14, 411 13 Göteborg<br />
-              Västra Götalands län, Sverige
+              {t("Västra Götalands län, Sverige", "Västra Götaland County, Sweden")}
             </p>
             <p className="font-body-sm text-body-sm text-surface-dim pt-1">
-              E-post:{" "}
+              {t("E-post", "Email")}:{" "}
               <a href="mailto:kontakt@gospelss.org" className="text-primary-container hover:underline">
                 kontakt@gospelss.org
               </a>
               <br />
-              Telefon: +46 (0)31 789 20 00
+              {t("Telefon", "Phone")}: +46 (0)31 789 20 00
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-3 pt-3">
@@ -166,10 +170,16 @@ export default function Footer() {
         {/* Bottom Footnote Row with Scripture Citation & Copyright */}
         <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-surface-dim font-body-sm text-body-sm text-center sm:text-left">
           <p className="font-scripture-citation text-scripture-citation text-primary-container/80 tracking-normal">
-            “Gör alla folk till lärjungar” — Matt 28:19 • Tillsammans för Göteborg
+            {t(
+              "“Gör alla folk till lärjungar” — Matt 28:19 • Tillsammans för Göteborg",
+              "“Make disciples of all nations” — Matt 28:19 • Together for Gothenburg"
+            )}
           </p>
           <p className="text-center sm:text-right text-xs sm:text-body-sm">
-            © 2026 GOSPELS Music Ministry. Ideell förening i Göteborg (Org.nr: 802557-4883). All rights reserved.
+            {t(
+              "© 2026 GOSPELS Musikförening. Ideell förening i Göteborg (Org.nr: 802557-4883). Alla rättigheter förbehållna.",
+              "© 2026 GOSPELS Music Ministry. Registered non-profit in Gothenburg (Org.nr: 802557-4883). All rights reserved."
+            )}
           </p>
         </div>
       </div>

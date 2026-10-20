@@ -296,13 +296,15 @@ export default function HolySpiritWorshipExactPage() {
             <div className="flex items-center justify-between border-b border-outline-variant/30 pb-4">
               <div>
                 <span className="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">
-                  Liturgy &amp; Flow
+                  {t("Liturgi & Programflöde", "Liturgy & Flow")}
                 </span>
-                <h2 className="text-headline-md font-headline-md text-on-surface">Run of Show &amp; Schedule</h2>
+                <h2 className="text-headline-md font-headline-md text-on-surface">
+                  {t("Hålltider & Programöversikt", "Run of Show & Schedule")}
+                </h2>
               </div>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm">
                 <Timer className="w-4 h-4 text-primary" />
-                <span>4h Total Gathering Duration</span>
+                <span>{t("4 timmar total samlingstid", "4h Total Gathering Duration")}</span>
               </span>
             </div>
 
@@ -317,9 +319,14 @@ export default function HolySpiritWorshipExactPage() {
                     <span className="text-label-sm font-label-sm text-primary font-bold font-mono">17:00 CEST</span>
                     <span className="text-body-sm font-body-sm text-on-surface-variant">60 min</span>
                   </div>
-                  <h3 className="text-headline-sm font-headline-sm text-on-surface mt-1">Doors Open &amp; Sanctuary Prelude</h3>
+                  <h3 className="text-headline-sm font-headline-sm text-on-surface mt-1">
+                    {t("Dörrarna öppnas & Sanctuary-preludium", "Doors Open & Sanctuary Prelude")}
+                  </h3>
                   <p className="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-relaxed">
-                    Quiet sanctuary arrival, acoustic guitar and piano meditations, and prayer requests deposited at prayer boxes.
+                    {t(
+                      "Stilla ankomst i kyrksalen med akustiska gitarr- och pianomeditationer samt bönebrevlådor öppna för förbön.",
+                      "Quiet sanctuary arrival, acoustic guitar and piano meditations, and prayer requests deposited at prayer boxes."
+                    )}
                   </p>
                 </div>
               </div>
@@ -335,13 +342,16 @@ export default function HolySpiritWorshipExactPage() {
                     <span className="text-body-sm font-body-sm text-on-surface-variant">75 min</span>
                   </div>
                   <h3 className="text-headline-sm font-headline-sm text-on-surface mt-1 flex items-center gap-2 flex-wrap">
-                    <span>United Choral Worship &amp; Nordic Anthems</span>
+                    <span>{t("Gemensam Körlovsång & Nordiska Hymner", "United Choral Worship & Nordic Anthems")}</span>
                     <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary">
-                      CORE SERVICE
+                      {t("HUVUDSAMLING", "CORE SERVICE")}
                     </span>
                   </h3>
                   <p className="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-relaxed">
-                    50-voice collective choir and rhythm section blending classic Swedish revival hymns with energetic gospel praise.
+                    {t(
+                      "50-stämmig gemensam kör och kompband som förenar klassiska svenska väckelsesånger med kraftfull gospelpris.",
+                      "50-voice collective choir and rhythm section blending classic Swedish revival hymns with energetic gospel praise."
+                    )}
                   </p>
                 </div>
               </div>
@@ -356,9 +366,14 @@ export default function HolySpiritWorshipExactPage() {
                     <span className="text-label-sm font-label-sm text-primary font-bold font-mono">19:15 CEST</span>
                     <span className="text-body-sm font-body-sm text-on-surface-variant">30 min</span>
                   </div>
-                  <h3 className="text-headline-sm font-headline-sm text-on-surface mt-1">Keynote Word &amp; Citywide Blessing</h3>
+                  <h3 className="text-headline-sm font-headline-sm text-on-surface mt-1">
+                    {t("Förkunnelse & Välsignelse över Staden", "Keynote Word & Citywide Blessing")}
+                  </h3>
                   <p className="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-relaxed">
-                    Short Christ-centered message on civic unity and spiritual renewal across Gothenburg by Pastor Samuel Mensah.
+                    {t(
+                      "Kort Kristus-centrerat budskap om enhet och andlig förnyelse i Göteborg av Pastor Samuel Mensah.",
+                      "Short Christ-centered message on civic unity and spiritual renewal across Gothenburg by Pastor Samuel Mensah."
+                    )}
                   </p>
                 </div>
               </div>
@@ -373,9 +388,14 @@ export default function HolySpiritWorshipExactPage() {
                     <span className="text-label-sm font-label-sm text-primary font-bold font-mono">19:45 CEST</span>
                     <span className="text-body-sm font-body-sm text-on-surface-variant">60 min</span>
                   </div>
-                  <h3 className="text-headline-sm font-headline-sm text-on-surface mt-1">Spontaneous Adoration &amp; Prayer Ministry</h3>
+                  <h3 className="text-headline-sm font-headline-sm text-on-surface mt-1">
+                    {t("Spontan Tillbedjan & Personlig Förbön", "Spontaneous Adoration & Prayer Ministry")}
+                  </h3>
                   <p className="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-relaxed">
-                    Open altar ministry with 14 trained intercessory prayer teams stationed around the sanctuary perimeter. All traditions welcome.
+                    {t(
+                      "Öppet altare med 14 utbildade förbönsteam runt kyrkorummet. Fullständig tystnadsplikt och alla välkomna.",
+                      "Open altar ministry with 14 trained intercessory prayer teams stationed around the sanctuary perimeter. All traditions welcome."
+                    )}
                   </p>
                 </div>
               </div>
@@ -388,11 +408,18 @@ export default function HolySpiritWorshipExactPage() {
                 <div className="flex-1 bg-surface-container-low/60 rounded-2xl p-4 border border-outline-variant/30">
                   <div className="flex items-center justify-between">
                     <span className="text-label-sm font-label-sm text-primary font-bold font-mono">20:45 CEST</span>
-                    <span className="text-body-sm font-body-sm text-on-surface-variant">Social &amp; Fika</span>
+                    <span className="text-body-sm font-body-sm text-on-surface-variant">
+                      {t("Gemenskap & Fika", "Social & Fika")}
+                    </span>
                   </div>
-                  <h3 className="text-headline-sm font-headline-sm text-on-surface mt-1">Fellowship &amp; Nordic Kyrkfika</h3>
+                  <h3 className="text-headline-sm font-headline-sm text-on-surface mt-1">
+                    {t("Gemenskap & Nordiskt Kyrkfika", "Fellowship & Nordic Kyrkfika")}
+                  </h3>
                   <p className="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-relaxed">
-                    Warm cinnamon buns (kanelbullar), fair-trade pour-over coffee, and community connection lounge in the church atrium.
+                    {t(
+                      "Varma kanelbullar, rättvisemärkt kaffe och varm gemenskap i kyrkans foajé.",
+                      "Warm cinnamon buns (kanelbullar), fair-trade pour-over coffee, and community connection lounge in the church atrium."
+                    )}
                   </p>
                 </div>
               </div>
@@ -422,9 +449,14 @@ export default function HolySpiritWorshipExactPage() {
             {confirmed ? (
               <div className="p-6 rounded-2xl bg-primary-container/10 border border-primary-container text-center space-y-4">
                 <CheckCircle2 className="w-12 h-12 text-primary mx-auto" />
-                <h4 className="font-headline-sm font-bold text-on-surface">Reservation Confirmed!</h4>
+                <h4 className="font-headline-sm font-bold text-on-surface">
+                  {t("Plats Reserverad!", "Reservation Confirmed!")}
+                </h4>
                 <p className="text-body-sm text-on-surface-variant">
-                  Thank you, {fullName}! A confirmation pass for {seatCount} seats has been registered for {email}.
+                  {t(
+                    `Tack, ${fullName}! En bekräftelse för ${seatCount} platser har registrerats för ${email}.`,
+                    `Thank you, ${fullName}! A confirmation pass for ${seatCount} seats has been registered for ${email}.`
+                  )}
                 </p>
                 <div className="pt-2 flex flex-col gap-2">
                   <button
@@ -433,14 +465,14 @@ export default function HolySpiritWorshipExactPage() {
                     className="w-full py-2.5 rounded-xl bg-primary-container text-white font-bold text-sm shadow-xs flex items-center justify-center gap-2 hover:bg-primary transition"
                   >
                     <CalendarPlus className="w-4 h-4" />
-                    <span>Add to Calendar (.ics)</span>
+                    <span>{t("Lägg till i kalender (.ics)", "Add to Calendar (.ics)")}</span>
                   </button>
                   <button
                     type="button"
                     onClick={() => setConfirmed(false)}
                     className="text-xs text-primary font-semibold hover:underline"
                   >
-                    Book for another group
+                    {t("Boka för ytterligare ett sällskap", "Book for another group")}
                   </button>
                 </div>
               </div>
@@ -448,11 +480,11 @@ export default function HolySpiritWorshipExactPage() {
               <form className="space-y-4" onSubmit={handleRsvpSubmit}>
                 <div>
                   <label className="block text-label-sm font-label-sm text-on-surface mb-1.5 font-semibold">
-                    Full Name *
+                    {t("För- och efternamn *", "Full Name *")}
                   </label>
                   <input
                     className="w-full rounded-xl border-outline-variant text-body-md font-body-md py-3 px-4 focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all bg-surface-container-low border"
-                    placeholder="e.g. Linnea Lindqvist"
+                    placeholder={t("t.ex. Linnea Lindqvist", "e.g. Linnea Lindqvist")}
                     required
                     type="text"
                     value={fullName}
@@ -461,7 +493,7 @@ export default function HolySpiritWorshipExactPage() {
                 </div>
                 <div>
                   <label className="block text-label-sm font-label-sm text-on-surface mb-1.5 font-semibold">
-                    Email Address *
+                    {t("E-postadress *", "Email Address *")}
                   </label>
                   <input
                     className="w-full rounded-xl border-outline-variant text-body-md font-body-md py-3 px-4 focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all bg-surface-container-low border"
@@ -475,28 +507,28 @@ export default function HolySpiritWorshipExactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-label-sm font-label-sm text-on-surface mb-1.5 font-semibold">
-                      Seat Count
+                      {t("Antal Platser", "Seat Count")}
                     </label>
                     <select
                       className="w-full rounded-xl border-outline-variant text-body-md font-body-md py-3 px-3 focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all bg-surface-container-low border"
                       value={seatCount}
                       onChange={(e) => setSeatCount(e.target.value)}
                     >
-                      <option value="1">1 Person</option>
-                      <option value="2">2 Persons</option>
-                      <option value="3">3 Persons</option>
-                      <option value="4">4 Persons</option>
-                      <option value="5">5 Persons</option>
-                      <option value="6">6 Persons (Max Delegation)</option>
+                      <option value="1">{t("1 Person", "1 Person")}</option>
+                      <option value="2">{t("2 Personer", "2 Persons")}</option>
+                      <option value="3">{t("3 Personer", "3 Persons")}</option>
+                      <option value="4">{t("4 Personer", "4 Persons")}</option>
+                      <option value="5">{t("5 Personer", "5 Persons")}</option>
+                      <option value="6">{t("6 Personer (Max Sällskap)", "6 Persons (Max Delegation)")}</option>
                     </select>
                   </div>
                   <div>
                     <label className="block text-label-sm font-label-sm text-on-surface mb-1.5 font-semibold">
-                      Home Church
+                      {t("Hemförsamling", "Home Church")}
                     </label>
                     <input
                       className="w-full rounded-xl border-outline-variant text-body-md font-body-md py-3 px-3 focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all bg-surface-container-low border"
-                      placeholder="e.g. Smyrna, Hillsong, or Seeker"
+                      placeholder={t("t.ex. Smyrna, Betlehem eller Sökare", "e.g. Smyrna, Hillsong, or Seeker")}
                       type="text"
                       value={homeChurch}
                       onChange={(e) => setHomeChurch(e.target.value)}
@@ -511,7 +543,7 @@ export default function HolySpiritWorshipExactPage() {
                       checked={wheelchair}
                       onChange={(e) => setWheelchair(e.target.checked)}
                     />
-                    <span>Wheelchair access / Accessible seating</span>
+                    <span>{t("Rullstolsplats / Tillgänglighetsanpassad sittplats", "Wheelchair access / Accessible seating")}</span>
                   </label>
                   <label className="flex items-center gap-2.5 text-body-sm font-body-sm text-on-surface-variant cursor-pointer">
                     <input
@@ -520,7 +552,7 @@ export default function HolySpiritWorshipExactPage() {
                       checked={tSlinga}
                       onChange={(e) => setTSlinga(e.target.checked)}
                     />
-                    <span>Hearing loop (T-Audio / T-Slinga) receiver support</span>
+                    <span>{t("Hörslinga (T-Slinga) mottagarstöd", "Hearing loop (T-Audio / T-Slinga) receiver support")}</span>
                   </label>
                 </div>
                 <div className="pt-2">
@@ -530,13 +562,13 @@ export default function HolySpiritWorshipExactPage() {
                     disabled={submitting}
                   >
                     <CheckCircle2 className="w-5 h-5" />
-                    <span>{submitting ? "Confirming..." : "Confirm Free Reservation"}</span>
+                    <span>{submitting ? t("Bekräftar...", "Confirming...") : t("Bekräfta Gratisbokning", "Confirm Free Reservation")}</span>
                   </button>
                 </div>
 
                 {/* Calendar Sync */}
                 <div className="pt-3 border-t border-outline-variant/30 flex items-center justify-between text-xs text-on-surface-variant">
-                  <span>Add to Calendar:</span>
+                  <span>{t("Lägg till i kalender:", "Add to Calendar:")}</span>
                   <div className="flex gap-2">
                     <button
                       type="button"
@@ -570,11 +602,16 @@ export default function HolySpiritWorshipExactPage() {
         <section className="space-y-6 w-full">
           <div className="text-center max-w-2xl mx-auto">
             <span className="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">
-              Heart of the Gathering
+              {t("Samlingens Hjärta", "Heart of the Gathering")}
             </span>
-            <h2 className="text-headline-lg font-headline-lg text-on-surface mt-1 font-bold">What to Expect</h2>
+            <h2 className="text-headline-lg font-headline-lg text-on-surface mt-1 font-bold">
+              {t("Vad du kan Förvänta dig", "What to Expect")}
+            </h2>
             <p className="text-body-md font-body-md text-on-surface-variant mt-2">
-              Rooted in ancient liturgical depth and modern gospel vibrancy, every component of the gathering is designed for unhurried presence.
+              {t(
+                "Förankrad i liturgiskt djup och modern gospelsång, varje del av samlingen är formad för stillhet och Guds närvaro.",
+                "Rooted in ancient liturgical depth and modern gospel vibrancy, every component of the gathering is designed for unhurried presence."
+              )}
             </p>
           </div>
 
@@ -585,19 +622,22 @@ export default function HolySpiritWorshipExactPage() {
                 <Speaker className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-headline-sm font-headline-sm text-on-surface font-bold">
-                Deep Worship &amp; Choral Anthems
+                {t("Djup Lovsång & Körhymner", "Deep Worship & Choral Anthems")}
               </h3>
               <p className="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
-                A combined choir of vocalists from Smyrna, Betlehemskyrkan, and Hillsong Göteborg delivering timeless chorales, Nordic psalmody, and spontaneous harmony.
+                {t(
+                  "En samlad kör med sångare från Smyrna, Betlehemskyrkan och Hillsong Göteborg som framför tidlösa koraler, nordisk psalmodi och spontana harmonier.",
+                  "A combined choir of vocalists from Smyrna, Betlehemskyrkan, and Hillsong Göteborg delivering timeless chorales, Nordic psalmody, and spontaneous harmony."
+                )}
               </p>
               <ul className="text-body-sm font-body-sm text-on-surface-variant/80 space-y-2 pt-2">
                 <li className="flex items-center gap-2">
                   <CheckIcon className="w-4 h-4 text-primary shrink-0" />
-                  <span>Live brass, rhythm section &amp; chamber strings</span>
+                  <span>{t("Live blås, rytmsektion & kammarmusik", "Live brass, rhythm section & chamber strings")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckIcon className="w-4 h-4 text-primary shrink-0" />
-                  <span>Open participatory corporate praise</span>
+                  <span>{t("Öppen deltagande gemensam lovsång", "Open participatory corporate praise")}</span>
                 </li>
               </ul>
             </div>
@@ -608,19 +648,22 @@ export default function HolySpiritWorshipExactPage() {
                 <HeartHandshake className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-headline-sm font-headline-sm text-on-surface font-bold">
-                Intercessory Prayer &amp; Ministry
+                {t("Förbön & Personlig Omsorg", "Intercessory Prayer & Ministry")}
               </h3>
               <p className="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
-                Quiet perimeter stations for personal prayer, physical healing, and spiritual encouragement staffed by vetted pastors and elders from partner congregations.
+                {t(
+                  "Stilla förbönsstationer för personlig bön, fysiskt helande och uppmuntran bemannade av erfarna pastorer och ledare från samverkande kyrkor.",
+                  "Quiet perimeter stations for personal prayer, physical healing, and spiritual encouragement staffed by vetted pastors and elders from partner congregations."
+                )}
               </p>
               <ul className="text-body-sm font-body-sm text-on-surface-variant/80 space-y-2 pt-2">
                 <li className="flex items-center gap-2">
                   <CheckIcon className="w-4 h-4 text-primary shrink-0" />
-                  <span>Confidential, non-judgmental space</span>
+                  <span>{t("Konfidentiell och icke-dömande miljö", "Confidential, non-judgmental space")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckIcon className="w-4 h-4 text-primary shrink-0" />
-                  <span>Bilingual ministry teams (SV &amp; EN)</span>
+                  <span>{t("Tvåspråkiga bönateam (SV & EN)", "Bilingual ministry teams (SV & EN)")}</span>
                 </li>
               </ul>
             </div>
@@ -631,19 +674,22 @@ export default function HolySpiritWorshipExactPage() {
                 <Coffee className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-headline-sm font-headline-sm text-on-surface font-bold">
-                Living Word &amp; Nordic Kyrkfika
+                {t("Levande Ord & Nordiskt Kyrkfika", "Living Word & Nordic Kyrkfika")}
               </h3>
               <p className="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
-                A concise, Christ-centered message grounded in scripture followed by Gothenburg’s signature post-service coffee table to foster authentic lifelong community.
+                {t(
+                  "Ett fokuserat Kristus-budskap grundat i Ordet följt av Göteborgs klassiska kyrkfika för äkta gemenskap.",
+                  "A concise, Christ-centered message grounded in scripture followed by Gothenburg’s signature post-service coffee table to foster authentic lifelong community."
+                )}
               </p>
               <ul className="text-body-sm font-body-sm text-on-surface-variant/80 space-y-2 pt-2">
                 <li className="flex items-center gap-2">
                   <CheckIcon className="w-4 h-4 text-primary shrink-0" />
-                  <span>Specialty roast coffee from Ringön roasteries</span>
+                  <span>{t("Nybryggt kaffe från lokala rosterier", "Specialty roast coffee from Ringön roasteries")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckIcon className="w-4 h-4 text-primary shrink-0" />
-                  <span>Fresh cinnamon buns, gluten-free &amp; vegan options</span>
+                  <span>{t("Färska kanelbullar, glutenfria & veganska val", "Fresh cinnamon buns, gluten-free & vegan options")}</span>
                 </li>
               </ul>
             </div>
@@ -654,12 +700,15 @@ export default function HolySpiritWorshipExactPage() {
         <section className="bg-surface-container-lowest rounded-3xl p-8 lg:p-12 border-l-4 border-l-primary-container border border-outline-variant/30 shadow-xs w-full">
           <div className="max-w-4xl space-y-4">
             <blockquote className="text-scripture-quote font-scripture-quote italic text-on-surface leading-relaxed text-xl sm:text-2xl lg:text-3xl">
-              “The Lord is near to all who call on him, to all who call on him in truth. He fulfills the desire of those who fear him; he also hears their cry and saves them.”
+              {t(
+                "“Herren är nära alla som åkallar honom, alla som åkallar honom i sanning. Han gör vad de gudfruktiga begär, han hör deras rop och frälsar dem.”",
+                "“The Lord is near to all who call on him, to all who call on him in truth. He fulfills the desire of those who fear him; he also hears their cry and saves them.”"
+              )}
             </blockquote>
             <div className="flex items-center gap-3 pt-2">
               <span className="h-0.5 w-8 bg-primary-container"></span>
               <cite className="text-scripture-citation font-scripture-citation uppercase tracking-widest text-xs font-bold text-primary not-italic">
-                PSALM 145:18 (ESV / Svenska Folkbibeln)
+                {t("PSALTAREN 145:18 (Svenska Folkbibeln / ESV)", "PSALM 145:18 (ESV / Svenska Folkbibeln)")}
               </cite>
             </div>
           </div>
@@ -670,14 +719,14 @@ export default function HolySpiritWorshipExactPage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-outline-variant/30 pb-4 gap-2">
             <div>
               <span className="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">
-                Servant Leadership
+                {t("Tjänande Ledarskap", "Servant Leadership")}
               </span>
               <h2 className="text-headline-md font-headline-md text-on-surface mt-1 font-bold">
-                Worship Leaders &amp; Ministers
+                {t("Lovsångsledare & Förkunnare", "Worship Leaders & Ministers")}
               </h2>
             </div>
             <span className="text-body-sm font-body-sm text-on-surface-variant">
-              Representing 25 Gothenburg Christian Traditions
+              {t("Representerar 25 kristna församlingar i Göteborg", "Representing 25 Gothenburg Christian Traditions")}
             </span>
           </div>
 
@@ -696,7 +745,7 @@ export default function HolySpiritWorshipExactPage() {
               <div className="space-y-1">
                 <div className="flex items-center justify-between gap-2">
                   <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-secondary-container/50 text-secondary">
-                    Worship Director
+                    {t("Lovsångsledare", "Worship Director")}
                   </span>
                 </div>
                 <h4 className="text-headline-sm font-headline-sm text-on-surface font-bold pt-1">
@@ -721,13 +770,13 @@ export default function HolySpiritWorshipExactPage() {
               <div className="space-y-1">
                 <div className="flex items-center justify-between gap-2">
                   <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-secondary-container/50 text-secondary">
-                    Lead Vocalist
+                    {t("Huvudsångerska", "Lead Vocalist")}
                   </span>
                 </div>
                 <h4 className="text-headline-sm font-headline-sm text-on-surface font-bold pt-1">
                   Astrid Bergström
                 </h4>
-                <p className="text-body-sm font-body-sm text-primary font-medium">Songwriter &amp; Vocalist</p>
+                <p className="text-body-sm font-body-sm text-primary font-medium">{t("Låtskrivare & Sångerska", "Songwriter & Vocalist")}</p>
                 <p className="text-xs text-on-surface-variant">Smyrna Church Gothenburg</p>
               </div>
             </div>
@@ -746,13 +795,13 @@ export default function HolySpiritWorshipExactPage() {
               <div className="space-y-1">
                 <div className="flex items-center justify-between gap-2">
                   <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-secondary-container/50 text-secondary">
-                    Keynote Speaker
+                    {t("Gästpredikant", "Keynote Speaker")}
                   </span>
                 </div>
                 <h4 className="text-headline-sm font-headline-sm text-on-surface font-bold pt-1">
                   Pastor Samuel Mensah
                 </h4>
-                <p className="text-body-sm font-body-sm text-primary font-medium">Guest Minister</p>
+                <p className="text-body-sm font-body-sm text-primary font-medium">{t("Gästpastor", "Guest Minister")}</p>
                 <p className="text-xs text-on-surface-variant">Betlehemskyrkan Alliance</p>
               </div>
             </div>
@@ -771,13 +820,13 @@ export default function HolySpiritWorshipExactPage() {
               <div className="space-y-1">
                 <div className="flex items-center justify-between gap-2">
                   <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-secondary-container/50 text-secondary">
-                    Prayer Lead
+                    {t("Förbönsansvarig", "Prayer Lead")}
                   </span>
                 </div>
                 <h4 className="text-headline-sm font-headline-sm text-on-surface font-bold pt-1">
                   Maja Holmberg
                 </h4>
-                <p className="text-body-sm font-body-sm text-primary font-medium">Intercession Coordinator</p>
+                <p className="text-body-sm font-body-sm text-primary font-medium">{t("Förbönssamordnare", "Intercession Coordinator")}</p>
                 <p className="text-xs text-on-surface-variant">Västra Götaland Intercessors</p>
               </div>
             </div>
@@ -795,19 +844,22 @@ export default function HolySpiritWorshipExactPage() {
               <div className="flex flex-wrap items-center gap-2.5">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label-sm bg-secondary-container text-on-secondary-container font-bold uppercase tracking-wider">
                   <HeartHandshake className="w-4 h-4 text-primary" />
-                  Voluntary Offering
+                  {t("Frivillig Kollekt", "Voluntary Offering")}
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant font-semibold">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  Non-Profit 90-Konto Verified
+                  {t("Ideell Förening • Insamlingskontroll", "Non-Profit 90-Konto Verified")}
                 </span>
               </div>
 
               <h2 className="text-headline-lg font-headline-lg text-on-surface font-extrabold tracking-tight">
-                Support Gospel Ministry in Gothenburg via Swish
+                {t("Stöd Gospelmissionen i Göteborg via Swish", "Support Gospel Ministry in Gothenburg via Swish")}
               </h2>
               <p className="text-body-md font-body-md text-on-surface-variant leading-relaxed max-w-2xl">
-                GOSPELS is 100% community and donor funded. Contributions directly sustain Frihamnen Sanctuary Hall acoustics, guest choir and orchestral travel, and guaranteed free access for youth across Western Sweden.
+                {t(
+                  "GOSPELS är 100% gåvofinansierat. Bidrag upprätthåller akustik, orkester- och körresor samt garanterar fri entré för ungdomar i hela Västsverige.",
+                  "GOSPELS is 100% community and donor funded. Contributions directly sustain Frihamnen Sanctuary Hall acoustics, guest choir and orchestral travel, and guaranteed free access for youth across Western Sweden."
+                )}
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-on-surface-variant">
@@ -825,7 +877,9 @@ export default function HolySpiritWorshipExactPage() {
                   </span>
                 </div>
                 <span className="text-outline-variant/60 hidden sm:inline">•</span>
-                <span className="text-on-surface-variant/80">Swedish Foundation Oversight (Svensk Insamlingskontroll)</span>
+                <span className="text-on-surface-variant/80">
+                  {t("Svensk Insamlingskontroll & Transparens", "Swedish Foundation Oversight (Svensk Insamlingskontroll)")}
+                </span>
               </div>
             </div>
 
@@ -837,8 +891,12 @@ export default function HolySpiritWorshipExactPage() {
                     S
                   </div>
                   <div>
-                    <h3 className="text-headline-sm font-headline-sm text-on-surface font-bold">Official Swish Transfer</h3>
-                    <span className="text-xs text-on-surface-variant">Instant &amp; tax deductible non-profit gift</span>
+                    <h3 className="text-headline-sm font-headline-sm text-on-surface font-bold">
+                      {t("Officiell Swish-gåva", "Official Swish Transfer")}
+                    </h3>
+                    <span className="text-xs text-on-surface-variant">
+                      {t("Direkt och skattebefriad gåva till ideell förening", "Instant & tax deductible non-profit gift")}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -846,7 +904,7 @@ export default function HolySpiritWorshipExactPage() {
               {/* Presets Row */}
               <div className="space-y-2">
                 <label className="block text-xs uppercase font-bold text-on-surface-variant tracking-wider">
-                  Select Amount
+                  {t("Välj Belopp", "Select Amount")}
                 </label>
                 <div className="grid grid-cols-4 gap-2.5">
                   {["50 kr", "100 kr", "250 kr", "500 kr"].map((amt) => (
@@ -871,7 +929,7 @@ export default function HolySpiritWorshipExactPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="text-xs text-on-surface-variant block uppercase tracking-wider font-semibold">
-                      Swish Number
+                      {t("Swish-nummer", "Swish Number")}
                     </span>
                     <span className="text-headline-sm font-headline-sm text-on-surface font-bold tracking-wider font-mono">
                       123 456 7890
@@ -885,22 +943,22 @@ export default function HolySpiritWorshipExactPage() {
                     {copiedSwish ? (
                       <>
                         <Check className="w-4 h-4 text-emerald-600" />
-                        <span>Kopierat!</span>
+                        <span>{t("Kopierat!", "Copied!")}</span>
                       </>
                     ) : (
                       <>
                         <Copy className="w-4 h-4" />
-                        <span>Copy Number</span>
+                        <span>{t("Kopiera nummer", "Copy Number")}</span>
                       </>
                     )}
                   </button>
                 </div>
                 <div className="pt-2 border-t border-outline-variant/30 flex items-center justify-between text-xs text-on-surface-variant">
                   <span>
-                    Recipient: <strong>GOSPELS Göteborg</strong>
+                    {t("Mottagare:", "Recipient:")} <strong>GOSPELS Göteborg</strong>
                   </span>
                   <span className="text-emerald-600 font-medium flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Direct Clearing
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> {t("Direktöverföring", "Direct Clearing")}
                   </span>
                 </div>
               </div>
@@ -913,13 +971,13 @@ export default function HolySpiritWorshipExactPage() {
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-[#14b8a6]/10 text-[#0f766e] mb-3">
-              GETTING THERE
+              {t("HITTA HIT", "GETTING THERE")}
             </span>
             <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] text-center mb-2 font-headline-lg">
-              Venue &amp; Transit Guide
+              {t("Lokal & Reseinformation", "Venue & Transit Guide")}
             </h2>
             <p className="text-center text-[#64748b] text-sm max-w-xl mx-auto font-body-md">
-              Located right at the waterfront along the Göta River in Frihamnen.
+              {t("Beläget precis vid kajkanten vid Göta älv i Frihamnen.", "Located right at the waterfront along the Göta River in Frihamnen.")}
             </p>
           </div>
 
@@ -934,13 +992,13 @@ export default function HolySpiritWorshipExactPage() {
                   <span className="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
                   <span className="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
                   <span className="ml-3 font-semibold text-slate-800 text-label-sm font-label-sm">
-                    GOSPELS — Gothenburg Praise Night
+                    {t("GOSPELS — Göteborgs Lovsångskväll", "GOSPELS — Gothenburg Praise Night")}
                   </span>
                 </div>
                 <div className="hidden sm:flex items-center gap-4 text-xs font-medium text-slate-500">
-                  <span className="text-primary font-semibold">Event</span>
-                  <span className="hover:text-slate-900 cursor-pointer">Transit</span>
-                  <span className="hover:text-slate-900 cursor-pointer">Sanctuary Map</span>
+                  <span className="text-primary font-semibold">{t("Samling", "Event")}</span>
+                  <span className="hover:text-slate-900 cursor-pointer">{t("Resväg", "Transit")}</span>
+                  <span className="hover:text-slate-900 cursor-pointer">{t("Salöversikt", "Sanctuary Map")}</span>
                 </div>
               </div>
 

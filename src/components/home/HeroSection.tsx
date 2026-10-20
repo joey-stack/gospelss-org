@@ -103,11 +103,11 @@ export function HeroSection({ onOpenRSVP, onOpenSwish, onOpenPrayer }: HeroSecti
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-primary-container" />
                   <span className="text-label-sm font-label-sm tracking-wider uppercase text-primary-fixed">
-                    Featured Gathering
+                    {t("Utvald Samling", "Featured Gathering")}
                   </span>
                 </div>
                 <span className="px-2.5 py-1 rounded-full bg-white/10 text-white text-[11px] sm:text-label-sm font-label-sm">
-                  Free Admission
+                  {t("Fri Entré", "Free Admission")}
                 </span>
               </div>
 
@@ -124,14 +124,16 @@ export function HeroSection({ onOpenRSVP, onOpenSwish, onOpenPrayer }: HeroSecti
 
               <div className="mt-4 sm:mt-5">
                 <span className="text-[11px] sm:text-label-sm font-label-sm text-primary-fixed uppercase tracking-wider font-semibold">
-                  Saturday • Oct 18, 2026 • 18:00
+                  {t("Lördag • 18 okt 2026 • 18:00", "Saturday • Oct 18, 2026 • 18:00")}
                 </span>
                 <h3 className="font-headline-sm sm:font-headline-md text-headline-sm sm:text-headline-md text-white mt-1">
                   Holy Spirit Worship 2026
                 </h3>
                 <p className="text-body-sm font-body-sm text-surface-variant mt-2 line-clamp-2">
-                  An intimate night of deep acoustic intercession, united gospel chorals, and prophetic
-                  praise welcoming worshipers from across West Sweden.
+                  {t(
+                    "En intim kväll med djup akustisk förbön, förenad lovsång och profetisk tillbedjan som välkomnar tillbedjare från hela Västsverige.",
+                    "An intimate night of deep acoustic intercession, united gospel chorals, and prophetic praise welcoming worshipers from across West Sweden."
+                  )}
                 </p>
               </div>
 
@@ -148,14 +150,16 @@ export function HeroSection({ onOpenRSVP, onOpenSwish, onOpenPrayer }: HeroSecti
                       +
                     </span>
                   </span>
-                  <span className="text-label-sm font-label-sm text-surface-variant">340 RSVP'd</span>
+                  <span className="text-label-sm font-label-sm text-surface-variant">
+                    {t("340 Anmälda", "340 RSVP'd")}
+                  </span>
                 </div>
                 <button
                   type="button"
                   onClick={onOpenRSVP}
                   className="inline-flex items-center gap-1.5 bg-primary-container text-on-primary hover:bg-secondary font-label-sm text-label-sm px-4 py-2 rounded-lg transition duration-150 shadow-sm"
                 >
-                  <span>RSVP Free</span>
+                  <span>{t("Anmäl dig gratis", "RSVP Free")}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>

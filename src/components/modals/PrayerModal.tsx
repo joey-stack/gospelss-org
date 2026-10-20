@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { X, CheckCircle, Shield, Heart, Lock, Sparkles, Send } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface PrayerModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface PrayerModalProps {
 }
 
 export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
+  const { t } = useLanguage();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isAnonymous, setIsAnonymous] = useState(false);
@@ -49,7 +51,12 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
     if (!content.trim()) return;
 
     if (!gdprConsent) {
-      setErrorMessage("Samtycke krävs enligt GDPR Artikel 9 för att vi ska kunna be för ditt ämne.");
+      setErrorMessage(
+        t(
+          "Samtycke krävs enligt GDPR Artikel 9 för att vi ska kunna be för ditt ämne.",
+          "Consent is required under GDPR Article 9 for us to pray for your request."
+        )
+      );
       return;
     }
 
@@ -71,12 +78,23 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
 
       const data = await res.json();
       if (!res.ok) {
-        setErrorMessage(data.error || "Kunde inte skicka böneämnet. Försök igen.");
+        setErrorMessage(
+          data.error ||
+            t(
+              "Kunde inte skicka böneämnet. Försök igen.",
+              "Could not submit prayer request. Please try again."
+            )
+        );
       } else {
         setIsSubmitted(true);
       }
     } catch {
-      setErrorMessage("Nätverksfel. Kontrollera din anslutning och försök igen.");
+      setErrorMessage(
+        t(
+          "Nätverksfel. Kontrollera din anslutning och försök igen.",
+          "Network error. Please check your connection and try again."
+        )
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -164,7 +182,7 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
                   display: "block",
                 }}
               >
-                Konfidentiell Förbön
+                {t("Konfidentiell Förbön", "Confidential Prayer")}
               </span>
               <h3
                 id="prayer-modal-title"
@@ -174,14 +192,16 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
                   color: "var(--color-charcoal-900)",
                 }}
               >
-                {isSubmitted ? "Böneämne Mottaget" : "Skicka Böneämne"}
+                {isSubmitted
+                  ? t("Böneämne Mottaget", "Prayer Request Received")
+                  : t("Skicka Böneämne", "Send Prayer Request")}
               </h3>
             </div>
           </div>
 
           <button
             onClick={handleResetAndClose}
-            aria-label="Stäng modal"
+            aria-label={t("Stäng modal", "Close modal")}
             style={{
               padding: "0.5rem",
               borderRadius: "var(--radius-pill)",
@@ -230,8 +250,11 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
               >
                 <Lock size={15} color="var(--color-turquoise-600)" />
                 <span>
-                  <strong>GDPR Artikel 9 Skydd:</strong> Ditt ämne läses endast av vårt betrodda
-                  pastorala böneteam. Inget publiceras öppet.
+                  <strong>{t("GDPR Artikel 9 Skydd:", "GDPR Article 9 Protection:")}</strong>{" "}
+                  {t(
+                    "Ditt ämne läses endast av vårt betrodda pastorala böneteam. Inget publiceras öppet.",
+                    "Your request is only read by our trusted pastoral prayer team. Nothing is published publicly."
+                  )}
                 </span>
               </div>
 
@@ -247,7 +270,7 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
                     color: "var(--color-charcoal-800)",
                   }}
                 >
-                  Område för bön
+                  {t("Område för bön", "Prayer Topic")}
                 </label>
                 <select
                   id="prayer-topic"
@@ -263,12 +286,12 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
                     outline: "none",
                   }}
                 >
-                  <option value="Hälsa & Helande">Hälsa & Helande</option>
-                  <option value="Familj & Relationer">Familj & Relationer</option>
-                  <option value="Tro & Andlig Vägledning">Tro & Andlig Vägledning</option>
-                  <option value="Akut Kris / Stöd">Akut Kris / Stöd</option>
-                  <option value="Tacksägelse & Vittnesbörd">Tacksägelse & Vittnesbörd</option>
-                  <option value="Annat">Annat</option>
+                  <option value="Hälsa & Helande">{t("Hälsa & Helande", "Health & Healing")}</option>
+                  <option value="Familj & Relationer">{t("Familj & Relationer", "Family & Relationships")}</option>
+                  <option value="Tro & Andlig Vägledning">{t("Tro & Andlig Vägledning", "Faith & Guidance")}</option>
+                  <option value="Akut Kris / Stöd">{t("Akut Kris / Stöd", "Urgent Crisis / Support")}</option>
+                  <option value="Tacksägelse & Vittnesbörd">{t("Tacksägelse & Vittnesbörd", "Thanksgiving & Praise")}</option>
+                  <option value="Annat">{t("Annat", "Other")}</option>
                 </select>
               </div>
 
@@ -284,13 +307,16 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
                     color: "var(--color-charcoal-800)",
                   }}
                 >
-                  Hur kan vi be för dig? *
+                  {t("Hur kan vi be för dig? *", "How can we pray for you? *")}
                 </label>
                 <textarea
                   id="prayer-content"
                   rows={4}
                   required
-                  placeholder="Skriv vad som ligger på ditt hjärta. Vi står med dig i tro..."
+                  placeholder={t(
+                    "Skriv vad som ligger på ditt hjärta. Vi står med dig i tro...",
+                    "Share what is on your heart. We stand with you in faith..."
+                  )}
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                   style={{
@@ -325,7 +351,12 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
                     checked={isAnonymous}
                     onChange={(e) => setIsAnonymous(e.target.checked)}
                   />
-                  <span>Skicka anonymt (inga personuppgifter sparas)</span>
+                  <span>
+                    {t(
+                      "Skicka anonymt (inga personuppgifter sparas)",
+                      "Submit anonymously (no personal data stored)"
+                    )}
+                  </span>
                 </label>
               </div>
 
@@ -350,12 +381,12 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
                         color: "var(--color-charcoal-700)",
                       }}
                     >
-                      Namn (valfritt)
+                      {t("Namn (valfritt)", "Name (optional)")}
                     </label>
                     <input
                       id="prayer-name"
                       type="text"
-                      placeholder="Ditt förnamn"
+                      placeholder={t("Ditt förnamn", "Your first name")}
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       style={{
@@ -381,12 +412,12 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
                         color: "var(--color-charcoal-700)",
                       }}
                     >
-                      E-post (valfritt)
+                      {t("E-post (valfritt)", "Email (optional)")}
                     </label>
                     <input
                       id="prayer-email"
                       type="email"
-                      placeholder="För personligt svar"
+                      placeholder={t("För personligt svar", "For personal reply")}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       style={{
@@ -428,9 +459,10 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
                     lineHeight: 1.5,
                   }}
                 >
-                  Jag samtycker till att GOSPELS behandlar mitt böneämne i enlighet med GDPR Artikel 9.
-                  Mitt ämne förblir strikt konfidentiellt och delas endast med vårt betrodda pastorala
-                  böneteam.
+                  {t(
+                    "Jag samtycker till att GOSPELS behandlar mitt böneämne i enlighet med GDPR Artikel 9. Mitt ämne förblir strikt konfidentiellt och delas endast med vårt betrodda pastorala böneteam.",
+                    "I consent to GOSPELS processing my prayer request in accordance with GDPR Article 9. My request remains strictly confidential and shared only with our trusted pastoral prayer team."
+                  )}
                 </label>
               </div>
 
@@ -456,7 +488,11 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
                 }}
               >
                 <Send size={16} />
-                <span>{isSubmitting ? "Skickar böneämne..." : "Skicka Böneämne i Förtroende"}</span>
+                <span>
+                  {isSubmitting
+                    ? t("Skickar böneämne...", "Submitting request...")
+                    : t("Skicka Böneämne i Förtroende", "Send Prayer Request in Confidence")}
+                </span>
               </button>
             </form>
           ) : (
@@ -479,11 +515,20 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
               </div>
 
               <h4 style={{ fontSize: "var(--text-2xl)", fontWeight: 700, marginBottom: "0.75rem" }}>
-                Vi Ber För Dig
+                {t("Vi Ber För Dig", "We Are Praying For You")}
               </h4>
-              <p style={{ color: "var(--color-charcoal-700)", fontSize: "var(--text-sm)", marginBottom: "1.5rem", lineHeight: 1.6 }}>
-                Ditt böneämne har tagits emot med djupaste omsorg och överlämnats till vårt
-                förbönsteam. Du är inte ensam.
+              <p
+                style={{
+                  color: "var(--color-charcoal-700)",
+                  fontSize: "var(--text-sm)",
+                  marginBottom: "1.5rem",
+                  lineHeight: 1.6,
+                }}
+              >
+                {t(
+                  "Ditt böneämne har tagits emot med djupaste omsorg och överlämnats till vårt förbönsteam. Du är inte ensam.",
+                  "Your prayer request has been received with deepest care and entrusted to our prayer team. You are not alone."
+                )}
               </p>
 
               {/* Scripture Pull Quote */}
@@ -496,11 +541,27 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
                   border: "1px solid var(--border-subtle)",
                 }}
               >
-                <p className="font-scripture" style={{ fontSize: "1.125rem", color: "var(--color-charcoal-800)", marginBottom: "0.375rem" }}>
-                  ”Herren är nära alla som åkallar honom, alla som åkallar honom i sanning.”
+                <p
+                  className="font-scripture"
+                  style={{
+                    fontSize: "1.125rem",
+                    color: "var(--color-charcoal-800)",
+                    marginBottom: "0.375rem",
+                  }}
+                >
+                  {t(
+                    "”Herren är nära alla som åkallar honom, alla som åkallar honom i sanning.”",
+                    "“The Lord is near to all who call on him, to all who call on him in truth.”"
+                  )}
                 </p>
-                <span style={{ fontSize: "var(--text-xs)", fontWeight: 600, color: "var(--color-turquoise-700)" }}>
-                  Psaltaren 145:18
+                <span
+                  style={{
+                    fontSize: "var(--text-xs)",
+                    fontWeight: 600,
+                    color: "var(--color-turquoise-700)",
+                  }}
+                >
+                  {t("Psaltaren 145:18", "Psalm 145:18")}
                 </span>
               </div>
 
@@ -516,7 +577,7 @@ export function PrayerModal({ isOpen, onClose }: PrayerModalProps) {
                   minHeight: "44px",
                 }}
               >
-                Stäng
+                {t("Stäng", "Close")}
               </button>
             </div>
           )}

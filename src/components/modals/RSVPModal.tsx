@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { X, CheckCircle, Calendar, Users, Mail, User, Sparkles } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface RSVPModalProps {
   isOpen: boolean;
@@ -16,6 +17,7 @@ export function RSVPModal({
   eventTitle = "Holy Spirit Worship 2026",
   eventDate = "Lördag 14 November 2026 · Göteborg",
 }: RSVPModalProps) {
+  const { t } = useLanguage();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [attendees, setAttendees] = useState(1);
@@ -153,7 +155,7 @@ export function RSVPModal({
                 marginBottom: "0.25rem",
               }}
             >
-              Gratis Entré · Göteborg
+              {t("Gratis Entré · Göteborg", "Free Admission · Gothenburg")}
             </span>
             <h3
               id="modal-title"
@@ -163,13 +165,15 @@ export function RSVPModal({
                 color: "var(--color-charcoal-900)",
               }}
             >
-              {isSubmitted ? "Plats Reserverad!" : "Boka Gratis Biljett"}
+              {isSubmitted
+                ? t("Plats Reserverad!", "Seat Reserved!")
+                : t("Boka Gratis Biljett", "Reserve Free Ticket")}
             </h3>
           </div>
 
           <button
             onClick={handleResetAndClose}
-            aria-label="Stäng modal"
+            aria-label={t("Stäng modal", "Close modal")}
             style={{
               padding: "0.5rem",
               borderRadius: "var(--radius-pill)",
@@ -235,7 +239,7 @@ export function RSVPModal({
                     color: "var(--color-charcoal-800)",
                   }}
                 >
-                  Ditt Namn *
+                  {t("Ditt Namn *", "Your Name *")}
                 </label>
                 <div style={{ position: "relative" }}>
                   <User
@@ -247,7 +251,7 @@ export function RSVPModal({
                     id="rsvp-name"
                     type="text"
                     required
-                    placeholder="För- och efternamn"
+                    placeholder={t("För- och efternamn", "First and last name")}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     style={{
@@ -275,7 +279,7 @@ export function RSVPModal({
                     color: "var(--color-charcoal-800)",
                   }}
                 >
-                  E-postadress (för biljettbekräftelse) *
+                  {t("E-postadress (för biljettbekräftelse) *", "Email Address (for ticket pass) *")}
                 </label>
                 <div style={{ position: "relative" }}>
                   <Mail
@@ -315,7 +319,7 @@ export function RSVPModal({
                     color: "var(--color-charcoal-800)",
                   }}
                 >
-                  Antal Platser (Max 4 per bokning)
+                  {t("Antal Platser (Max 4 per bokning)", "Number of Seats (Max 4 per booking)")}
                 </label>
                 <div style={{ position: "relative" }}>
                   <Users
@@ -337,10 +341,10 @@ export function RSVPModal({
                       outline: "none",
                     }}
                   >
-                    <option value={1}>1 person</option>
-                    <option value={2}>2 personer</option>
-                    <option value={3}>3 personer</option>
-                    <option value={4}>4 personer</option>
+                    <option value={1}>{t("1 person", "1 person")}</option>
+                    <option value={2}>{t("2 personer", "2 persons")}</option>
+                    <option value={3}>{t("3 personer", "3 persons")}</option>
+                    <option value={4}>{t("4 personer", "4 persons")}</option>
                   </select>
                 </div>
               </div>
@@ -356,7 +360,10 @@ export function RSVPModal({
                   style={{ marginTop: "0.2rem" }}
                 />
                 <label htmlFor="rsvp-consent" style={{ fontSize: "var(--text-xs)", color: "var(--color-charcoal-600)", lineHeight: 1.5 }}>
-                  Jag godkänner att GOSPELS skickar bekräftelse och viktig lokalinformation inför samlingen.
+                  {t(
+                    "Jag godkänner att GOSPELS skickar bekräftelse och viktig lokalinformation inför samlingen.",
+                    "I agree that GOSPELS may send ticket confirmation and practical venue details for the gathering."
+                  )}
                 </label>
               </div>
 
@@ -382,7 +389,11 @@ export function RSVPModal({
                 }}
               >
                 <Sparkles size={18} />
-                <span>{isSubmitting ? "Bekräftar plats..." : "Bekräfta Gratis Bokning"}</span>
+                <span>
+                  {isSubmitting
+                    ? t("Bekräftar plats...", "Confirming reservation...")
+                    : t("Bekräfta Gratis Bokning", "Confirm Free Reservation")}
+                </span>
               </button>
             </form>
           ) : (
@@ -405,11 +416,13 @@ export function RSVPModal({
               </div>
 
               <h4 style={{ fontSize: "var(--text-2xl)", fontWeight: 700, marginBottom: "0.5rem" }}>
-                Varmt Välkommen, {name}!
+                {t(`Varmt Välkommen, ${name}!`, `Warmly Welcome, ${name}!`)}
               </h4>
               <p style={{ color: "var(--color-charcoal-700)", fontSize: "var(--text-sm)", marginBottom: "1.5rem" }}>
-                Vi har reserverat <strong>{attendees} {attendees === 1 ? "plats" : "platser"}</strong> till{" "}
-                <strong>{eventTitle}</strong>. En bekräftelse har skickats till <strong>{email}</strong>.
+                {t(
+                  `Vi har reserverat ${attendees} ${attendees === 1 ? "plats" : "platser"} till ${eventTitle}. En bekräftelse har skickats till ${email}.`,
+                  `We have reserved ${attendees} ${attendees === 1 ? "seat" : "seats"} for ${eventTitle}. A pass has been emailed to ${email}.`
+                )}
               </p>
 
               {/* Next Steps Buttons */}
@@ -432,7 +445,7 @@ export function RSVPModal({
                   }}
                 >
                   <Calendar size={16} />
-                  <span>Lägg till i Google Kalender</span>
+                  <span>{t("Lägg till i Google Kalender", "Add to Google Calendar")}</span>
                 </a>
 
                 <button
@@ -446,7 +459,7 @@ export function RSVPModal({
                     fontWeight: 500,
                   }}
                 >
-                  Klar
+                  {t("Klar", "Done")}
                 </button>
               </div>
             </div>
