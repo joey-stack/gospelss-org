@@ -192,13 +192,13 @@ export default function HomePage() {
                 <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                   Uniting churches in open-air praise. We break ecclesiastical silos to glorify God with majestic, modern, and cross-cultural gospel song.
                 </p>
-                <a
-                  href="#events"
-                  className="mt-6 flex items-center gap-1 text-primary font-label-md text-label-md"
+                <Link
+                  href="/events"
+                  className="mt-6 flex items-center gap-1 text-primary font-label-md text-label-md hover:underline"
                 >
                   <span>Discover music ministry</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </a>
+                </Link>
               </div>
 
               {/* Pillar 2: Outreach */}
@@ -212,13 +212,13 @@ export default function HomePage() {
                 <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                   Sharing faith and hope directly into public squares, city parks, harbor docks, and university centers with hospitality, music, and love.
                 </p>
-                <a
-                  href="#events"
-                  className="mt-6 flex items-center gap-1 text-primary font-label-md text-label-md"
+                <Link
+                  href="/events"
+                  className="mt-6 flex items-center gap-1 text-primary font-label-md text-label-md hover:underline"
                 >
                   <span>Explore public missions</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </a>
+                </Link>
               </div>
 
               {/* Pillar 3: Transformation */}
@@ -232,13 +232,13 @@ export default function HomePage() {
                 <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                   Impacting lives through prayer, testimonies, spiritual mentorship, and active charity for vulnerable Gothenburg residents.
                 </p>
-                <a
-                  href="#prayer"
-                  className="mt-6 flex items-center gap-1 text-primary font-label-md text-label-md"
+                <Link
+                  href="/prayer"
+                  className="mt-6 flex items-center gap-1 text-primary font-label-md text-label-md hover:underline"
                 >
                   <span>Read community stories</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

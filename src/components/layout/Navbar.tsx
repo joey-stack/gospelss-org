@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import {
   Calendar,
   PlayCircle,
@@ -29,6 +31,7 @@ export function Navbar({
   onOpenPrayer,
   onOpenVolunteer,
 }: NavbarProps = {}) {
+  const pathname = usePathname();
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [lang, setLang] = useState<"SV" | "EN">("SV");
   const [copiedSwish, setCopiedSwish] = useState(false);
@@ -43,6 +46,23 @@ export function Navbar({
 
   const closeDrawer = () => setMobileDrawerOpen(false);
 
+  const handleSupportClick = () => {
+    if (onOpenSwish) {
+      onOpenSwish();
+    } else {
+      window.location.href = "/give";
+    }
+  };
+
+  const navLinks = [
+    { label: "Events", href: "/events" },
+    { label: "Watch & Listen", href: "/watch" },
+    { label: "Partner Churches", href: "/partners" },
+    { label: "Give", href: "/give" },
+    { label: "Volunteer", href: "/volunteer" },
+    { label: "Prayer", href: "/prayer" },
+  ];
+
   return (
     <>
       {/* Top Navigation Bar */}
@@ -50,52 +70,45 @@ export function Navbar({
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group z-10">
-            <span className="w-9 h-9 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-headline-md font-extrabold text-headline-sm transition duration-150 active:scale-95 shadow-sm">
-              G
-            </span>
-            <span className="text-headline-md font-headline-md font-extrabold tracking-wider text-on-surface dark:text-inverse-on-surface">
-              GOSPELS
-            </span>
+            <Image
+              src="/assets/brand/logo-full.svg"
+              alt="GOSPELS Ministry"
+              width={168}
+              height={38}
+              className="h-9 w-auto dark:hidden transition duration-150 group-hover:opacity-90 active:scale-95"
+              priority
+            />
+            <Image
+              src="/assets/brand/logo-white.svg"
+              alt="GOSPELS Ministry"
+              width={168}
+              height={38}
+              className="h-9 w-auto hidden dark:block transition duration-150 group-hover:opacity-90 active:scale-95"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-8 text-label-md font-label-md">
-            <a
-              href="#events"
-              className="text-on-surface-variant hover:text-primary transition-colors pb-1 duration-200"
-            >
-              Events
-            </a>
-            <a
-              href="#watch-listen"
-              className="text-on-surface-variant hover:text-primary transition-colors pb-1 duration-200"
-            >
-              Watch &amp; Listen
-            </a>
-            <a
-              href="#partners"
-              className="text-on-surface-variant hover:text-primary transition-colors pb-1 duration-200"
-            >
-              Partner Churches
-            </a>
-            <a
-              href="#give"
-              className="text-on-surface-variant hover:text-primary transition-colors pb-1 duration-200"
-            >
-              Give
-            </a>
-            <button
-              onClick={onOpenVolunteer}
-              className="text-on-surface-variant hover:text-primary transition-colors pb-1 duration-200"
-            >
-              Volunteer
-            </button>
-            <a
-              href="#prayer"
-              className="text-on-surface-variant hover:text-primary transition-colors pb-1 duration-200"
-            >
-              Prayer
-            </a>
+            {navLinks.map((link) => {
+              const isActive =
+                pathname === link.href ||
+                (link.href !== "/" && pathname.startsWith(link.href));
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`pb-1 transition duration-200 ${
+                    isActive
+                      ? "text-primary font-bold border-b-2 border-primary"
+                      : "text-on-surface-variant hover:text-primary transition-colors"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Desktop Action Cluster: SV/EN Switcher & Support CTA */}
@@ -131,7 +144,7 @@ export function Navbar({
             </div>
             <button
               type="button"
-              onClick={onOpenSwish}
+              onClick={handleSupportClick}
               className="inline-flex items-center justify-center bg-primary-container text-on-primary hover:bg-secondary font-label-md text-label-md px-5 py-2.5 rounded-lg shadow-sm custom-halo transition duration-150 active:scale-95"
             >
               Support Us
@@ -142,7 +155,7 @@ export function Navbar({
           <div className="flex md:hidden items-center gap-2">
             <button
               type="button"
-              onClick={onOpenSwish}
+              onClick={handleSupportClick}
               className="inline-flex items-center justify-center bg-primary-container text-on-primary text-xs font-semibold px-3 py-1.5 rounded-md shadow-xs"
             >
               Ge
@@ -173,14 +186,22 @@ export function Navbar({
             <div>
               {/* Drawer Header */}
               <div className="flex items-center justify-between pb-4 border-b border-outline-variant/30">
-                <div className="flex items-center gap-2.5">
-                  <span className="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm shadow-xs">
-                    G
-                  </span>
-                  <span className="font-headline-sm font-bold tracking-wider text-on-surface dark:text-inverse-on-surface">
-                    GOSPELS
-                  </span>
-                </div>
+                <Link href="/" onClick={closeDrawer} className="flex items-center gap-2.5">
+                  <Image
+                    src="/assets/brand/logo-full.svg"
+                    alt="GOSPELS Ministry"
+                    width={140}
+                    height={32}
+                    className="h-8 w-auto dark:hidden"
+                  />
+                  <Image
+                    src="/assets/brand/logo-white.svg"
+                    alt="GOSPELS Ministry"
+                    width={140}
+                    height={32}
+                    className="h-8 w-auto hidden dark:block"
+                  />
+                </Link>
                 <button
                   aria-label="Close navigation menu"
                   onClick={closeDrawer}
@@ -192,57 +213,78 @@ export function Navbar({
 
               {/* Consolidated Mobile Navigation Links */}
               <nav className="flex flex-col gap-1 py-4 text-base font-semibold text-on-surface dark:text-inverse-on-surface">
-                <a
-                  href="#events"
+                <Link
+                  href="/events"
                   onClick={closeDrawer}
-                  className="px-3 py-2.5 rounded-lg text-primary bg-primary/10 flex items-center justify-between"
+                  className={`px-3 py-2.5 rounded-lg flex items-center justify-between transition ${
+                    pathname.startsWith("/events")
+                      ? "text-primary bg-primary/10 font-bold"
+                      : "hover:bg-surface-container"
+                  }`}
                 >
                   <span>Events</span>
                   <Calendar className="w-4 h-4 text-primary" />
-                </a>
-                <a
-                  href="#watch-listen"
+                </Link>
+                <Link
+                  href="/watch"
                   onClick={closeDrawer}
-                  className="px-3 py-2.5 rounded-lg hover:bg-surface-container transition flex items-center justify-between"
+                  className={`px-3 py-2.5 rounded-lg flex items-center justify-between transition ${
+                    pathname.startsWith("/watch")
+                      ? "text-primary bg-primary/10 font-bold"
+                      : "hover:bg-surface-container"
+                  }`}
                 >
                   <span>Watch &amp; Listen</span>
                   <PlayCircle className="w-4 h-4 text-outline" />
-                </a>
-                <a
-                  href="#partners"
+                </Link>
+                <Link
+                  href="/partners"
                   onClick={closeDrawer}
-                  className="px-3 py-2.5 rounded-lg hover:bg-surface-container transition flex items-center justify-between"
+                  className={`px-3 py-2.5 rounded-lg flex items-center justify-between transition ${
+                    pathname.startsWith("/partners")
+                      ? "text-primary bg-primary/10 font-bold"
+                      : "hover:bg-surface-container"
+                  }`}
                 >
                   <span>Partner Churches</span>
                   <Church className="w-4 h-4 text-outline" />
-                </a>
-                <a
-                  href="#give"
+                </Link>
+                <Link
+                  href="/give"
                   onClick={closeDrawer}
-                  className="px-3 py-2.5 rounded-lg hover:bg-surface-container transition flex items-center justify-between"
+                  className={`px-3 py-2.5 rounded-lg flex items-center justify-between transition ${
+                    pathname.startsWith("/give")
+                      ? "text-primary bg-primary/10 font-bold"
+                      : "hover:bg-surface-container"
+                  }`}
                 >
                   <span>Give</span>
                   <HandHeart className="w-4 h-4 text-outline" />
-                </a>
-                <button
-                  type="button"
-                  onClick={() => {
-                    closeDrawer();
-                    if (onOpenVolunteer) onOpenVolunteer();
-                  }}
-                  className="px-3 py-2.5 rounded-lg hover:bg-surface-container transition flex items-center justify-between text-left"
+                </Link>
+                <Link
+                  href="/volunteer"
+                  onClick={closeDrawer}
+                  className={`px-3 py-2.5 rounded-lg flex items-center justify-between transition ${
+                    pathname.startsWith("/volunteer") || pathname.startsWith("/get-involved/volunteer")
+                      ? "text-primary bg-primary/10 font-bold"
+                      : "hover:bg-surface-container"
+                  }`}
                 >
                   <span>Volunteer</span>
                   <Users className="w-4 h-4 text-outline" />
-                </button>
-                <a
-                  href="#prayer"
+                </Link>
+                <Link
+                  href="/prayer"
                   onClick={closeDrawer}
-                  className="px-3 py-2.5 rounded-lg hover:bg-surface-container transition flex items-center justify-between"
+                  className={`px-3 py-2.5 rounded-lg flex items-center justify-between transition ${
+                    pathname.startsWith("/prayer")
+                      ? "text-primary bg-primary/10 font-bold"
+                      : "hover:bg-surface-container"
+                  }`}
                 >
                   <span>Prayer</span>
                   <Heart className="w-4 h-4 text-outline" />
-                </a>
+                </Link>
               </nav>
             </div>
 
@@ -287,7 +329,7 @@ export function Navbar({
                 type="button"
                 onClick={() => {
                   closeDrawer();
-                  if (onOpenSwish) onOpenSwish();
+                  handleSupportClick();
                 }}
                 className="w-full inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary hover:bg-secondary font-label-md py-3 rounded-xl shadow-md transition duration-150"
               >

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -11,14 +11,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
           {/* Brand & Ministry Statement (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-headline-md font-extrabold text-headline-sm">
-                G
-              </span>
-              <span className="text-headline-md font-headline-md font-extrabold tracking-wider text-surface">
-                GOSPELS
-              </span>
-            </div>
+            <Link href="/" className="inline-block transition-opacity hover:opacity-90">
+              <Image
+                src="/assets/brand/logo-white.svg"
+                alt="GOSPELS Ministry"
+                width={175}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </Link>
             <p className="font-body-sm text-body-sm text-surface-dim max-w-sm leading-relaxed">
               GOSPELS är en ideell musik- och lovsångsorganisation baserad i Göteborg (Org.nr: 802557-4883).
               Vi verkar ekumeniskt för att göra evangeliet tillgängligt och levande genom musik, öppen gemenskap
@@ -46,19 +47,19 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#events" className="text-surface-dim hover:text-primary-container transition-colors">
+                <Link href="/events" className="text-surface-dim hover:text-primary-container transition-colors">
                   Evenemang
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#watch-listen" className="text-surface-dim hover:text-primary-container transition-colors">
+                <Link href="/watch" className="text-surface-dim hover:text-primary-container transition-colors">
                   Se &amp; Lyssna
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#partners" className="text-surface-dim hover:text-primary-container transition-colors">
+                <Link href="/partners" className="text-surface-dim hover:text-primary-container transition-colors">
                   Bli Partner
-                </a>
+                </Link>
               </li>
               <li>
                 <Link href="/integritetspolicy" className="text-surface-dim hover:text-primary-container transition-colors">
@@ -75,19 +76,19 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-body-sm font-body-sm">
               <li>
-                <a href="#give" className="text-surface-dim hover:text-primary-container transition-colors">
+                <Link href="/give" className="text-surface-dim hover:text-primary-container transition-colors">
                   Swish &amp; Ge
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#prayer" className="text-surface-dim hover:text-primary-container transition-colors">
+                <Link href="/prayer" className="text-surface-dim hover:text-primary-container transition-colors">
                   Böneförfrågan
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#events" className="text-surface-dim hover:text-primary-container transition-colors">
+                <Link href="/get-involved/youth" className="text-surface-dim hover:text-primary-container transition-colors">
                   Ungdomsnätverk
-                </a>
+                </Link>
               </li>
               <li>
                 <Link href="/anvandarvillkor" className="text-surface-dim hover:text-primary-container transition-colors">

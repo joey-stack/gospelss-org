@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Church, Sparkles, ArrowUpRight } from "lucide-react";
 
@@ -53,20 +54,20 @@ export function HeroSection({ onOpenRSVP, onOpenSwish, onOpenPrayer }: HeroSecti
 
             {/* CTAs */}
             <div className="pt-2 flex flex-wrap items-center gap-4">
-              <a
-                href="#events"
+              <Link
+                href="/events"
                 className="inline-flex items-center gap-2 bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md px-6 py-3.5 rounded-lg shadow-md custom-halo transition duration-150 active:scale-95"
               >
                 <span>Explore Events</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href="#partners"
+              </Link>
+              <Link
+                href="/partners"
                 className="inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-surface border border-white/30 font-label-md text-label-md px-6 py-3.5 rounded-lg backdrop-blur-sm transition duration-150 active:scale-95"
               >
                 <Church className="w-4 h-4" />
                 <span>Partner Churches</span>
-              </a>
+              </Link>
             </div>
 
             {/* Quick Metrics Bar */}
