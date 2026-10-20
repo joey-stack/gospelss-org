@@ -40,6 +40,19 @@ export interface PrayerRequestRecord {
   createdAt: string;
 }
 
+export interface KingdomPartnerRecord {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  amount: number;
+  currency: string;
+  interval: "monthly" | "yearly";
+  provider: "STRIPE" | "SWISH" | "BANKGIRO";
+  status: "ACTIVE" | "PAST_DUE" | "CANCELLED";
+  createdAt: string;
+}
+
 // In-Memory / Local Development Seed Store
 const seedEvents: EventRecord[] = [
   {
@@ -74,6 +87,7 @@ const seedEvents: EventRecord[] = [
 const globalStore = global as unknown as {
   __gospels_rsvps?: RSVPRecord[];
   __gospels_prayers?: PrayerRequestRecord[];
+  __gospels_partners?: KingdomPartnerRecord[];
 };
 
 if (!globalStore.__gospels_rsvps) {
@@ -81,6 +95,20 @@ if (!globalStore.__gospels_rsvps) {
 }
 if (!globalStore.__gospels_prayers) {
   globalStore.__gospels_prayers = [];
+}
+if (!globalStore.__gospels_partners) {
+  // Pre-seed 48 founding Kingdom Partners
+  globalStore.__gospels_partners = Array.from({ length: 48 }).map((_, i) => ({
+    id: `partner_${i + 1}`,
+    name: `Kingdom Partner ${i + 1}`,
+    email: `partner${i + 1}@gospelss.org`,
+    amount: 150,
+    currency: "SEK",
+    interval: "monthly",
+    provider: i % 2 === 0 ? "SWISH" : "STRIPE",
+    status: "ACTIVE",
+    createdAt: new Date().toISOString(),
+  }));
 }
 
 export const db = {
@@ -161,4 +189,37 @@ export const db = {
       return record;
     },
   },
+
+  partners: {
+    findMany: async (): Promise<KingdomPartnerRecord[]> => {
+      return globalStore.__gospels_partners || [];
+    },
+    count: async (): Promise<number> => {
+      return (globalStore.__gospels_partners || []).length;
+    },
+    getMonthlyTotal: async (): Promise<number> => {
+      return (globalStore.__gospels_partners || []).reduce((acc, curr) => acc + curr.amount, 0);
+    },
+    create: async (data: {
+      name: string;
+      email: string;
+      amount?: number;
+      provider?: "STRIPE" | "SWISH" | "BANKGIRO";
+    }): Promise<KingdomPartnerRecord> => {
+      const record: KingdomPartnerRecord = {
+        id: `partner_${Date.now()}`,
+        name: data.name,
+        email: data.email.toLowerCase(),
+        amount: data.amount || 150,
+        currency: "SEK",
+        interval: "monthly",
+        provider: data.provider || "STRIPE",
+        status: "ACTIVE",
+        createdAt: new Date().toISOString(),
+      };
+      globalStore.__gospels_partners!.push(record);
+      return record;
+    },
+  },
 };
+

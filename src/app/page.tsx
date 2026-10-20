@@ -8,6 +8,7 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { RSVPModal } from "@/components/modals/RSVPModal";
 import { SwishModal } from "@/components/modals/SwishModal";
 import { PrayerModal } from "@/components/modals/PrayerModal";
+import { KingdomPartnerSection } from "@/components/partner/KingdomPartnerSection";
 
 export default function HomePage() {
   const [rsvpOpen, setRsvpOpen] = useState(false);
@@ -29,6 +30,9 @@ export default function HomePage() {
           onOpenRSVP={() => setRsvpOpen(true)}
           onOpenSwish={() => setSwishOpen(true)}
           onOpenPrayer={() => setPrayerOpen(true)}
+        />
+        <KingdomPartnerSection
+          onOpenSwish={() => setSwishOpen(true)}
         />
       </main>
 
