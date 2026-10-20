@@ -6,15 +6,39 @@ import Image from "next/image";
 import { Menu, X, ArrowRight, Heart } from "lucide-react";
 
 interface NavbarProps {
-  onOpenRSVP: () => void;
-  onOpenSwish: () => void;
-  onOpenPrayer: () => void;
+  onOpenRSVP?: () => void;
+  onOpenSwish?: () => void;
+  onOpenPrayer?: () => void;
 }
 
-export function Navbar({ onOpenRSVP, onOpenSwish, onOpenPrayer }: NavbarProps) {
+export function Navbar({ onOpenRSVP, onOpenSwish, onOpenPrayer }: NavbarProps = {}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lang, setLang] = useState<"sv" | "en">("sv");
+
+  const handleRSVP = () => {
+    if (onOpenRSVP) {
+      onOpenRSVP();
+    } else {
+      window.location.href = "/#konserter";
+    }
+  };
+
+  const handleSwish = () => {
+    if (onOpenSwish) {
+      onOpenSwish();
+    } else {
+      window.location.href = "/#partner";
+    }
+  };
+
+  const handlePrayer = () => {
+    if (onOpenPrayer) {
+      onOpenPrayer();
+    } else {
+      window.location.href = "/kontakt";
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +93,7 @@ export function Navbar({ onOpenRSVP, onOpenSwish, onOpenPrayer }: NavbarProps) {
             className="desktop-nav"
           >
             <Link
-              href="#konserter"
+              href="/#konserter"
               style={{
                 fontSize: "var(--text-sm)",
                 fontWeight: "var(--weight-semibold)",
@@ -79,7 +103,7 @@ export function Navbar({ onOpenRSVP, onOpenSwish, onOpenPrayer }: NavbarProps) {
               Konserter
             </Link>
             <Link
-              href="#om-oss"
+              href="/om-oss"
               style={{
                 fontSize: "var(--text-sm)",
                 fontWeight: "var(--weight-semibold)",
@@ -89,7 +113,7 @@ export function Navbar({ onOpenRSVP, onOpenSwish, onOpenPrayer }: NavbarProps) {
               Om Oss
             </Link>
             <Link
-              href="#kingdom-partner"
+              href="/#partner"
               style={{
                 fontSize: "var(--text-sm)",
                 fontWeight: "var(--weight-semibold)",
@@ -99,7 +123,7 @@ export function Navbar({ onOpenRSVP, onOpenSwish, onOpenPrayer }: NavbarProps) {
               Ge ett stöd
             </Link>
             <button
-              onClick={onOpenPrayer}
+              onClick={handlePrayer}
               style={{
                 fontSize: "var(--text-sm)",
                 fontWeight: "var(--weight-semibold)",
@@ -132,7 +156,7 @@ export function Navbar({ onOpenRSVP, onOpenSwish, onOpenPrayer }: NavbarProps) {
 
             {/* Quick Swish Button */}
             <button
-              onClick={onOpenSwish}
+              onClick={handleSwish}
               style={{
                 backgroundColor: "var(--color-warm-grey-100)",
                 color: "var(--color-charcoal-900)",
@@ -152,7 +176,7 @@ export function Navbar({ onOpenRSVP, onOpenSwish, onOpenPrayer }: NavbarProps) {
 
             {/* Primary RSVP CTA */}
             <button
-              onClick={onOpenRSVP}
+              onClick={handleRSVP}
               style={{
                 backgroundColor: "var(--color-turquoise-600)",
                 color: "var(--color-white)",
@@ -202,21 +226,21 @@ export function Navbar({ onOpenRSVP, onOpenSwish, onOpenPrayer }: NavbarProps) {
             }}
           >
             <Link
-              href="#konserter"
+              href="/#konserter"
               onClick={() => setMobileMenuOpen(false)}
               style={{ fontSize: "var(--text-base)", fontWeight: 600, color: "var(--color-charcoal-900)" }}
             >
               Konserter & Evenemang
             </Link>
             <Link
-              href="#om-oss"
+              href="/om-oss"
               onClick={() => setMobileMenuOpen(false)}
               style={{ fontSize: "var(--text-base)", fontWeight: 600, color: "var(--color-charcoal-900)" }}
             >
               Om Gospels & Styrelsen
             </Link>
             <Link
-              href="#kingdom-partner"
+              href="/#partner"
               onClick={() => setMobileMenuOpen(false)}
               style={{ fontSize: "var(--text-base)", fontWeight: 600, color: "var(--color-charcoal-900)" }}
             >
@@ -225,7 +249,7 @@ export function Navbar({ onOpenRSVP, onOpenSwish, onOpenPrayer }: NavbarProps) {
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenPrayer();
+                handlePrayer();
               }}
               style={{
                 fontSize: "var(--text-base)",
@@ -241,7 +265,7 @@ export function Navbar({ onOpenRSVP, onOpenSwish, onOpenPrayer }: NavbarProps) {
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  onOpenRSVP();
+                  handleRSVP();
                 }}
                 style={{
                   flex: 1,
