@@ -130,161 +130,127 @@ export default function HolySpiritWorshipExactPage() {
         onOpenVolunteer={() => setVolunteerOpen(true)}
       />
 
-      {/* ================= SUB-HEADER BREADCRUMB & LIVE ACCESSIBILITY STATUS ================= */}
-      <div className="bg-surface-container-low border-b border-outline-variant/30 pt-24 pb-3 sm:pt-28 sm:pb-3 w-full">
-        <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant overflow-x-auto whitespace-nowrap">
-            <MapPin className="w-4 h-4 text-primary shrink-0" />
-            <span>{t("Göteborg, Sverige", "Gothenburg, Sweden")}</span>
-            <span className="text-outline-variant">•</span>
-            <Link href="/events" className="hover:text-primary transition-colors">
-              {t("Stadens Samlingar & Lovsångsarkiv", "Citywide Gatherings & Worship Archive")}
+      {/* ================= SUB-HEADER BREADCRUMB ================= */}
+      <div className="bg-[#FAF9F5] border-b border-stone-200/80 pt-24 pb-3 sm:pt-28 sm:pb-3 w-full">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-wrap items-center justify-between gap-3 text-xs text-stone-500 font-mono">
+          <div className="flex items-center gap-2 overflow-x-auto whitespace-nowrap">
+            <Link href="/" className="hover:text-stone-900 transition-colors">
+              GOSPELS
             </Link>
-            <span className="text-outline-variant">›</span>
-            <span className="font-bold text-on-surface">Holy Spirit Worship 2026</span>
+            <span>/</span>
+            <Link href="/events" className="hover:text-stone-900 transition-colors">
+              {t("Evenemang", "Events")}
+            </Link>
+            <span>/</span>
+            <span className="font-bold text-stone-800">Holy Spirit Worship 2026</span>
           </div>
-          <div className="flex items-center gap-4 text-label-sm font-label-sm">
-            <div className="flex items-center gap-2 text-primary font-semibold">
-              <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-              <span>{t("Sanctuary Ljud & Sändning Aktiv", "Live Sanctuary Sound & Broadcast Active")}</span>
-            </div>
-            <span className="text-outline-variant/60 hidden sm:inline">•</span>
-            <div className="hidden sm:flex items-center gap-1.5 text-on-surface-variant">
-              <Radio className="w-4 h-4 text-primary" />
-              <span>{t("Aktiv för T-Slinga (Hörslinga)", "Live for T-Audio loop (T-Slinga)")}</span>
-            </div>
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-1.5 text-teal-800 font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+              {t("Frihamnen, Göteborg", "Frihamnen, Gothenburg")}
+            </span>
           </div>
         </div>
       </div>
 
       <main className="flex-1 w-full">
-        {/* ================= 1. CINEMATIC FULL-WIDTH HERO & METADATA SECTION (100VH) ================= */}
+        {/* ================= 1. CINEMATIC EVENT HERO ================= */}
         <section
-          className="relative overflow-hidden bg-[#0b1320] text-surface-container-lowest border-b border-white/10 shadow-2xl min-h-screen min-h-[100dvh] flex items-center w-full"
+          className="relative overflow-hidden bg-[#0E1113] text-stone-100 border-b border-white/10 py-16 sm:py-20 lg:py-24 w-full"
           id="hero"
         >
-          {/* Cinematic Background Image & Lighting Overlays */}
+          {/* Subtle Atmospheric Imagery */}
           <div className="absolute inset-0 pointer-events-none select-none z-0">
             <Image
               src="https://lh3.googleusercontent.com/aida/AEtjO1XucE5DeB4Ucnkz-KYD0OdRKeKe8EcJFIskmMLmZ6kqzg62_wCW_kwkW7CC9-ns9xG-y0p0yRLeJwzwLqr2-1kEcQne1vfgbMqOkK6YC5QhQEntVVDHrvCi1hH5n08dotSTBWfXr_-1y-Oy3_yVzq9F0Z84zX9sjXt5Y4ub1taVxXCBLxizK47w4Y27bqMUP9KKTqBmqBiBxELkgNlXT0muAsERa2SCKGrzq6Dep77ISUnYA-mKhlrO1PE"
-              alt="Dramatic contemporary Christian gospel worship night in Gothenburg"
+              alt="Holy Spirit Worship 2026 night in Gothenburg"
               fill
               priority
               sizes="100vw"
-              className="object-cover opacity-80"
+              className="object-cover opacity-35 filter contrast-125"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0b1320] via-[#0b1320]/80 to-[#0b1320]/40"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0b1320]/95 via-[#0b1320]/75 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0E1113] via-[#0E1113]/70 to-[#0E1113]/40"></div>
           </div>
 
-          {/* Ambient glowing orbs */}
-          <div className="absolute -right-24 -top-24 w-96 h-96 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-primary/30 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+            <div className="max-w-4xl space-y-6">
+              {/* Event Date & Location Tag */}
+              <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono font-semibold">
+                <span className="px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30 uppercase tracking-wider">
+                  {t("STORSAMLING I GÖTEBORG", "GOTHENBURG CITY GATHERING")}
+                </span>
+                <span className="px-3 py-1 rounded-full bg-white/10 text-white border border-white/15">
+                  {t("SÖN 18 OKT 2026 • 18:00", "SUN OCT 18, 2026 • 18:00")}
+                </span>
+                <span className="px-3 py-1 rounded-full bg-white/10 text-stone-300 border border-white/15">
+                  Frihamnen Sanctuary Hall
+                </span>
+              </div>
 
-          {/* Main Content Container */}
-          <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 py-12 sm:py-16 lg:py-20">
-            <div className="max-w-5xl space-y-6 sm:space-y-8">
-              {/* Category & Date Badges */}
-              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-container/20 text-secondary-fixed border border-secondary-fixed/30 text-label-sm font-label-sm font-bold tracking-wide uppercase shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-                {t("Göteborgs Gemensamma Lovsångskväll", "Gothenburg City-Wide Praise Night")}
-              </span>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-primary-fixed text-label-sm font-label-sm font-semibold">
-                <Calendar className="w-4 h-4 text-primary-container" />
-                <span>{t("SÖN, 18 OKT 2026", "SUN, 18 OCT 2026")}</span>
+              {/* Event Headline */}
+              <div>
+                <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                  Holy Spirit Worship <span className="text-teal-400 font-extrabold">2026</span>
+                </h1>
+                <p className="mt-4 text-base sm:text-lg text-stone-300 font-light leading-relaxed max-w-3xl">
+                  {t(
+                    "En ekumenisk kväll av spontan lovsång, orkestrerade gospelhymner och förbön i Frihamnens historiska hamnmiljö. Förenar över 25 församlingar, ungdomskörer och sökande från hela Västsverige under en gemensam bekännelse.",
+                    "An ecumenical evening of spontaneous praise, orchestrated gospel anthems, and extended prayer ministry in Frihamnen. Uniting over 25 fellowship churches, youth choirs, and seekers from across Western Sweden."
+                  )}
+                </p>
               </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-slate-300 text-label-sm font-label-sm">
-                <MapPin className="w-4 h-4 text-primary-container" />
-                <span>{t("Frihamnen Sanctuary Hall, Göteborg", "Frihamnen Sanctuary Hall, Gothenburg")}</span>
-              </div>
-            </div>
 
-            {/* Headline & Subtitle */}
-            <div className="space-y-4">
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight font-display-hero">
-                Holy Spirit Worship <span className="text-primary-container font-extrabold">2026</span>
-              </h1>
-              <p className="text-base sm:text-lg lg:text-xl text-slate-200 font-body-md leading-relaxed max-w-3xl">
-                {t(
-                  "En ekumenisk kväll av spontan lovsång, orkestrerade gospelhymner och förbön i Frihamnens historiska hamnmiljö. Förenar över 25 församlingar, ungdomskörer och sökande från hela Västsverige under en gemensam bekännelse.",
-                  "An all-denominational evening of spontaneous praise, orchestral gospel anthems, and extended ministry in the historic shipyard district of Frihamnen. Uniting over 25 fellowship churches, youth choirs, and seekers from across Western Sweden under one unified confession."
-                )}
-              </p>
-            </div>
+              {/* Quick Logistics Strip */}
+              <div className="flex flex-wrap items-center gap-y-2 gap-x-6 text-xs sm:text-sm text-stone-300 border-y border-white/10 py-4">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-teal-400" />
+                  <span className="font-medium text-white">{t("Dörrar 17:00", "Doors 17:00")}</span>
+                  <span className="text-stone-400">• {t("Lovsång 18:00 – 21:00", "Worship 18:00 – 21:00")}</span>
+                </div>
+                <div className="hidden sm:inline text-white/20">|</div>
+                <div className="flex items-center gap-2">
+                  <Ticket className="w-4 h-4 text-emerald-400" />
+                  <span className="text-emerald-300 font-medium">{t("100% Fri Entré", "100% Free Admission")}</span>
+                </div>
+                <div className="hidden sm:inline text-white/20">|</div>
+                <div className="flex items-center gap-2">
+                  <Accessibility className="w-4 h-4 text-teal-400" />
+                  <span>{t("T-Slinga & Tillgänglighetsanpassat", "Hearing Loop & Step-Free Access")}</span>
+                </div>
+              </div>
 
-            {/* Quick Logistics Highlights Row */}
-            <div className="flex flex-wrap items-center gap-y-2 gap-x-6 text-sm text-slate-300 border-y border-white/10 py-3.5">
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-primary-container" />
-                <span className="font-medium text-white">{t("Dörrar 17:00 CEST", "Doors 17:00 CEST")}</span>
-                <span className="text-slate-400">• {t("Lovsång 18:00 – 21:00", "Worship 18:00 – 21:00")}</span>
-              </div>
-              <div className="hidden sm:inline text-white/20">|</div>
-              <div className="flex items-center gap-2">
-                <Ticket className="w-4 h-4 text-emerald-400" />
-                <span className="text-emerald-300 font-medium">{t("100% Fri Entré", "100% Free Admission")}</span>
-                <span className="text-slate-400">({t("Föranmälan Krävs", "RSVP Required")})</span>
-              </div>
-              <div className="hidden sm:inline text-white/20">|</div>
-              <div className="flex items-center gap-2">
-                <Accessibility className="w-4 h-4 text-primary-container" />
-                <span>{t("T-Slinga & Tillgänglighetsanpassat", "T-Audio Loop & Step-Free Access")}</span>
-              </div>
-            </div>
-
-            {/* Real-Time Capacity & Action Bar */}
-            <div className="bg-slate-900/80 backdrop-blur-md border border-white/15 rounded-2xl p-5 sm:p-6 w-full shadow-xl space-y-4 sm:space-y-5">
-              {/* Capacity Progress Indicator */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-label-sm font-label-sm">
-                  <div className="flex items-center gap-2 text-slate-200">
-                    <Users className="w-4 h-4 text-primary-container" />
-                    <span className="font-semibold">{t("Sanctuary Kapacitet Live", "Live Sanctuary Capacity")}</span>
+              {/* Clean Capacity Baseline & Action */}
+              <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                <div className="space-y-1.5 max-w-xs">
+                  <div className="flex justify-between text-xs font-mono">
+                    <span className="text-stone-400">{t("Kapacitet", "Capacity")}</span>
+                    <span className="text-teal-300 font-bold">340 / 500 reserverade</span>
                   </div>
-                  <span className="text-primary-fixed font-bold text-sm">
-                    {t("340 av 500 platser reserverade (68%)", "340 of 500 spots reserved (68%)")}
-                  </span>
+                  <div className="w-full bg-white/10 rounded-full h-1.5 overflow-hidden">
+                    <div className="bg-teal-400 h-full rounded-full" style={{ width: "68%" }}></div>
+                  </div>
                 </div>
-                <div className="w-full bg-slate-800 rounded-full h-2.5 overflow-hidden border border-white/5">
-                  <div className="bg-primary-container h-full rounded-full transition-all duration-1000" style={{ width: "68%" }}></div>
-                </div>
-                <div className="flex items-center justify-between text-xs text-slate-400">
-                  <span>{t("Stora Salen Golvplatser + Läktare", "Main Sanctuary Floor Seating + Balcony")}</span>
-                  <span className="text-secondary-fixed font-medium">
-                    {t("Begränsat antal platser kvar", "Limited Seats Remaining")}
-                  </span>
-                </div>
-              </div>
 
-              {/* Primary & Secondary Action CTAs */}
-              <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
-                <a
-                  className="inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-bold text-label-md font-label-md px-6 py-3.5 rounded-xl transition duration-150 active:scale-95 shadow-lg"
-                  href="#rsvp"
-                >
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>{t("Boka Din Gratisplats", "Reserve Your Free Seat")}</span>
-                </a>
-                <a
-                  className="inline-flex items-center justify-center gap-2 border border-white/30 text-white hover:bg-white/10 transition duration-150 px-5 py-3.5 rounded-xl font-semibold text-label-md font-label-md shadow-sm"
-                  href="#schedule"
-                >
-                  <Clock className="w-4 h-4 text-primary-container" />
-                  <span>{t("Se Hålltider & Program", "View Run of Show")}</span>
-                </a>
-                <a
-                  className="inline-flex items-center justify-center gap-2 text-slate-300 hover:text-white transition duration-150 px-4 py-3.5 rounded-xl font-medium text-label-md font-label-md"
-                  href="#transit"
-                >
-                  <Navigation className="w-4 h-4" />
-                  <span>{t("Hitta Hit & Vägbeskrivning", "Transit & Directions")}</span>
-                </a>
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href="#rsvp"
+                    className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-semibold text-sm px-6 py-3 rounded-full transition shadow-sm active:scale-95"
+                  >
+                    <CheckCircle2 className="w-4 h-4" />
+                    <span>{t("Boka Din Gratisplats", "Reserve Free Seat")}</span>
+                  </a>
+
+                  <a
+                    href="#schedule"
+                    className="inline-flex items-center gap-2 border border-white/20 hover:bg-white/10 text-stone-200 text-sm font-medium px-5 py-3 rounded-full transition"
+                  >
+                    <span>{t("Se Program & Hålltider", "View Schedule")}</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
         {/* Content sections wrapper with standard padding */}
         <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 py-12 sm:py-16 space-y-16">

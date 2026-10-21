@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Church, Sparkles, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Church, Calendar, MapPin, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface HeroSectionProps {
@@ -16,8 +16,8 @@ export function HeroSection({ onOpenRSVP, onOpenSwish, onOpenPrayer }: HeroSecti
   const { t } = useLanguage();
 
   return (
-    <section className="relative bg-on-background text-surface overflow-hidden min-h-screen min-h-[100dvh] flex items-center">
-      {/* Atmospheric Background Image with Nordic Deep Twilight Gradients */}
+    <section className="relative bg-[#0E1113] text-stone-100 overflow-hidden min-h-screen min-h-[100dvh] flex items-center justify-center">
+      {/* Cinematic Full-Bleed Atmospheric Imagery */}
       <div className="absolute inset-0 z-0">
         <Image
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsmAGYb6RK-ffekW0k1ug8sZl-dZP_PUsGhKVnebisdEiUNGWRhT1zZrF0Ya4MQM0mMCKtA9Nanp_ziaQD8NyRcd4fWMM7IvWu3_5KMD79lSKCbtEtg8a0JoVsrud5t0AUG6sRezGiXfcWzFJOZJbaoePdRI8oE_RyOX16UHinSXgCWW0_uVL8xPNGcpD-wDTPOycpoyfCdfCVFa_9Aosbtr9vr-25sEWg2YZ5idLWVKmfvDaarfNTvQ"
@@ -25,145 +25,80 @@ export function HeroSection({ onOpenRSVP, onOpenSwish, onOpenPrayer }: HeroSecti
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center opacity-40 mix-blend-luminosity filter contrast-125"
+          className="object-cover object-center opacity-30 mix-blend-luminosity filter contrast-125 scale-105 transition-transform duration-1000"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-on-background via-on-background/90 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-on-background via-transparent to-black/40"></div>
+        {/* Soft Organic Atmospheric Gradients */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0E1113]/80 via-[#0E1113]/40 to-[#0E1113]"></div>
+        <div className="absolute inset-0 bg-radial-gradient from-teal-500/10 via-transparent to-transparent"></div>
       </div>
 
-      <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Hero Text & Intent */}
-          <div className="lg:col-span-7 space-y-4 sm:space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-highest/20 border border-white/10 backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-              <span className="text-[11px] sm:text-label-sm font-label-sm tracking-wide text-primary-fixed uppercase font-semibold">
-                {t("Göteborgs Musikmission • Grundat 2021", "Gothenburg Music Ministry • Est. 2021")}
-              </span>
-            </div>
+      {/* Main Sanctuary Stage Content */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-5 sm:px-8 text-center pt-28 pb-16 sm:pt-36 sm:pb-24 flex flex-col items-center">
+        {/* Quiet, Minimal Event Anchor Pill */}
+        <Link
+          href="/events/holy-spirit-worship"
+          className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md mb-8 transition duration-200 group"
+        >
+          <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+          <span className="text-xs font-mono font-medium tracking-wider text-teal-200 uppercase">
+            {t("Nästa Samling: Holy Spirit Worship • 18 Okt 2026", "Next Gathering: Holy Spirit Worship • Oct 18, 2026")}
+          </span>
+          <ArrowRight className="w-3.5 h-3.5 text-stone-300 group-hover:translate-x-0.5 transition-transform" />
+        </Link>
 
-            <h1 className="font-display-hero-mobile text-display-hero-mobile sm:font-display-hero sm:text-display-hero tracking-tight text-white leading-tight">
-              {t("För Lovsång till ", "Bring Worship to the ")}
-              <span className="text-primary-fixed underline decoration-primary-container/40 underline-offset-4 sm:underline-offset-8">
-                {t("Gatorna", "Streets")}
-              </span>{" "}
-              {t("i Göteborg", "of Gothenburg")}
-            </h1>
+        {/* Monumental Headline: Sans + Poetic Serif Accent */}
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08] max-w-4xl">
+          {t("För Lovsång till ", "Bring Worship to the ")}
+          <span className="text-teal-400 font-extrabold">
+            {t("Gatorna", "Streets")}
+          </span>
+          <span className="block font-serif font-normal italic text-stone-200 text-3xl sm:text-5xl md:text-6xl mt-2 sm:mt-3">
+            {t("i Göteborg & Västsverige", "of Gothenburg & West Sweden")}
+          </span>
+        </h1>
 
-            <p className="font-body-md sm:font-body-lg text-body-md sm:text-body-lg text-surface-variant/90 max-w-xl leading-relaxed">
-              {t(
-                "Skapar stunder av helig tillbedjan som förvandlar generationer över Västsverige. Förenar lokala församlingar i pulserande utomhuslovsång, andliga möten och gemenskap.",
-                "Creating moments of worship that impact generations across West Sweden. Uniting local congregations in vibrant outdoor praise, spiritual encounter, and compassionate civic renewal."
-              )}
-            </p>
+        {/* Calm, Reverent Subtitle */}
+        <p className="mt-6 text-base sm:text-lg md:text-xl text-stone-300 font-light max-w-2xl leading-relaxed">
+          {t(
+            "Skapar stunder av helig tillbedjan som förvandlar generationer. Vi förenar lokala församlingar i öppen utomhuslovsång, andlig förnyelse och varm gemenskap i stadens offentliga rum.",
+            "Creating moments of sacred praise that transform generations. Uniting local congregations in open-air worship, spiritual renewal, and compassionate presence across our city's public squares."
+          )}
+        </p>
 
-            {/* CTAs - Responsive full-width on mobile */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-              <Link
-                href="/events"
-                className="inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md px-6 py-3.5 rounded-lg shadow-md custom-halo transition duration-150 active:scale-95 text-center"
-              >
-                <span>{t("Utforska Samlingar", "Explore Events")}</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/partners"
-                className="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-white/10 text-surface border border-white/30 font-label-md text-label-md px-6 py-3.5 rounded-lg backdrop-blur-sm transition duration-150 active:scale-95 text-center"
-              >
-                <Church className="w-4 h-4" />
-                <span>{t("Partnerförsamlingar", "Partner Churches")}</span>
-              </Link>
-            </div>
+        {/* Minimal Action Cluster (High Touch, No Clutter) */}
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto">
+          <Link
+            href="/events"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-teal-600 hover:bg-teal-500 text-white font-medium px-8 py-3.5 rounded-full transition duration-150 shadow-md active:scale-95 text-center text-sm sm:text-base"
+          >
+            <span>{t("Utforska Samlingar", "Explore Gatherings")}</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
 
-            {/* Quick Metrics Bar - Compact Nordic 3-Cell Grid on Mobile */}
-            <div className="pt-4 sm:pt-6 border-t border-white/10">
-              <div className="grid grid-cols-3 gap-2 p-3 bg-surface-container-lowest/10 backdrop-blur-md rounded-xl border border-white/10 text-center max-w-lg shadow-sm">
-                <div className="p-1">
-                  <p className="font-headline-sm sm:font-headline-lg font-bold text-white">42+</p>
-                  <p className="text-[11px] sm:text-label-sm font-label-sm text-surface-variant leading-tight block">{t("Församlingar", "Congregations")}</p>
-                </div>
-                <div className="p-1 border-x border-white/10">
-                  <p className="font-headline-sm sm:font-headline-lg font-bold text-primary-fixed">15,000</p>
-                  <p className="text-[11px] sm:text-label-sm font-label-sm text-surface-variant leading-tight block">{t("Årliga Besökare", "Annual Attendees")}</p>
-                </div>
-                <div className="p-1">
-                  <p className="font-headline-sm sm:font-headline-lg font-bold text-white">100%</p>
-                  <p className="text-[11px] sm:text-label-sm font-label-sm text-surface-variant leading-tight block">{t("Gratis & Ideellt", "Free & Non-Profit")}</p>
-                </div>
-              </div>
-            </div>
+          <Link
+            href="/partners"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-stone-200 border border-white/20 font-medium px-8 py-3.5 rounded-full backdrop-blur-md transition duration-150 active:scale-95 text-center text-sm sm:text-base"
+          >
+            <Church className="w-4 h-4 text-stone-300" />
+            <span>{t("Partnerförsamlingar", "Partner Churches")}</span>
+          </Link>
+        </div>
+
+        {/* Quiet Minimal Metrics Baseline (No Boxed Clutter) */}
+        <div className="mt-16 sm:mt-20 pt-8 border-t border-white/10 w-full max-w-2xl flex flex-wrap items-center justify-around gap-6 text-stone-400 text-xs sm:text-sm font-medium">
+          <div className="text-center">
+            <span className="block text-xl sm:text-2xl font-bold text-white font-sans">42+</span>
+            <span className="text-stone-400 text-xs">{t("Samverkande Församlingar", "Partner Churches")}</span>
           </div>
-
-          {/* Hero Feature Spotlight Card (Floating Page 1/Page 2 Accent) */}
-          <div className="lg:col-span-5">
-            <div className="bg-surface-container-lowest/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 lg:p-7 shadow-2xl relative overflow-hidden group">
-              <div className="absolute -top-16 -right-16 w-44 h-44 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
-              
-              <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/10">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-primary-container" />
-                  <span className="text-label-sm font-label-sm tracking-wider uppercase text-primary-fixed">
-                    {t("Utvald Samling", "Featured Gathering")}
-                  </span>
-                </div>
-                <span className="px-2.5 py-1 rounded-full bg-white/10 text-white text-[11px] sm:text-label-sm font-label-sm">
-                  {t("Fri Entré", "Free Admission")}
-                </span>
-              </div>
-
-              {/* Card Thumbnail Banner */}
-              <div className="mt-4 sm:mt-5 rounded-xl overflow-hidden aspect-[16/9] relative">
-                <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP0MME-ZWQuFzCbalUpQBYJjv0lBYOMe7oQZL1EhtEHNFncqrpVn1H2O3yY4NNw_JE4KHjSXEWphMj2IWc3-YyLEI6M0kR3DwJAiQO0OFrRiCbDQuUHZkBoik8Ro-RGNqgNHqKBDPTkPeyDN47L-m9pDrvdp_lovUmqGgWJh3tq0RcwSvmlnU3kcjGnw8zhPdZVQtOLHILmaplpl4YIyUIw23OR8duA2GH67eWXyiYLImbXav2BF8WmA"
-                  alt="Holy Spirit Worship 2026 Concert Gathering"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-cover group-hover:scale-105 transition duration-500"
-                />
-              </div>
-
-              <div className="mt-4 sm:mt-5">
-                <span className="text-[11px] sm:text-label-sm font-label-sm text-primary-fixed uppercase tracking-wider font-semibold">
-                  {t("Lördag • 18 okt 2026 • 18:00", "Saturday • Oct 18, 2026 • 18:00")}
-                </span>
-                <h3 className="font-headline-sm sm:font-headline-md text-headline-sm sm:text-headline-md text-white mt-1">
-                  Holy Spirit Worship 2026
-                </h3>
-                <p className="text-body-sm font-body-sm text-surface-variant mt-2 line-clamp-2">
-                  {t(
-                    "En intim kväll med djup akustisk förbön, förenad lovsång och profetisk tillbedjan som välkomnar tillbedjare från hela Västsverige.",
-                    "An intimate night of deep acoustic intercession, united gospel chorals, and prophetic praise welcoming worshipers from across West Sweden."
-                  )}
-                </p>
-              </div>
-
-              <div className="mt-5 sm:mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="flex -space-x-2">
-                    <span className="inline-block w-7 h-7 rounded-full bg-surface-container-high border-2 border-slate-900 text-[10px] flex items-center justify-center font-bold text-on-surface">
-                      JD
-                    </span>
-                    <span className="inline-block w-7 h-7 rounded-full bg-primary-container border-2 border-slate-900 text-[10px] flex items-center justify-center font-bold text-white">
-                      KL
-                    </span>
-                    <span className="inline-block w-7 h-7 rounded-full bg-surface-variant border-2 border-slate-900 text-[10px] flex items-center justify-center font-bold text-on-surface">
-                      +
-                    </span>
-                  </span>
-                  <span className="text-label-sm font-label-sm text-surface-variant">
-                    {t("340 Anmälda", "340 RSVP'd")}
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  onClick={onOpenRSVP}
-                  className="inline-flex items-center gap-1.5 bg-primary-container text-on-primary hover:bg-secondary font-label-sm text-label-sm px-4 py-2 rounded-lg transition duration-150 shadow-sm"
-                >
-                  <span>{t("Anmäl dig gratis", "RSVP Free")}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </div>
+          <div className="hidden sm:block w-px h-8 bg-white/10"></div>
+          <div className="text-center">
+            <span className="block text-xl sm:text-2xl font-bold text-teal-400 font-sans">15 000</span>
+            <span className="text-stone-400 text-xs">{t("Årliga Deltagare", "Annual Worshipers")}</span>
+          </div>
+          <div className="hidden sm:block w-px h-8 bg-white/10"></div>
+          <div className="text-center">
+            <span className="block text-xl sm:text-2xl font-bold text-white font-sans">100%</span>
+            <span className="text-stone-400 text-xs">{t("Gratis & Ideellt", "Free & Non-Profit")}</span>
           </div>
         </div>
       </div>
