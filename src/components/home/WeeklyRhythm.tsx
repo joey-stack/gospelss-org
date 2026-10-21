@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { Calendar, MapPin, Clock, ArrowRight } from "lucide-react";
+import { MapPin, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 interface DayPlan {
@@ -109,17 +109,17 @@ export function WeeklyRhythm() {
   const activeDay = days[activeIdx];
 
   return (
-    <section className="py-14 sm:py-18 bg-white border-b border-stone-200/80">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-20 bg-[var(--grey-50)] border-b border-[var(--grey-200)]">
+      <div className="max-w-[var(--container)] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
           <div>
-            <span className="text-xs font-mono font-bold tracking-widest uppercase text-teal-800">
-              {t("VARDAGSLIV • GÖTEBORG", "WEEKDAY CADENCE • GOTHENBURG")}
+            <span className="overline block mb-2">
+              {t("02 / Vardagsliv · Göteborg", "02 / Weekday cadence · Gothenburg")}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-stone-900 mt-2">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-[-0.025em] text-[var(--grey-900)] font-[family-name:var(--font-heading)]">
               {t("En vecka i GOSPELS", "A week in GOSPELS")}
             </h2>
-            <p className="text-xs sm:text-sm text-stone-600 mt-2 font-light max-w-xl">
+            <p className="text-xs sm:text-sm text-[var(--grey-600)] mt-2 font-light max-w-xl font-[family-name:var(--font-body)]">
               {t(
                 "Gemenskapen lever inte bara på söndagar. Runt matbord, vid eldkorgar och på stadens torg möts vi hela veckan.",
                 "Community happens far beyond the weekend: around dinner tables, beside fire pits, and across Gothenburg's public squares."
@@ -128,10 +128,10 @@ export function WeeklyRhythm() {
           </div>
           <Link
             href="/events"
-            className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-teal-800 hover:text-teal-900 uppercase tracking-wider"
+            className="btn btn-secondary text-xs"
           >
             <span>{t("Hela stadskalendern", "Full city calendar")}</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 ml-1" />
           </Link>
         </div>
 
@@ -144,14 +144,14 @@ export function WeeklyRhythm() {
                 key={item.dayCode}
                 type="button"
                 onClick={() => setActiveIdx(idx)}
-                className={`py-3 px-2 sm:px-4 rounded-xl text-center transition flex flex-col items-center justify-center border ${
+                className={`py-3 px-2 sm:px-4 rounded-[var(--radius-md)] text-center transition flex flex-col items-center justify-center border font-[family-name:var(--font-heading)] ${
                   isSelected
-                    ? "bg-teal-700 text-white border-teal-700 shadow-xs"
-                    : "bg-[#FAF9F5] text-stone-700 border-stone-200/80 hover:bg-stone-100"
+                    ? "bg-[var(--turquoise-600)] text-white border-[var(--turquoise-600)] shadow-[var(--shadow-sm)]"
+                    : "bg-white text-[var(--grey-700)] border-[var(--grey-200)] hover:bg-[var(--grey-100)]"
                 }`}
               >
-                <span className="font-mono text-xs sm:text-sm font-bold block">{item.dayCode}</span>
-                <span className={`text-[10px] hidden sm:block mt-0.5 ${isSelected ? "text-teal-100" : "text-stone-600"}`}>
+                <span className="text-xs sm:text-sm font-bold block">{item.dayCode}</span>
+                <span className={`text-[10px] hidden sm:block mt-0.5 ${isSelected ? "text-teal-100" : "text-[var(--grey-500)]"}`}>
                   {item.dayLabel}
                 </span>
               </button>
@@ -160,30 +160,30 @@ export function WeeklyRhythm() {
         </div>
 
         {/* Active Day Detail Card */}
-        <div className="bg-[#FAF9F5] rounded-2xl border border-stone-200/90 p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-300">
+        <div className="bg-white rounded-[var(--radius-lg)] border border-[var(--grey-200)] p-6 sm:p-8 shadow-[var(--shadow-sm)] flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-300">
           <div className="max-w-2xl">
             <div className="flex flex-wrap items-center gap-2 mb-2">
-              <span className="font-mono text-xs font-bold text-teal-700 uppercase tracking-wider">
+              <span className="overline">
                 {activeDay.dayLabel}
               </span>
-              <span className="text-stone-300">•</span>
-              <span className="px-2 py-0.5 rounded-full bg-teal-50 border border-teal-100 font-mono text-[11px] text-teal-800 font-medium">
+              <span className="text-[var(--grey-300)]">•</span>
+              <span className="px-2.5 py-0.5 rounded-full bg-[var(--turquoise-50)] border border-[var(--turquoise-200)] text-[11px] text-[var(--turquoise-800)] font-semibold font-[family-name:var(--font-heading)]">
                 {activeDay.tag}
               </span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-stone-900 mb-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-[var(--grey-900)] mb-2 font-[family-name:var(--font-heading)]">
               {activeDay.title}
             </h3>
-            <p className="text-xs sm:text-sm text-stone-600 font-light leading-relaxed mb-4">
+            <p className="text-xs sm:text-sm text-[var(--grey-600)] font-light leading-relaxed mb-4 font-[family-name:var(--font-body)]">
               {activeDay.desc}
             </p>
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-stone-500">
+            <div className="flex flex-wrap items-center gap-4 text-xs text-[var(--grey-500)] font-[family-name:var(--font-body)]">
               <span className="inline-flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-teal-600" />
+                <Clock className="w-3.5 h-3.5 text-[var(--turquoise-600)]" />
                 {activeDay.time}
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-teal-600" />
+                <MapPin className="w-3.5 h-3.5 text-[var(--turquoise-600)]" />
                 {activeDay.location}
               </span>
             </div>
@@ -192,10 +192,10 @@ export function WeeklyRhythm() {
           <div className="shrink-0 flex items-center gap-3">
             <Link
               href="/events"
-              className="px-5 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-600 text-white font-medium text-xs sm:text-sm transition shadow-xs inline-flex items-center gap-2 active:scale-95"
+              className="btn btn-primary text-xs"
             >
               <span>{t("Kom förbi", "Join in")}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 ml-1" />
             </Link>
           </div>
         </div>

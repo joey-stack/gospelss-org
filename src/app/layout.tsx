@@ -204,7 +204,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
       </head>
-      <body>
+      <body className="bg-grey-50 text-grey-900 font-inter antialiased min-h-screen">
         <a href="#main-content" className="skip-link">
           Hoppa till huvudinnehåll
         </a>

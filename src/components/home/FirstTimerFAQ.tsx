@@ -64,16 +64,16 @@ export function FirstTimerFAQ() {
   };
 
   return (
-    <section className="py-16 sm:py-24 bg-white border-b border-stone-200/80">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+    <section className="py-16 sm:py-24 bg-white border-b border-[var(--grey-200)]">
+      <div className="max-w-[720px] mx-auto px-4 sm:px-6">
         <div className="text-center mb-10 sm:mb-12">
-          <span className="text-xs font-mono font-bold tracking-widest uppercase text-teal-800 mb-2 block">
-            {t("FRÅGOR & SVAR", "FREQUENTLY ASKED QUESTIONS")}
+          <span className="overline block mb-2">
+            {t("05 / Frågor & svar", "05 / Frequently asked questions")}
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-stone-900">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-[-0.025em] text-[var(--grey-900)] font-[family-name:var(--font-heading)]">
             {t("Det folk brukar undra innan de kommer", "Things people ask before they come")}
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 mt-2 font-light">
+          <p className="text-xs sm:text-sm text-[var(--grey-600)] mt-2 font-light font-[family-name:var(--font-body)]">
             {t(
               "Har du fler funderingar? Hör gärna av dig till oss på hej@gospelss.org.",
               "Curious about something else? Reach out anytime at hej@gospelss.org."
@@ -82,7 +82,7 @@ export function FirstTimerFAQ() {
         </div>
 
         {/* Accordion List */}
-        <div className="divide-y divide-stone-200/80 border-y border-stone-200/80">
+        <div className="divide-y divide-[var(--grey-200)] border-y border-[var(--grey-200)]">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (
@@ -93,17 +93,17 @@ export function FirstTimerFAQ() {
                   className="w-full flex items-center justify-between text-left gap-4 group"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-bold text-stone-900 text-sm sm:text-base group-hover:text-teal-700 transition">
+                  <span className="font-bold text-[var(--grey-900)] text-sm sm:text-base group-hover:text-[var(--turquoise-700)] transition font-[family-name:var(--font-heading)]">
                     {faq.q}
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 text-stone-500 shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-teal-700" : ""
+                    className={`w-4 h-4 text-[var(--grey-500)] shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-[var(--turquoise-700)]" : ""
                     }`}
                   />
                 </button>
                 {isOpen && (
-                  <p className="mt-3 text-xs sm:text-sm text-stone-600 font-light leading-relaxed pr-6">
+                  <p className="mt-3 text-xs sm:text-sm text-[var(--grey-600)] font-light leading-relaxed pr-6 font-[family-name:var(--font-body)]">
                     {faq.a}
                   </p>
                 )}

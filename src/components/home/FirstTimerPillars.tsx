@@ -44,47 +44,47 @@ export function FirstTimerPillars() {
   ];
 
   return (
-    <section className="py-14 sm:py-18 bg-[#F5F4EE] border-b border-stone-200/80">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-20 bg-[var(--grey-100)] border-b border-[var(--grey-200)]">
+      <div className="max-w-[var(--container)] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
           <div>
-            <span className="text-xs font-mono font-bold tracking-widest uppercase text-teal-800">
-              {t("DITT FÖRSTA BESÖK", "YOUR FIRST VISIT")}
+            <span className="overline block mb-2">
+              {t("01 / Ditt första besök", "01 / Your first visit")}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-stone-900 mt-2">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-[-0.025em] text-[var(--grey-900)] font-[family-name:var(--font-heading)]">
               {t("Fyra saker värda att veta innan du kommer", "Four things worth knowing before you arrive")}
             </h2>
           </div>
           <Link
             href="/events"
-            className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-teal-800 hover:text-teal-900 uppercase tracking-wider group"
+            className="btn btn-secondary text-xs"
           >
             <span>{t("Se alla samlingar", "View all gatherings")}</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+            <ArrowRight className="w-3.5 h-3.5 ml-1" />
           </Link>
         </div>
 
         {/* 4-Column Reassurance Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={idx}
-                className="bg-[#FAF9F5] p-6 rounded-2xl border border-stone-200/90 flex flex-col justify-between hover:border-stone-300 transition duration-200"
+                className="bg-white p-6 rounded-[var(--radius-lg)] border border-[var(--grey-200)] shadow-[var(--shadow-sm)] flex flex-col justify-between hover:shadow-[var(--shadow-md)] transition duration-200"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-700 mb-4">
-                    <Icon className="w-5 h-5 stroke-[1.75]" />
+                  <div className="w-10 h-10 rounded-[10px] bg-[var(--turquoise-50)] border border-[var(--turquoise-200)] flex items-center justify-center text-[var(--turquoise-700)] mb-4">
+                    <Icon className="w-5 h-5 stroke-[1.8]" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-stone-900 mb-2 leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-[var(--grey-900)] mb-2 leading-snug font-[family-name:var(--font-heading)]">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[var(--grey-600)] font-light leading-relaxed font-[family-name:var(--font-body)]">
                     {pillar.desc}
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-stone-200/60 font-mono text-[10px] text-stone-600 font-semibold uppercase tracking-wider">
+                <div className="mt-4 pt-3 border-t border-[var(--grey-100)] text-[10px] text-[var(--grey-500)] font-semibold uppercase tracking-[0.12em] font-[family-name:var(--font-heading)]">
                   0{idx + 1} · {t("GÄSTFRIHET", "HOSPITALITY")}
                 </div>
               </div>

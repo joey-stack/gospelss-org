@@ -52,16 +52,16 @@ export function PathwaySteps() {
   ];
 
   return (
-    <section className="py-14 sm:py-20 bg-[#FAF9F5] border-b border-stone-200/80">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-24 bg-white border-b border-[var(--grey-200)]">
+      <div className="max-w-[var(--container)] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-12 sm:mb-16">
-          <span className="text-xs font-mono font-bold tracking-widest uppercase text-teal-800">
-            {t("DIN VÄG FRAMÅT", "NEXT STEPS")}
+          <span className="overline block mb-2">
+            {t("03 / Din väg framåt", "03 / Next steps")}
           </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900 mt-2">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-[-0.025em] text-[var(--grey-900)] font-[family-name:var(--font-heading)]">
             {t("Du hör hemma från första dagen", "You belong from your very first Sunday")}
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 mt-3 font-light leading-relaxed">
+          <p className="text-xs sm:text-sm text-[var(--grey-600)] mt-3 font-light leading-relaxed font-[family-name:var(--font-body)]">
             {t(
               "När du är redo att ta nästa steg i din egen takt, finns det enkla och trygga vägar in i gemenskapen.",
               "When you are ready for more, here are the simple, unpressured steps many take at their own pace."
@@ -69,24 +69,24 @@ export function PathwaySteps() {
           </p>
         </div>
 
-        {/* 4-Step Milestone Grid with Editorial Numerals */}
+        {/* 4-Step Milestone Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {steps.map((step) => (
-            <div key={step.num} className="pt-6 border-t-2 border-stone-300 flex flex-col justify-between">
+            <div key={step.num} className="pt-6 border-t-2 border-[var(--grey-200)] flex flex-col justify-between">
               <div>
-                <span className="font-mono text-3xl sm:text-4xl font-bold text-teal-700/60 block mb-3">
+                <span className="text-3xl sm:text-4xl font-bold text-[var(--turquoise-600)] block mb-3 font-[family-name:var(--font-heading)]">
                   {step.num}
                 </span>
-                <h3 className="text-lg sm:text-xl font-bold text-stone-900 mb-2 leading-snug">
+                <h3 className="text-lg sm:text-xl font-bold text-[var(--grey-900)] mb-2 leading-snug font-[family-name:var(--font-heading)]">
                   {step.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-stone-600 font-light leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-[var(--grey-600)] font-light leading-relaxed mb-6 font-[family-name:var(--font-body)]">
                   {step.desc}
                 </p>
               </div>
               <Link
                 href={step.href}
-                className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-teal-800 hover:text-teal-900 uppercase tracking-wider group"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--turquoise-700)] hover:text-[var(--turquoise-800)] font-[family-name:var(--font-body)] transition group"
               >
                 <span>{step.linkText}</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

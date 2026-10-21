@@ -4,10 +4,6 @@
 
 @import "../styles/tokens.css";
 
-.custom-halo:hover {
-  box-shadow: 0 4px 24px rgba(20, 184, 166, 0.35);
-}
-
 /* CSS Modern Reset */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -16,9 +12,9 @@
 }
 
 html {
-  font-family: var(--font-sans);
-  background-color: var(--bg-canvas);
-  color: var(--text-primary);
+  font-family: var(--font-body), 'Inter', sans-serif;
+  background-color: var(--grey-50, #F9FAFB);
+  color: var(--grey-900, #111827);
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -28,67 +24,103 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-canvas);
-  color: var(--text-primary);
-  line-height: var(--leading-relaxed);
+  background-color: var(--grey-50, #F9FAFB);
+  color: var(--grey-900, #111827);
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* Typography Defaults */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: var(--weight-bold);
-  line-height: var(--leading-tight);
-  color: var(--color-charcoal-900);
-  letter-spacing: var(--tracking-tight);
+/* ==========================================================================
+   GOSPELS TYPOGRAPHY SCALE SPECIFICATION (STEP 2)
+   ========================================================================== */
+@layer components {
+  .display {
+    font-family: var(--font-heading), 'Hanken Grotesk', 'Inter', sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .h1 {
+    font-family: var(--font-heading), 'Hanken Grotesk', 'Inter', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .h2 {
+    font-family: var(--font-heading), 'Hanken Grotesk', 'Inter', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .h3 {
+    font-family: var(--font-heading), 'Hanken Grotesk', 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+  }
+
+  .h4 {
+    font-family: var(--font-heading), 'Hanken Grotesk', 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  .body-lg {
+    font-family: var(--font-body), 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .body {
+    font-family: var(--font-body), 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .body-sm {
+    font-family: var(--font-body), 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .overline {
+    font-family: var(--font-body), 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .scripture {
+    font-family: var(--font-accent), 'EB Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.4;
+  }
 }
 
-p {
-  color: var(--text-secondary);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-/* Sacred scripture font utility */
-.font-scripture {
-  font-family: var(--font-serif);
-  font-style: italic;
-  letter-spacing: 0.01em;
-}
-
-/* Layout Utilities */
-.container-page {
-  width: 100%;
-  max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--container-gutter);
-  padding-right: var(--container-gutter);
-}
-
-.section-sacred {
-  padding-top: var(--space-20);
-  padding-bottom: var(--space-20);
-}
-
-/* Focus Outline for Accessibility */
+/* Base Accessibility Focus Halo */
 :focus-visible {
   outline: none;
-  box-shadow: var(--focus-ring);
-  border-radius: var(--radius-sm);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.4);
+  border-radius: 6px;
 }
 
-/* Accessibility: prefers-reduced-motion */
+/* Reduced Motion Preference */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -98,17 +130,17 @@ button {
   }
 }
 
-/* Accessibility: Skip Link */
+/* Skip link */
 .skip-link {
   position: absolute;
   top: -60px;
   left: 1rem;
-  background: var(--color-charcoal-900);
-  color: var(--color-white);
+  background: var(--grey-900, #111827);
+  color: #FFFFFF;
   padding: 0.5rem 1rem;
   z-index: 10000;
-  border-radius: var(--radius-sm);
-  font-size: var(--text-sm);
+  border-radius: 6px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: underline;
   transition: top 0.2s ease;
@@ -116,18 +148,3 @@ button {
 .skip-link:focus {
   top: 1rem;
 }
-
-/* Hide scrollbars cleanly for mobile horizontal chip sliders */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Mobile safe area padding utility */
-.safe-pb {
-  padding-bottom: env(safe-area-inset-bottom, 16px);
-}
-
