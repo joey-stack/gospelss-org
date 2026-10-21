@@ -5,6 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/components/home/HeroSection";
+import { FirstTimerPillars } from "@/components/home/FirstTimerPillars";
+import { WeeklyRhythm } from "@/components/home/WeeklyRhythm";
+import { PathwaySteps } from "@/components/home/PathwaySteps";
+import { StoryFacePicker } from "@/components/home/StoryFacePicker";
+import { FirstTimerFAQ } from "@/components/home/FirstTimerFAQ";
 import Footer from "@/components/layout/Footer";
 import { RSVPModal } from "@/components/modals/RSVPModal";
 import { SwishModal } from "@/components/modals/SwishModal";
@@ -12,29 +17,19 @@ import { PrayerModal } from "@/components/modals/PrayerModal";
 import { VolunteerModal } from "@/components/modals/VolunteerModal";
 import { useLanguage } from "@/context/LanguageContext";
 import {
-  Calendar,
   MapPin,
-  Users,
   Play,
-  PlayCircle,
-  Sparkles,
   ArrowRight,
   ArrowUpRight,
-  Headphones,
-  Music,
-  ExternalLink,
   Check,
   Copy,
-  Heart,
-  Church,
-  Send,
   ShieldCheck,
-  Building,
-  Quote,
+  Users,
+  Send,
 } from "lucide-react";
 
 export default function Home() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const [rsvpOpen, setRsvpOpen] = useState(false);
   const [swishOpen, setSwishOpen] = useState(false);
   const [prayerOpen, setPrayerOpen] = useState(false);
@@ -110,6 +105,8 @@ export default function Home() {
       category: "indoor",
       categoryLabel: t("Inomhus", "Indoor Sanctuary"),
       date: t("Lördag 18 Okt 2026 • 18:00", "Saturday Oct 18, 2026 • 18:00"),
+      dayBadge: "18",
+      monthBadge: t("OKT", "OCT"),
       location: t("Smyrna Frihamnskyrkan, Göteborg", "Smyrna Frihamnen, Gothenburg"),
       attendees: t("340 Förbokade", "340 RSVP'd"),
       description: t(
@@ -117,7 +114,7 @@ export default function Home() {
         "An intimate evening of acoustic praise, communion, and citywide prayer for Gothenburg's renewal. Open and free admission for all ages."
       ),
       image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuDP0MME-ZWQuFzCbalUpQBYJjv0lBYOMe7oQZL1EhtEHNFncqrpVn1H2O3yY4NNw_JE4KHjSXEWphMj2IWc3-YyLEI6M0kR3DwJAiQO0OFrRiCbDQuUHZkBoik8Ro-RGNqgNHqKBDPTkPeyDN47L-m9pDrvdp_lovUmqGgWJh3tq0RcwSvmlnU3kcjGnw8zhPdZVQtOLHILmaplpl4YIyUIw23OR8duA2GH67eWXyiYLImbXav2BF8WmA",
+        "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=85",
       link: "/events/holy-spirit-worship",
       action: "rsvp",
     },
@@ -127,6 +124,8 @@ export default function Home() {
       category: "outdoor",
       categoryLabel: t("Torg & Utomhus", "Outdoor Plaza"),
       date: t("Lördag 12 Juni 2027 • 15:00", "Saturday June 12, 2027 • 15:00"),
+      dayBadge: "12",
+      monthBadge: t("JUN", "JUN"),
       location: t("Götaplatsen / Frihamnspiren", "Götaplatsen / Harbor Pier"),
       attendees: t("1 200 Förväntade", "1,200 Expected"),
       description: t(
@@ -134,7 +133,7 @@ export default function Home() {
         "West Sweden's largest open-air gospel concert in the public square. United choir, brass ensemble, and hope in the heart of the city."
       ),
       image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuB2v_Nl2QdYv2Wp8Nl0-eJ-t5R6KkW9XyZs0t7pA5R4D8k1Q2E3A4B5C6D7E8F9G0H1I2J3K4L5M6N7O8P9Q0R1S2T3U4V5W6X7Y8Z9a0b1c2d3e4f5g6h7i8j9k0l1m2n3o4p5q6r7s8t9u0v1w2x3y4z",
+        "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=85",
       link: "/events",
       action: "details",
     },
@@ -144,6 +143,8 @@ export default function Home() {
       category: "conferences",
       categoryLabel: t("Konferens", "Conference"),
       date: t("Torsdag 19 Nov 2026 • 09:30", "Thursday Nov 19, 2026 • 09:30"),
+      dayBadge: "19",
+      monthBadge: t("NOV", "NOV"),
       location: t("Betlehemskyrkan, Vasastan", "Betlehemskyrkan, Gothenburg"),
       attendees: t("85 Församlingsledare", "85 Church Leaders"),
       description: t(
@@ -151,7 +152,7 @@ export default function Home() {
         "Leadership retreat focusing on cross-denominational unity, citywide prayer, and music outreach across West Sweden."
       ),
       image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuBNHl-CQJJh_9eGTFiaI4j2SGhqGtcTw6ggGES1uFwdZ1wB4jRJK9YNCYP2NB5BWPIQvjm9QGsnh2xHX51nt0-VEV3IVZ0mRodL_-uhAD9Mz_DC52B0gz7-izGQxVWW9LglwDXuWYtABDEe-cJBj7dp1zR_cUgA5WonrBFCfV-VGqDVLZVEBMX29FCeq0zoaDZHNvK2DpXWh5KathrbrqUJ2BYLm6VzBTHOTWk93nY1erw1QeUOyBeArQ",
+        "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1200&q=85",
       link: "/events",
       action: "rsvp",
     },
@@ -173,120 +174,21 @@ export default function Home() {
       />
 
       <main id="main-content" className="flex-1">
-        {/* 2. Hero Section */}
+        {/* 2. Hero Section: Architectural Pacing & Sacred Authority */}
         <HeroSection
           onOpenRSVP={() => setRsvpOpen(true)}
           onOpenSwish={() => setSwishOpen(true)}
           onOpenPrayer={() => setPrayerOpen(true)}
         />
 
-        {/* ========================================================================= */}
-        {/* 3. MISSION PILLARS: Open Editorial 3-Column Layout (Zero AI Slop)         */}
-        {/* ========================================================================= */}
-        <section className="py-14 sm:py-18 bg-[#FAF9F5] border-b border-stone-200/80">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl mb-10 sm:mb-12">
-              <span className="text-xs font-mono font-bold tracking-widest uppercase text-teal-800">
-                {t("VÅRT UPPDRAG I VÄSTSVERIGE", "OUR MISSION IN WEST SWEDEN")}
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-stone-900 mt-2">
-                {t(
-                  "Byggt för att tjäna, sjunga och förvandla",
-                  "Built to Serve, Sing, and Transform"
-                )}
-              </h2>
-              <p className="text-sm sm:text-base text-stone-600 mt-2 font-light leading-relaxed">
-                {t(
-                  "GOSPELS verkar ekumeniskt för att föra kristen lovsång bortom kyrkoväggarna och möta människor mitt i stadens liv.",
-                  "GOSPELS exists to carry sacred praise beyond traditional walls, meeting people with warmth and hope in the public sphere."
-                )}
-              </p>
-            </div>
+        {/* 3. First-Timer Pillar Bar: Dispelling Arrival Anxiety (Morrow Touch) */}
+        <FirstTimerPillars />
 
-            {/* Clean 3-Column Editorial Grid (No pastel circular icon boxes) */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-              {/* Pillar 01: Lovsång */}
-              <div className="pt-5 border-t border-stone-300 flex flex-col justify-between">
-                <div>
-                  <span className="font-mono text-xs font-bold text-teal-700 tracking-wider">
-                    01 / {t("LOVSÅNG", "WORSHIP")}
-                  </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-2.5 mb-2">
-                    {t("Förenad Tillbedjan", "United Worship")}
-                  </h3>
-                  <p className="text-stone-600 text-xs sm:text-sm leading-relaxed font-light">
-                    {t(
-                      "Vi river samfundsmurar och samlar kristna från olika traditioner i storslagen, nyskriven och mångkulturell gospelsång.",
-                      "Breaking down denominational barriers to unite believers from across Gothenburg in majestic, contemporary gospel praise."
-                    )}
-                  </p>
-                </div>
-                <Link
-                  href="/events"
-                  className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-teal-800 hover:text-teal-900 tracking-wide uppercase font-mono"
-                >
-                  <span>{t("Se Våra Samlingar", "Explore Gatherings")}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
+        {/* 4. Weekly Rhythm Cadence: Mon-Sun Across Gothenburg */}
+        <WeeklyRhythm />
 
-              {/* Pillar 02: Uppsökande */}
-              <div className="pt-5 border-t border-stone-300 flex flex-col justify-between">
-                <div>
-                  <span className="font-mono text-xs font-bold text-teal-700 tracking-wider">
-                    02 / {t("UPPSÖKANDE", "OUTREACH")}
-                  </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-2.5 mb-2">
-                    {t("Närvaro i Stadsrummet", "Public Presence")}
-                  </h3>
-                  <p className="text-stone-600 text-xs sm:text-sm leading-relaxed font-light">
-                    {t(
-                      "Vi tar musiken och gemenskapen direkt ut på torg, kajer och parker med gästfrihet, varmt kaffe och personliga samtal.",
-                      "Carrying hope and hospitality onto city squares, harbor piers, and university campuses with music, coffee, and care."
-                    )}
-                  </p>
-                </div>
-                <Link
-                  href="/events"
-                  className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-teal-800 hover:text-teal-900 tracking-wide uppercase font-mono"
-                >
-                  <span>{t("Torg- & Utemissioner", "Public Missions")}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-
-              {/* Pillar 03: Förvandling */}
-              <div className="pt-5 border-t border-stone-300 flex flex-col justify-between">
-                <div>
-                  <span className="font-mono text-xs font-bold text-teal-700 tracking-wider">
-                    03 / {t("FÖRVANDLING", "TRANSFORMATION")}
-                  </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-stone-900 mt-2.5 mb-2">
-                    {t("Omsorg & Förbön", "Care & Renewal")}
-                  </h3>
-                  <p className="text-stone-600 text-xs sm:text-sm leading-relaxed font-light">
-                    {t(
-                      "Ett engagerat pastoralt team erbjuder konfidentiell förbön, själavårdande stöd och praktisk omsorg för utsatta medmänniskor.",
-                      "A committed pastoral team providing strictly confidential prayer, spiritual support, and practical charity across our city."
-                    )}
-                  </p>
-                </div>
-                <Link
-                  href="/prayer"
-                  className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-teal-800 hover:text-teal-900 tracking-wide uppercase font-mono"
-                >
-                  <span>{t("Behöver du Bön?", "Need Prayer?")}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* 4. UPCOMING EVENTS: Clean, Calm Gallery Cards                             */}
-        {/* ========================================================================= */}
-        <section className="py-14 sm:py-18 bg-white border-b border-stone-200/80" id="events">
+        {/* 5. Upcoming Gatherings: High-Taste Editorial Grid */}
+        <section className="py-16 sm:py-20 bg-white border-b border-stone-200/80" id="events">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
               <div>
@@ -318,7 +220,7 @@ export default function Home() {
                     onClick={() => setEventCategory(tab.id)}
                     className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition ${
                       eventCategory === tab.id
-                        ? "bg-teal-600 text-white shadow-xs"
+                        ? "bg-teal-700 text-white shadow-xs"
                         : "bg-stone-100 text-stone-700 hover:bg-stone-200"
                     }`}
                   >
@@ -328,12 +230,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Event Cards Grid */}
+            {/* Event Cards Grid with Design System Date Badges */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredEvents.map((event) => (
                 <article
                   key={event.id}
-                  className="bg-[#FAF9F5] rounded-2xl border border-stone-200/80 overflow-hidden shadow-xs hover:shadow-md transition group flex flex-col justify-between"
+                  className="bg-[#FAF9F5] rounded-2xl border border-stone-200/80 overflow-hidden shadow-xs hover:shadow-md transition duration-300 group flex flex-col justify-between"
                 >
                   <div>
                     {/* Visual Container */}
@@ -347,11 +249,17 @@ export default function Home() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
-                      <div className="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white font-mono text-[11px] font-semibold px-2 py-0.5 rounded-md border border-white/10">
-                        {event.date}
+                      {/* Design System Date Badge */}
+                      <div className="absolute top-3 left-3 bg-teal-800 text-white rounded-xl px-2.5 py-1.5 text-center min-w-[54px] shadow-sm">
+                        <strong className="block font-sans text-lg font-bold leading-none">
+                          {event.dayBadge}
+                        </strong>
+                        <small className="block font-mono text-[9px] uppercase tracking-wider font-semibold text-teal-100 mt-0.5">
+                          {event.monthBadge}
+                        </small>
                       </div>
 
-                      <div className="absolute top-2.5 right-2.5 bg-teal-900/80 backdrop-blur-md text-teal-200 font-mono text-[10px] font-semibold px-2 py-0.5 rounded-full border border-teal-500/30">
+                      <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-stone-200 font-mono text-[10px] font-semibold px-2 py-0.5 rounded-full border border-white/10">
                         {event.categoryLabel}
                       </div>
                     </div>
@@ -359,7 +267,7 @@ export default function Home() {
                     {/* Card Content */}
                     <div className="p-5">
                       <div className="flex items-center gap-1.5 text-xs text-stone-500 mb-1.5 font-mono">
-                        <MapPin className="w-3.5 h-3.5 text-teal-600" />
+                        <MapPin className="w-3.5 h-3.5 text-teal-700" />
                         <span>{event.location}</span>
                       </div>
 
@@ -378,7 +286,7 @@ export default function Home() {
                     <span className="font-medium font-mono text-stone-600 text-xs">{event.attendees}</span>
                     <Link
                       href={event.link}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-semibold text-xs transition active:scale-95 shadow-2xs"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-teal-700 hover:bg-teal-600 text-white font-semibold text-xs transition active:scale-95 shadow-2xs"
                     >
                       <span>{t("Anmäl dig gratis", "RSVP Free")}</span>
                       <ArrowRight className="w-3 h-3" />
@@ -390,31 +298,15 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ========================================================================= */}
-        {/* 5. SCRIPTURE EDITORIAL PAUSE: Typographic Sacred Space                     */}
-        {/* ========================================================================= */}
-        <section className="py-14 sm:py-18 bg-[#F3F2EC] border-b border-stone-200/80">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-            <blockquote className="font-serif italic text-xl sm:text-2xl lg:text-3xl text-stone-900 leading-relaxed mb-4">
-              {t(
-                "”Sjung till Herren en ny sång, sjung till Herren, hela jorden! Sjung till Herren, prisa hans namn, förkunna hans frälsning dag efter dag.”",
-                "“Sing to the Lord a new song; sing to the Lord, all the earth. Proclaim his salvation day after day.”"
-              )}
-            </blockquote>
-            <p className="font-mono text-xs tracking-widest uppercase text-teal-800 font-semibold">
-              {t("PSALTAREN 96:1–2 • GÖTEBORGS STADSBÖN", "PSALM 96:1–2 • GOTHENBURG CITYWIDE PRAYER")}
-            </p>
-          </div>
-        </section>
+        {/* 6. Pathway Steps: 01 to 04 Milestones */}
+        <PathwaySteps />
 
-        {/* ========================================================================= */}
-        {/* 6. WATCH & LISTEN MULTIMEDIA: Widescreen Showcase                         */}
-        {/* ========================================================================= */}
-        <section className="py-14 sm:py-18 bg-[#0E1113] text-white" id="watch-listen">
+        {/* 7. Watch & Listen Multimedia: Midnight Obsidian Surface */}
+        <section className="py-16 sm:py-24 bg-[#0F172A] text-white" id="watch-listen">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
               <div>
-                <span className="text-xs font-mono font-bold tracking-widest uppercase text-teal-400">
+                <span className="text-xs font-mono font-bold tracking-widest uppercase text-teal-300">
                   {t("MULTIMEDIA & INSPELNINGAR", "MULTIMEDIA & RECORDINGS")}
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight mt-2">
@@ -437,10 +329,10 @@ export default function Home() {
             </div>
 
             {/* Featured Showcase Widescreen Player Card */}
-            <div className="bg-[#141719] rounded-2xl border border-white/10 overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-xl">
+            <div className="bg-[#1E293B] rounded-3xl border border-white/10 overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-2xl">
               <div className="lg:col-span-8 relative aspect-video bg-black flex items-center justify-center group overflow-hidden">
                 <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9jEPafcKtkj9m-ANdOeyM9zaTjsXQoQzy7zQC7NMCk4sFUI2IAIHakGNszPcSJpEpu6vH2h82d0079j1mfBAXE0fSFnVKRbnIgwVGNda0endhWF4lwfKeryAAjtBAEO-Po5p5EEvoAt-hOBLsrh8ZptqP6JqZwg4JENUBnn9U4lyyjb30PoC3l0F38t3OpNXe8QMTYdoacJLdY9o56ADOga5R4MmYIGC9KHh_-J_L9ublJ0C_kyUTqQ"
+                  src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=85"
                   alt="Brunnsparken Live Worship Recording"
                   fill
                   sizes="(max-width: 1024px) 100vw, 70vw"
@@ -453,14 +345,14 @@ export default function Home() {
                 >
                   <Play className="w-6 h-6 fill-current ml-1" />
                 </Link>
-                <div className="absolute bottom-3 right-3 bg-black/75 backdrop-blur-md text-white font-mono text-[11px] px-2 py-0.5 rounded-md">
+                <div className="absolute bottom-3 right-3 bg-black/75 backdrop-blur-md text-white font-mono text-[11px] px-2.5 py-1 rounded-md">
                   34:12 Live Master
                 </div>
               </div>
 
-              <div className="lg:col-span-4 p-6 sm:p-7 flex flex-col justify-between bg-[#141719]">
+              <div className="lg:col-span-4 p-6 sm:p-8 flex flex-col justify-between bg-[#1E293B]">
                 <div>
-                  <span className="text-[11px] font-mono font-semibold text-teal-400 uppercase tracking-wider block mb-1.5">
+                  <span className="text-[11px] font-mono font-semibold text-teal-300 uppercase tracking-wider block mb-1.5">
                     {t("Live i Brunnsparken", "Live in Brunnsparken")}
                   </span>
                   <h3 className="text-xl font-bold text-white mb-2 leading-snug">
@@ -498,7 +390,7 @@ export default function Home() {
                   </div>
                   <Link
                     href="/watch"
-                    className="text-teal-400 font-semibold text-xs hover:underline flex items-center gap-1"
+                    className="text-teal-300 font-semibold text-xs hover:underline flex items-center gap-1"
                   >
                     <span>{t("Se fler", "Watch more")}</span>
                     <ArrowRight className="w-3 h-3" />
@@ -509,14 +401,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ========================================================================= */}
-        {/* 7. DUAL PARTNERSHIP & CONFIDENTIAL PRAYER                                */}
-        {/* ========================================================================= */}
-        <section className="py-14 sm:py-18 bg-[#FAF9F5] border-b border-stone-200/80" id="give">
+        {/* 8. Interactive Stories: Face Picker Avatar Selector */}
+        <StoryFacePicker />
+
+        {/* 9. First-Timer FAQ: Dispelling Visitor Questions */}
+        <FirstTimerFAQ />
+
+        {/* 10. Dual Partnership & Confidential Prayer Form */}
+        <section className="py-16 sm:py-24 bg-[#FAF9F5] border-b border-stone-200/80" id="give">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
               {/* Giving & Kingdom Builders (7 cols) */}
-              <div className="lg:col-span-7 bg-white rounded-2xl border border-stone-200/80 p-6 sm:p-8 shadow-xs">
+              <div className="lg:col-span-7 bg-white rounded-3xl border border-stone-200/80 p-6 sm:p-10 shadow-xs">
                 <span className="text-xs font-mono font-bold tracking-widest uppercase text-teal-800">
                   {t("GIVANDE & STÖD", "GIVING & SUPPORT")}
                 </span>
@@ -531,7 +427,7 @@ export default function Home() {
                 </p>
 
                 {/* Clean Swish Box */}
-                <div className="p-5 rounded-xl bg-[#F5F4EE] border border-stone-200 space-y-3">
+                <div className="p-5 rounded-2xl bg-[#F5F4EE] border border-stone-200 space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <span className="text-xs font-mono font-semibold uppercase text-stone-500">
                       {t("Officiellt Swish-nummer", "Official Swish Number")}
@@ -559,14 +455,14 @@ export default function Home() {
                     <button
                       type="button"
                       onClick={() => setSwishOpen(true)}
-                      className="flex-1 py-2.5 px-4 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-semibold text-xs sm:text-sm shadow-xs transition active:scale-95 text-center"
+                      className="flex-1 py-2.5 px-4 rounded-xl bg-teal-700 hover:bg-teal-600 text-white font-semibold text-xs sm:text-sm shadow-xs transition active:scale-95 text-center"
                     >
                       {t("Öppna Swish-Gåva", "Give with Swish")}
                     </button>
                     <button
                       type="button"
                       onClick={() => setSwishOpen(true)}
-                      className="py-2.5 px-4 rounded-xl border border-stone-300 hover:border-teal-600 text-stone-800 font-semibold text-xs sm:text-sm bg-white transition active:scale-95"
+                      className="py-2.5 px-4 rounded-xl border border-stone-300 hover:border-teal-700 text-stone-800 font-semibold text-xs sm:text-sm bg-white transition active:scale-95"
                     >
                       Bankgiro: 512-3456
                     </button>
@@ -586,7 +482,7 @@ export default function Home() {
 
               {/* Confidential Prayer Intake (5 cols) */}
               <div
-                className="lg:col-span-5 bg-white rounded-2xl border border-stone-200/80 p-6 sm:p-8 shadow-xs"
+                className="lg:col-span-5 bg-white rounded-3xl border border-stone-200/80 p-6 sm:p-10 shadow-xs"
                 id="prayer"
               >
                 <span className="text-xs font-mono font-bold tracking-widest uppercase text-teal-800">
@@ -603,7 +499,7 @@ export default function Home() {
                 </p>
 
                 {prayerSubmitted ? (
-                  <div className="p-5 rounded-xl bg-teal-50 border border-teal-200 text-center space-y-2.5">
+                  <div className="p-5 rounded-2xl bg-teal-50 border border-teal-200 text-center space-y-2.5">
                     <ShieldCheck className="w-7 h-7 text-teal-700 mx-auto" />
                     <h4 className="font-bold text-stone-900 text-sm">
                       {t("Vi Ber För Dig", "We Are Praying For You")}
@@ -699,10 +595,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ========================================================================= */}
-        {/* 8. PARTNER CHURCHES: Dignified Civic Unity                                */}
-        {/* ========================================================================= */}
-        <section className="py-12 sm:py-14 bg-white border-b border-stone-200/80" id="partners">
+        {/* 11. Partner Churches & Volunteer Callout */}
+        <section className="py-14 sm:py-16 bg-white border-b border-stone-200/80" id="partners">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-xs font-mono font-bold tracking-widest uppercase text-stone-500 mb-4 block">
               {t(
@@ -723,50 +617,30 @@ export default function Home() {
               <span className="hover:text-stone-900 transition-colors">Frälsningsarmén</span>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <button
                 type="button"
                 onClick={() => setVolunteerOpen(true)}
-                className="inline-flex items-center gap-1 text-xs font-semibold text-teal-800 hover:text-teal-900 uppercase font-mono tracking-wider"
+                className="inline-flex items-center gap-2 bg-teal-700 hover:bg-teal-600 text-white font-medium px-5 py-2.5 rounded-full transition duration-150 shadow-xs active:scale-95 text-xs sm:text-sm"
+              >
+                <Users className="w-4 h-4" />
+                <span>{t("Engagera dig som Volontär", "Join Volunteer Team")}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+
+              <Link
+                href="/partners"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-stone-300 hover:border-teal-700 text-stone-800 text-xs sm:text-sm font-semibold transition"
               >
                 <span>
                   {t(
-                    "Vill din församling samverka? Bli partnerförsamling",
-                    "Does your church wish to collaborate? Partner with us"
+                    "Bli Partnerförsamling",
+                    "Partner Church Inquiry"
                   )}
                 </span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
-              </button>
+              </Link>
             </div>
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* 9. VOLUNTEER CALLOUT: Warm & Dignified                                    */}
-        {/* ========================================================================= */}
-        <section className="py-12 sm:py-16 bg-[#F5F4EE] text-center">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6">
-            <span className="text-xs font-mono font-bold tracking-widest uppercase text-teal-800 mb-2 block">
-              {t("ENGAGERA DIG • VOLONTÄRTEAM", "GET INVOLVED • VOLUNTEER TEAMS")}
-            </span>
-            <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-stone-900 mb-2">
-              {t("Vill du vara med och tjäna bakom kulisserna?", "Want to serve behind the scenes?")}
-            </h2>
-            <p className="text-xs sm:text-sm text-stone-600 font-light max-w-xl mx-auto mb-6 leading-relaxed">
-              {t(
-                "Vi välkomnar dig som vill hjälpa till med värdskap, ljud/ljus, foto/media, scenbygge eller förbön. Vi erbjuder varm kristen gemenskap och trygg handledning.",
-                "Join our hospitality, audio/lighting, photo/media, stage, or prayer teams. We offer warm Christian fellowship and thoughtful mentorship."
-              )}
-            </p>
-            <button
-              type="button"
-              onClick={() => setVolunteerOpen(true)}
-              className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-6 py-2.5 rounded-full transition duration-150 shadow-xs active:scale-95 text-xs sm:text-sm"
-            >
-              <Users className="w-4 h-4" />
-              <span>{t("Ansök som Volontär", "Apply as a Volunteer")}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
           </div>
         </section>
       </main>
