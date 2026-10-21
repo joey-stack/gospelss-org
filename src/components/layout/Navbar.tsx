@@ -108,7 +108,7 @@ export function Navbar({
     <>
       {/* Outer Fixed Floating Wrapper (Pointer-events pass-through) */}
       <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none flex justify-center pt-3 sm:pt-4 px-3 sm:px-6">
-        <div ref={navRef} className="pointer-events-auto w-full max-w-7xl">
+        <div ref={navRef} className="pointer-events-auto w-full max-w-6xl">
           {/* Floating Header Card Island */}
           <header
             className={`transition-all duration-300 rounded-2xl border ${
@@ -120,7 +120,7 @@ export function Navbar({
             }`}
           >
             {/* Top Navigation Row */}
-            <div className="h-[60px] sm:h-[64px] px-3 sm:px-5 flex items-center justify-between">
+            <div className="h-[56px] sm:h-[60px] px-3 sm:px-5 flex items-center justify-between">
               {/* Brand Logo & Name */}
               <Link
                 href="/"

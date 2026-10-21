@@ -504,17 +504,17 @@ Stor är din trofasthet, Herre, mot mig`,
         {/* ========================================================================= */}
         {/* HERO SECTION: Atmospheric Twilight Sanctuary (Filmic, Not AI Slop)       */}
         {/* ========================================================================= */}
-        <section className="relative bg-[#0E1113] text-stone-100 overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28 border-b border-white/10">
+        <section className="relative bg-[#0E1113] text-stone-100 overflow-hidden pt-24 pb-14 md:pt-28 md:pb-18 border-b border-white/10">
           {/* Subtle Organic Stage Glow */}
           <div className="absolute inset-0 z-0 pointer-events-none opacity-30 mix-blend-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-teal-500/40 via-amber-900/10 to-transparent"></div>
           <div className="absolute -top-40 right-1/4 w-[480px] h-[480px] bg-teal-600/15 rounded-full blur-[120px] pointer-events-none"></div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-            <div className="max-w-3xl">
+          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl">
               {/* Refined Eyebrow */}
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/15 backdrop-blur-md mb-6 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-                <span className="text-xs font-semibold tracking-widest text-teal-200 uppercase font-mono">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/15 backdrop-blur-md mb-4 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+                <span className="text-[11px] font-semibold tracking-widest text-teal-200 uppercase font-mono">
                   {t(
                     "Göteborgs Lovsångsarkiv • Live Master",
                     "Gothenburg Worship Archive • Live Masters"
@@ -523,10 +523,10 @@ Stor är din trofasthet, Herre, mot mig`,
               </div>
 
               {/* Dignified Editorial Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-5">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
                 {t("Se & ", "Watch & ")}
                 <span className="text-teal-400 font-extrabold">{t("Lyssna", "Listen")}</span>
-                <span className="block font-serif font-normal italic text-stone-300 text-3xl sm:text-4xl lg:text-5xl mt-2">
+                <span className="block font-serif font-normal italic text-stone-300 text-2xl sm:text-3xl lg:text-4xl mt-1.5">
                   {t(
                     "Autentisk lovsång från Västra Götaland",
                     "Authentic worship from Western Sweden"
@@ -535,7 +535,7 @@ Stor är din trofasthet, Herre, mot mig`,
               </h1>
 
               {/* Subtitle with Real Spiritual Depth */}
-              <p className="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl font-light mb-8">
+              <p className="text-xs sm:text-sm text-stone-300 leading-relaxed max-w-xl font-light mb-6">
                 {t(
                   "Konsertinspelningar, intima akustiska sessioner, körarrangemang och personliga vittnesbörd från Göteborgs torg, kyrkor och hamnområden. Allt material är öppet och fritt tillgängligt.",
                   "Concert recordings, intimate acoustic prayer sessions, choral arrangements, and living testimonies captured across Gothenburg's churches, public squares, and harbors. Freely accessible to all."
@@ -543,46 +543,46 @@ Stor är din trofasthet, Herre, mot mig`,
               </p>
 
               {/* Clean Streaming Action Hub (No fake follower counts) */}
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center gap-2.5">
                 <a
                   href="https://spotify.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white text-sm font-semibold transition duration-150 active:scale-95"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white text-xs font-semibold transition duration-150 active:scale-95"
                 >
-                  <Disc3 className="w-4 h-4 text-[#1DB954]" />
+                  <Disc3 className="w-3.5 h-3.5 text-[#1DB954]" />
                   <span>Spotify</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-stone-400" />
+                  <ExternalLink className="w-3 h-3 text-stone-400" />
                 </a>
 
                 <a
                   href="https://apple.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white text-sm font-semibold transition duration-150 active:scale-95"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white text-xs font-semibold transition duration-150 active:scale-95"
                 >
-                  <Music className="w-4 h-4 text-rose-400" />
+                  <Music className="w-3.5 h-3.5 text-rose-400" />
                   <span>Apple Music</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-stone-400" />
+                  <ExternalLink className="w-3 h-3 text-stone-400" />
                 </a>
 
                 <a
                   href="https://youtube.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white text-sm font-semibold transition duration-150 active:scale-95"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white text-xs font-semibold transition duration-150 active:scale-95"
                 >
-                  <Play className="w-4 h-4 text-red-500 fill-red-500" />
+                  <Play className="w-3.5 h-3.5 text-red-500 fill-red-500" />
                   <span>YouTube</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-stone-400" />
+                  <ExternalLink className="w-3 h-3 text-stone-400" />
                 </a>
 
                 <button
                   type="button"
                   onClick={() => setSwishOpen(true)}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-stone-950 font-bold text-sm shadow-md transition duration-150 active:scale-95"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-teal-500 hover:bg-teal-400 text-stone-950 font-bold text-xs shadow-md transition duration-150 active:scale-95"
                 >
-                  <Heart className="w-4 h-4 fill-current" />
+                  <Heart className="w-3.5 h-3.5 fill-current" />
                   <span>{t("Stöd produktionen", "Support Media Ministry")}</span>
                 </button>
               </div>
@@ -593,26 +593,26 @@ Stor är din trofasthet, Herre, mot mig`,
         {/* ========================================================================= */}
         {/* CENTERPIECE: Featured Concert Premiere (Widescreen Liner-Note Layout)     */}
         {/* ========================================================================= */}
-        <section className="py-12 sm:py-16 md:py-20 border-b border-stone-200/80 bg-[#FAF9F5]">
-          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        <section className="py-10 sm:py-14 border-b border-stone-200/80 bg-[#FAF9F5]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-3">
               <div>
                 <span className="text-xs font-bold text-teal-700 tracking-wider uppercase font-mono">
                   {t("Utvald Premiär", "Featured Premiere")}
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold text-stone-900 mt-1">
+                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 mt-1">
                   {t("Konsertinspelning i Frihamnen", "Live Concert from Frihamnen")}
                 </h2>
               </div>
-              <span className="text-xs text-stone-500 font-medium">
+              <span className="text-xs text-stone-500 font-mono">
                 {t("96kHz Multitrack Live Soundboard", "96kHz Multitrack Live Soundboard")}
               </span>
             </div>
 
             {/* Premiere Card Island */}
-            <div className="bg-white rounded-3xl border border-stone-200/90 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 transition hover:shadow-md">
+            <div className="bg-white rounded-2xl border border-stone-200/90 shadow-xs overflow-hidden grid grid-cols-1 lg:grid-cols-12 transition hover:shadow-md">
               {/* Visual Box (7 cols) */}
-              <div className="lg:col-span-7 relative group min-h-[320px] sm:min-h-[420px] bg-stone-900 overflow-hidden flex items-center justify-center">
+              <div className="lg:col-span-7 relative group min-h-[260px] sm:min-h-[340px] bg-stone-900 overflow-hidden flex items-center justify-center">
                 <Image
                   src={featuredPremiere.image}
                   alt={featuredPremiere.title[language === "SV" ? "sv" : "en"]}
@@ -624,12 +624,12 @@ Stor är din trofasthet, Herre, mot mig`,
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
 
                 {/* Badges on top */}
-                <div className="absolute top-4 left-4 flex items-center gap-2">
-                  <span className="px-2.5 py-1 rounded-md bg-red-600 text-white font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                <div className="absolute top-3 left-3 flex items-center gap-2">
+                  <span className="px-2 py-0.5 rounded-md bg-red-600 text-white font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
                     <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
                     {t("Live Master", "Live Master")}
                   </span>
-                  <span className="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-stone-200 font-mono text-xs border border-white/15">
+                  <span className="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-stone-200 font-mono text-[11px] border border-white/15">
                     {featuredPremiere.duration}
                   </span>
                 </div>
@@ -639,40 +639,40 @@ Stor är din trofasthet, Herre, mot mig`,
                   type="button"
                   aria-label={t("Spela premiärvideo", "Play premiere video")}
                   onClick={() => setActiveVideoModal(featuredPremiere)}
-                  className="relative z-10 w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white group-hover:bg-teal-500 group-hover:text-stone-950 group-hover:scale-110 transition duration-300 shadow-2xl"
+                  className="relative z-10 w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white group-hover:bg-teal-500 group-hover:text-stone-950 group-hover:scale-110 transition duration-300 shadow-xl"
                 >
-                  <Play className="w-8 h-8 fill-current ml-1" />
+                  <Play className="w-6 h-6 fill-current ml-1" />
                 </button>
 
                 {/* Bottom recording note */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-stone-300 opacity-90 font-mono">
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-stone-300 opacity-90 font-mono">
                   <span>{t("Inspelad med full kör & blås", "Full Choir & Brass Ensemble")}</span>
                   <span>Frihamnen 2025</span>
                 </div>
               </div>
 
               {/* Liner Notes & Metadata (5 cols) */}
-              <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-white">
+              <div className="lg:col-span-5 p-5 sm:p-6 lg:p-7 flex flex-col justify-between bg-white">
                 <div>
-                  <div className="flex items-center gap-2 mb-3 text-xs">
-                    <span className="font-semibold text-teal-800 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-200">
+                  <div className="flex items-center gap-2 mb-2 text-xs">
+                    <span className="font-semibold text-teal-800 bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200 text-[11px]">
                       {featuredPremiere.venue[language === "SV" ? "sv" : "en"]}
                     </span>
                     <span className="text-stone-300">•</span>
-                    <span className="text-stone-500">
+                    <span className="text-stone-500 text-[11px]">
                       {featuredPremiere.recordedDate[language === "SV" ? "sv" : "en"]}
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-stone-900 leading-snug mb-3">
+                  <h3 className="text-lg sm:text-xl font-bold text-stone-900 leading-snug mb-2">
                     {featuredPremiere.title[language === "SV" ? "sv" : "en"]}
                   </h3>
 
-                  <p className="text-sm sm:text-base text-stone-600 leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-light mb-4">
                     {featuredPremiere.description[language === "SV" ? "sv" : "en"]}
                   </p>
 
-                  <div className="space-y-2.5 pt-4 border-t border-stone-200 text-xs sm:text-sm">
+                  <div className="space-y-1.5 pt-3 border-t border-stone-200 text-xs">
                     <div className="flex items-center justify-between">
                       <span className="text-stone-500">{t("Lovsångsledare:", "Worship Leaders:")}</span>
                       <span className="font-semibold text-stone-800">{featuredPremiere.leaders}</span>
@@ -686,22 +686,22 @@ Stor är din trofasthet, Herre, mot mig`,
                   </div>
                 </div>
 
-                <div className="pt-8 flex flex-wrap items-center gap-3">
+                <div className="pt-5 flex flex-wrap items-center gap-2.5">
                   <button
                     type="button"
                     onClick={() => setActiveVideoModal(featuredPremiere)}
-                    className="flex-1 inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-semibold px-5 py-3 rounded-xl transition duration-150 shadow-sm active:scale-95"
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-semibold px-4 py-2.5 rounded-xl transition duration-150 shadow-xs active:scale-95 text-xs sm:text-sm"
                   >
-                    <Play className="w-4 h-4 fill-current" />
+                    <Play className="w-3.5 h-3.5 fill-current" />
                     <span>{t("Spela Video", "Watch Video")}</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => setActiveChordModal(audioTracks[0])}
-                    className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-stone-300 hover:border-teal-600 text-stone-800 font-semibold text-sm transition bg-stone-50 active:scale-95"
+                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-stone-300 hover:border-teal-600 text-stone-800 font-semibold text-xs sm:text-sm transition bg-stone-50 active:scale-95"
                   >
-                    <FileText className="w-4 h-4 text-teal-700" />
+                    <FileText className="w-3.5 h-3.5 text-teal-700" />
                     <span>{t("Ackord & Text", "Chords & Lyrics")}</span>
                   </button>
                 </div>
@@ -713,9 +713,9 @@ Stor är din trofasthet, Herre, mot mig`,
         {/* ========================================================================= */}
         {/* SCRIPTURE ACCENT: Reverent Scandinavian Typographic Pause                 */}
         {/* ========================================================================= */}
-        <section className="py-12 bg-[#F3F2EC] border-b border-stone-200/80">
-          <div className="max-w-4xl mx-auto px-5 sm:px-8 text-center">
-            <blockquote className="font-serif italic text-2xl sm:text-3xl text-stone-800 leading-relaxed mb-3">
+        <section className="py-10 bg-[#F3F2EC] border-b border-stone-200/80">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            <blockquote className="font-serif italic text-lg sm:text-xl text-stone-800 leading-relaxed mb-2">
               {t(
                 "”Sjung till Herren en ny sång, ty han har gjort under; hans högra hand och hans heliga arm har gett honom seger.”",
                 "“Sing to the Lord a new song, for he has done marvelous things; his right hand and his holy arm have worked salvation for him.”"
@@ -730,21 +730,21 @@ Stor är din trofasthet, Herre, mot mig`,
         {/* ========================================================================= */}
         {/* CURATED VIDEO ARCHIVE: Filterable Asymmetric Grid (Anti-Slop Craft)       */}
         {/* ========================================================================= */}
-        <section className="py-16 sm:py-20 md:py-24 border-b border-stone-200/80 bg-white">
-          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+        <section className="py-12 sm:py-16 border-b border-stone-200/80 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header + Discovery Filter Toolbar */}
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-4">
               <div>
                 <span className="text-xs font-bold text-teal-700 tracking-wider uppercase font-mono">
                   {t("Sessioner & Inspelningar", "Sessions & Recordings")}
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold text-stone-900 mt-1">
+                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 mt-1">
                   {t("Utforska Lovsångsarkivet", "Explore the Worship Archive")}
                 </h2>
               </div>
 
               {/* Filters & Search Bar */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
                 {/* Category Pills */}
                 <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
                   {[
@@ -758,7 +758,7 @@ Stor är din trofasthet, Herre, mot mig`,
                       key={cat.id}
                       type="button"
                       onClick={() => setSelectedCategory(cat.id)}
-                      className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition ${
+                      className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition ${
                         selectedCategory === cat.id
                           ? "bg-teal-600 text-white shadow-xs"
                           : "bg-stone-100 text-stone-700 hover:bg-stone-200/80"
@@ -770,7 +770,7 @@ Stor är din trofasthet, Herre, mot mig`,
                 </div>
 
                 {/* Inline Search */}
-                <div className="relative min-w-[200px]">
+                <div className="relative min-w-[180px]">
                   <Search className="w-3.5 h-3.5 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
@@ -794,9 +794,9 @@ Stor är din trofasthet, Herre, mot mig`,
 
             {/* Video Cards Grid */}
             {filteredVideos.length === 0 ? (
-              <div className="text-center py-16 bg-stone-50 rounded-2xl border border-dashed border-stone-300">
+              <div className="text-center py-12 bg-stone-50 rounded-2xl border border-dashed border-stone-300">
                 <Music className="w-8 h-8 text-stone-400 mx-auto mb-2" />
-                <p className="text-stone-600 font-medium">
+                <p className="text-stone-600 font-medium text-xs sm:text-sm">
                   {t("Inga inspelningar matchade din sökning.", "No recordings matched your search.")}
                 </p>
                 <button
@@ -805,13 +805,13 @@ Stor är din trofasthet, Herre, mot mig`,
                     setSelectedCategory("all");
                     setSearchQuery("");
                   }}
-                  className="mt-3 text-xs text-teal-700 font-bold hover:underline"
+                  className="mt-2 text-xs text-teal-700 font-bold hover:underline"
                 >
                   {t("Återställ filter", "Reset filters")}
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredVideos.map((video) => (
                   <article
                     key={video.id}
@@ -924,17 +924,17 @@ Stor är din trofasthet, Herre, mot mig`,
         {/* ========================================================================= */}
         {/* AUDIO SANCTUARY: Interactive Live Master Discography & Lyrics             */}
         {/* ========================================================================= */}
-        <section className="py-16 sm:py-20 md:py-24 bg-[#F5F4EE] border-b border-stone-200/80">
-          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <section className="py-12 sm:py-16 bg-[#F5F4EE] border-b border-stone-200/80">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
               <div>
                 <span className="text-xs font-bold text-teal-700 tracking-wider uppercase font-mono">
                   {t("Ljudspår & Lovsång", "Audio Tracks & Worship")}
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold text-stone-900 mt-1">
+                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 mt-1">
                   {t("Lyssna, Sjung & Ladda Ner Ackord", "Listen, Sing & Download Chords")}
                 </h2>
-                <p className="text-sm text-stone-600 mt-1.5">
+                <p className="text-xs sm:text-sm text-stone-600 mt-1 font-light">
                   {t(
                     "Klicka på ett spår för att förhandslyssna, se sångtext och öppna ackordanalys för ditt lovsångsteam.",
                     "Click any track to listen, read authentic lyrics, and access chord charts for your worship team."
@@ -956,9 +956,9 @@ Stor är din trofasthet, Herre, mot mig`,
             </div>
 
             {/* Interactive 2-Column Audio Studio Console */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
               {/* Tracklist Console (7 cols) */}
-              <div className="lg:col-span-7 space-y-3">
+              <div className="lg:col-span-7 space-y-2.5">
                 {audioTracks.map((track) => {
                   const isCurrent = playingTrackId === track.id;
                   return (
@@ -968,13 +968,13 @@ Stor är din trofasthet, Herre, mot mig`,
                         setPlayingTrackId(track.id);
                         setIsPlaying(true);
                       }}
-                      className={`p-4 sm:p-5 rounded-2xl border transition cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
+                      className={`p-3.5 sm:p-4 rounded-xl border transition cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
                         isCurrent
                           ? "bg-white border-teal-500 shadow-sm"
                           : "bg-white/80 border-stone-200/80 hover:bg-white hover:border-stone-300"
                       }`}
                     >
-                      <div className="flex items-center gap-3.5 min-w-0">
+                      <div className="flex items-center gap-3 min-w-0">
                         {/* Play/Pause Button */}
                         <button
                           type="button"
@@ -988,32 +988,32 @@ Stor är din trofasthet, Herre, mot mig`,
                               setIsPlaying(true);
                             }
                           }}
-                          className={`w-11 h-11 shrink-0 rounded-xl flex items-center justify-center transition ${
+                          className={`w-9 h-9 shrink-0 rounded-lg flex items-center justify-center transition ${
                             isCurrent && isPlaying
                               ? "bg-teal-600 text-white shadow-xs"
                               : "bg-stone-100 text-stone-800 hover:bg-teal-600 hover:text-white"
                           }`}
                         >
                           {isCurrent && isPlaying ? (
-                            <Pause className="w-5 h-5 fill-current" />
+                            <Pause className="w-4 h-4 fill-current" />
                           ) : (
-                            <Play className="w-5 h-5 fill-current ml-0.5" />
+                            <Play className="w-4 h-4 fill-current ml-0.5" />
                           )}
                         </button>
 
                         <div className="min-w-0">
-                          <span className="text-[11px] font-semibold text-teal-700 uppercase tracking-wider block">
+                          <span className="text-[10px] font-semibold text-teal-700 uppercase tracking-wider block">
                             {track.releaseType[language === "SV" ? "sv" : "en"]} • {track.year}
                           </span>
-                          <h4 className="font-bold text-stone-900 text-base truncate">
+                          <h4 className="font-bold text-stone-900 text-sm truncate">
                             {track.title[language === "SV" ? "sv" : "en"]}
                           </h4>
-                          <p className="text-xs text-stone-500 truncate">{track.artist}</p>
+                          <p className="text-[11px] text-stone-500 truncate">{track.artist}</p>
                         </div>
                       </div>
 
                       {/* Track Actions & Duration */}
-                      <div className="flex items-center justify-between sm:justify-end gap-3 pt-2 sm:pt-0 border-t sm:border-t-0 border-stone-100">
+                      <div className="flex items-center justify-between sm:justify-end gap-2.5 pt-1.5 sm:pt-0 border-t sm:border-t-0 border-stone-100">
                         <span className="font-mono text-xs text-stone-500 font-medium">
                           {track.duration}
                         </span>
@@ -1025,9 +1025,9 @@ Stor är din trofasthet, Herre, mot mig`,
                               e.stopPropagation();
                               setActiveChordModal(track);
                             }}
-                            className="px-2.5 py-1.5 rounded-lg bg-stone-100 hover:bg-teal-50 text-stone-700 hover:text-teal-800 text-xs font-semibold flex items-center gap-1.5 border border-stone-200 transition"
+                            className="px-2 py-1 rounded-md bg-stone-100 hover:bg-teal-50 text-stone-700 hover:text-teal-800 text-xs font-semibold flex items-center gap-1 border border-stone-200 transition"
                           >
-                            <FileText className="w-3.5 h-3.5 text-teal-700" />
+                            <FileText className="w-3 h-3 text-teal-700" />
                             <span>{t("Ackord", "Chords")}</span>
                           </button>
 
@@ -1037,9 +1037,9 @@ Stor är din trofasthet, Herre, mot mig`,
                             rel="noreferrer"
                             onClick={(e) => e.stopPropagation()}
                             title="Spotify"
-                            className="p-1.5 rounded-lg hover:bg-stone-100 text-stone-400 hover:text-[#1DB954] transition"
+                            className="p-1 rounded-md hover:bg-stone-100 text-stone-400 hover:text-[#1DB954] transition"
                           >
-                            <Disc3 className="w-4 h-4" />
+                            <Disc3 className="w-3.5 h-3.5" />
                           </a>
                         </div>
                       </div>
@@ -1049,13 +1049,13 @@ Stor är din trofasthet, Herre, mot mig`,
 
                 {/* Now Playing Mini-Console Bar */}
                 {currentlyPlayingTrack && (
-                  <div className="mt-4 p-4 rounded-2xl bg-stone-900 text-white flex items-center justify-between gap-4 shadow-lg border border-white/10">
-                    <div className="flex items-center gap-3 min-w-0">
-                      <div className="w-9 h-9 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0">
+                  <div className="mt-3 p-3.5 rounded-xl bg-stone-900 text-white flex items-center justify-between gap-3 shadow-md border border-white/10">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0">
                         {isPlaying ? (
-                          <Volume2 className="w-5 h-5 animate-pulse" />
+                          <Volume2 className="w-4 h-4 animate-pulse" />
                         ) : (
-                          <VolumeX className="w-5 h-5 text-stone-400" />
+                          <VolumeX className="w-4 h-4 text-stone-400" />
                         )}
                       </div>
                       <div className="min-w-0">
@@ -1070,7 +1070,7 @@ Stor är din trofasthet, Herre, mot mig`,
 
                     {/* Progress Bar Simulation */}
                     <div className="hidden sm:flex flex-1 max-w-xs items-center gap-2">
-                      <div className="flex-1 h-1.5 bg-stone-700 rounded-full overflow-hidden">
+                      <div className="flex-1 h-1 bg-stone-700 rounded-full overflow-hidden">
                         <div
                           className="h-full bg-teal-400 rounded-full transition-all duration-300"
                           style={{ width: `${playbackProgress}%` }}
@@ -1086,7 +1086,7 @@ Stor är din trofasthet, Herre, mot mig`,
                       <button
                         type="button"
                         onClick={() => setIsPlaying(!isPlaying)}
-                        className="px-3 py-1.5 rounded-lg bg-teal-500 text-stone-950 font-bold text-xs hover:bg-teal-400 transition"
+                        className="px-2.5 py-1 rounded-md bg-teal-500 text-stone-950 font-bold text-xs hover:bg-teal-400 transition"
                       >
                         {isPlaying ? t("Pausa", "Pause") : t("Spela", "Resume")}
                       </button>
@@ -1096,9 +1096,9 @@ Stor är din trofasthet, Herre, mot mig`,
               </div>
 
               {/* Contemplative Lyrics & Liner Note Box (5 cols) */}
-              <div className="lg:col-span-5 p-6 sm:p-8 rounded-3xl bg-white border border-stone-200/90 shadow-sm flex flex-col justify-between h-full">
+              <div className="lg:col-span-5 p-5 sm:p-6 rounded-2xl bg-white border border-stone-200/90 shadow-xs flex flex-col justify-between h-full">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-3">
                     <span className="text-xs font-bold text-teal-700 uppercase tracking-wider font-mono">
                       {t("Sångtext & Teologi", "Lyrics & Meditation")}
                     </span>
@@ -1112,17 +1112,17 @@ Stor är din trofasthet, Herre, mot mig`,
                     </button>
                   </div>
 
-                  <h3 className="font-bold text-stone-900 text-xl mb-1">
+                  <h3 className="font-bold text-stone-900 text-lg mb-1">
                     {currentlyPlayingTrack.title[language === "SV" ? "sv" : "en"]}
                   </h3>
-                  <p className="text-xs text-stone-500 mb-6">{currentlyPlayingTrack.artist}</p>
+                  <p className="text-xs text-stone-500 mb-4">{currentlyPlayingTrack.artist}</p>
 
-                  <blockquote className="font-serif italic text-lg sm:text-xl text-stone-800 leading-relaxed p-5 rounded-2xl bg-[#FAF9F5] border-l-4 border-teal-500 mb-6">
+                  <blockquote className="font-serif italic text-base sm:text-lg text-stone-800 leading-relaxed p-4 rounded-xl bg-[#FAF9F5] border-l-4 border-teal-500 mb-4">
                     ”{currentlyPlayingTrack.lyrics[language === "SV" ? "sv" : "en"]}”
                   </blockquote>
                 </div>
 
-                <div className="pt-4 border-t border-stone-200 flex items-center justify-between text-xs text-stone-500">
+                <div className="pt-3 border-t border-stone-200 flex items-center justify-between text-xs text-stone-500">
                   <span>{t("Fritt för församlingar & lovsångsteam", "Free for churches & teams")}</span>
                   <button
                     type="button"
@@ -1140,16 +1140,16 @@ Stor är din trofasthet, Herre, mot mig`,
         {/* ========================================================================= */}
         {/* LIVED TESTIMONIES: "Röster från Västra Götaland" (Human & Authentic)      */}
         {/* ========================================================================= */}
-        <section className="py-16 sm:py-20 md:py-24 bg-white border-b border-stone-200/80">
-          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-            <div className="max-w-2xl mb-12">
+        <section className="py-12 sm:py-16 bg-white border-b border-stone-200/80">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl mb-8">
               <span className="text-xs font-bold text-teal-700 tracking-wider uppercase font-mono">
                 {t("Vittnesbörd & Berättelser", "Lived Faith & Testimonies")}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-stone-900 mt-1">
+              <h2 className="text-xl sm:text-2xl font-bold text-stone-900 mt-1">
                 {t("Röster från Västra Götaland", "Voices from Gothenburg & Beyond")}
               </h2>
-              <p className="text-sm sm:text-base text-stone-600 mt-2">
+              <p className="text-xs sm:text-sm text-stone-600 mt-1.5 font-light">
                 {t(
                   "Hur öppen lovsång och bön berör människor i vardagen på Göteborgs gator och i våra församlingar.",
                   "How open praise and prayer transform everyday lives across Gothenburg's neighborhoods."
@@ -1157,69 +1157,69 @@ Stor är din trofasthet, Herre, mot mig`,
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {/* Testimony 1 */}
-              <div className="p-7 rounded-3xl bg-[#FAF9F5] border border-stone-200/80 flex flex-col justify-between hover:border-teal-500/60 transition shadow-2xs">
+              <div className="p-5 rounded-2xl bg-[#FAF9F5] border border-stone-200/80 flex flex-col justify-between hover:border-teal-500/60 transition shadow-2xs">
                 <div>
-                  <Quote className="w-8 h-8 text-teal-700/40 mb-4" />
-                  <p className="font-serif italic text-stone-800 text-base sm:text-lg leading-relaxed mb-6">
+                  <Quote className="w-6 h-6 text-teal-700/40 mb-3" />
+                  <p className="font-serif italic text-stone-800 text-sm sm:text-base leading-relaxed mb-4">
                     {t(
                       "”Jag hade lämnat kyrkan bakom mig efter år av utanförskap. Att kliva in i lovsångskvällen i Frihamnen kändes som att dricka friskt vatten i en andlig öken.”",
                       "“I had given up on church completely after years of feeling unseen. Walking into the Frihamnen worship night was like drinking living water in a spiritual desert.”"
                     )}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-stone-200/80 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center text-sm font-mono">
+                <div className="pt-3 border-t border-stone-200/80 flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center text-xs font-mono">
                     ML
                   </div>
                   <div>
-                    <h4 className="font-bold text-stone-900 text-sm">Madeleine Lind</h4>
-                    <p className="text-xs text-stone-500">Majorna, Göteborg</p>
+                    <h4 className="font-bold text-stone-900 text-xs">Madeleine Lind</h4>
+                    <p className="text-[11px] text-stone-500">Majorna, Göteborg</p>
                   </div>
                 </div>
               </div>
 
               {/* Testimony 2 */}
-              <div className="p-7 rounded-3xl bg-[#FAF9F5] border border-stone-200/80 flex flex-col justify-between hover:border-teal-500/60 transition shadow-2xs">
+              <div className="p-5 rounded-2xl bg-[#FAF9F5] border border-stone-200/80 flex flex-col justify-between hover:border-teal-500/60 transition shadow-2xs">
                 <div>
-                  <Quote className="w-8 h-8 text-teal-700/40 mb-4" />
-                  <p className="font-serif italic text-stone-800 text-base sm:text-lg leading-relaxed mb-6">
+                  <Quote className="w-6 h-6 text-teal-700/40 mb-3" />
+                  <p className="font-serif italic text-stone-800 text-sm sm:text-base leading-relaxed mb-4">
                     {t(
                       "”Att höra unga musiker leda lovsång på svenska utan religiös förställning fick mina tonårssöner att upptäcka en äkta tro med verkligt engagemang.”",
                       "“Hearing young musicians lead worship in authentic Swedish with zero religious performance made my teenage sons rediscover Christ with genuine passion.”"
                     )}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-stone-200/80 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-900 font-bold flex items-center justify-center text-sm font-mono">
+                <div className="pt-3 border-t border-stone-200/80 flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-900 font-bold flex items-center justify-center text-xs font-mono">
                     AS
                   </div>
                   <div>
-                    <h4 className="font-bold text-stone-900 text-sm">Anders &amp; Sara Axelsson</h4>
-                    <p className="text-xs text-stone-500">Linnéstaden, Göteborg</p>
+                    <h4 className="font-bold text-stone-900 text-xs">Anders &amp; Sara Axelsson</h4>
+                    <p className="text-[11px] text-stone-500">Linnéstaden, Göteborg</p>
                   </div>
                 </div>
               </div>
 
               {/* Testimony 3 */}
-              <div className="p-7 rounded-3xl bg-[#FAF9F5] border border-stone-200/80 flex flex-col justify-between hover:border-teal-500/60 transition shadow-2xs">
+              <div className="p-5 rounded-2xl bg-[#FAF9F5] border border-stone-200/80 flex flex-col justify-between hover:border-teal-500/60 transition shadow-2xs">
                 <div>
-                  <Quote className="w-8 h-8 text-teal-700/40 mb-4" />
-                  <p className="font-serif italic text-stone-800 text-base sm:text-lg leading-relaxed mb-6">
+                  <Quote className="w-6 h-6 text-teal-700/40 mb-3" />
+                  <p className="font-serif italic text-stone-800 text-sm sm:text-base leading-relaxed mb-4">
                     {t(
                       "”Vi tog med ljudanläggningen ut på torget i Angered en råkall höstkväll. Värmen i evangeliet och musiken bröt ensamheten mitt i vardagen.”",
                       "“We brought our sound gear onto the public square in Angered on a cold autumn evening. The warmth of the gospel and music broke through loneliness right on the streets.”"
                     )}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-stone-200/80 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-stone-200 text-stone-800 font-bold flex items-center justify-center text-sm font-mono">
+                <div className="pt-3 border-t border-stone-200/80 flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-stone-200 text-stone-800 font-bold flex items-center justify-center text-xs font-mono">
                     DK
                   </div>
                   <div>
-                    <h4 className="font-bold text-stone-900 text-sm">David Karlström</h4>
-                    <p className="text-xs text-stone-500">GOSPELS Outreach Team</p>
+                    <h4 className="font-bold text-stone-900 text-xs">David Karlström</h4>
+                    <p className="text-[11px] text-stone-500">GOSPELS Outreach Team</p>
                   </div>
                 </div>
               </div>
@@ -1230,18 +1230,18 @@ Stor är din trofasthet, Herre, mot mig`,
         {/* ========================================================================= */}
         {/* NEWSLETTER: Dignified Media & Release Radar                               */}
         {/* ========================================================================= */}
-        <section className="py-16 sm:py-20 bg-[#0E1113] text-white">
-          <div className="max-w-4xl mx-auto px-5 sm:px-8 text-center">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-teal-400 mb-3 block">
+        <section className="py-12 sm:py-16 bg-[#0E1113] text-white">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-teal-400 mb-2 block">
               {t("HÅLL DIG UPPDATERAD", "RELEASE RADAR")}
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight mb-3">
               {t(
                 "Missa Inte Nya Inspelningar & Ackordblad",
                 "Never Miss a Worship Release or Chord Chart"
               )}
             </h2>
-            <p className="text-stone-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed mb-8 font-light">
+            <p className="text-stone-300 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed mb-6 font-light">
               {t(
                 "Få direkt tillgång till nya konsertmasters, noter och inbjudningar till öppna lovsångssamlingar i Göteborg. Ingen spam, bara uppmuntran och musik.",
                 "Receive direct access to live recordings, leadsheets, and invitations to upcoming gatherings across Gothenburg. Pure inspiration, zero noise."
